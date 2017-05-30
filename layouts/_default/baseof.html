@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <title>{{ .Title }} - CJ Ting's Blog</title>
+  <meta name="author" content="{{ .Site.Params.author }}">
+  <meta name="description" content="{{ default .Title .Description }}">
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="{{ "css/normalize.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/bundle.css" | relURL }}">
+  <style type="text/css">
+    @font-face {
+      font-family: 'Roboto Mono';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Roboto Mono'), local('RobotoMono-Regular'), url('{{ "font/Roboto-Mono_400_normal.woff" | relURL }}') format('woff');
+    }
+    @font-face {
+      font-family: 'Roboto Mono';
+      font-style: normal;
+      font-weight: 700;
+      src: local('Roboto Mono Bold'), local('RobotoMono-Bold'), url(' {{ "font/Roboto-Mono_700_normal.woff" | relURL }}') format('woff');
+    }
+  </style>
+</head>
+<body>
+  {{ block "body" . }}
+    {{ partial "header" . }}
+    <main class="main">
+      {{ partial "sidebar" . }}
+      <div class="container">
+        {{ block "content" . }}
+        {{ end }}
+      </div>
+    </main>
+  {{ end }}
+  <script src="{{ "js/init.js" | relURL }}"></script>
+  <script type="text/javascript">
+    var script = document.createElement("script")
+    if(Global.isMobile) {
+      script.src = {{ "js/mobile.bundle.js" | relURL }}
+    } else {
+      script.src = {{ "js/desktop.bundle.js" | relURL }}
+    }
+    document.body.appendChild(script)
+  </script>
+  <!-- 百度监测 -->
+  {{ partial "baidu-analytics" . }}
+</body>
+</html>

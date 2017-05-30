@@ -1,0 +1,19 @@
+<header class="header">
+  <a href="/">
+    <img class="header__avatar" src="{{ "image/avatar.jpeg" | relURL }}">
+  </a>
+
+<!--   <div class="header__search">
+    <img src="{{ "image/search.png" | absURL }}" />
+    <input type="text" id="search-input" placeholder="Search for posts">
+    <ul class="header__search__box" id="search-box">
+    </ul>
+  </div>
+ -->
+
+  <nav class="header__nav">
+    <a href="/" class="header__nav__item header__nav__item--active">Posts</a>
+    <a href="https://github.com/fate-lovely" class="header__nav__item" target="_blank">Github</a>
+    <a href="{{ "about" | relURL }}" class="header__nav__item">About</a>
+  </nav>
+</header>

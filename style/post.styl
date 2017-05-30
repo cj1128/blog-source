@@ -1,0 +1,124 @@
+/*
+* @Author: cj
+* @Date:   2017-05-28 10:57:51
+* @Last Modified by:   cj
+* @Last Modified time: 2017-05-30 08:43:35
+*/
+post-meta()
+  display: flex
+  margin: 20px 0
+  font-size: 12px
+  .date
+    color: #9B9B9B
+    margin-left: auto
+    padding-right: 25px
+    border-right: solid 1px $border-gray
+  .tags
+    margin-left: 25px
+    color: #FF5916
+
+.post__header
+  height: 65vh
+  min-height: 180px
+  background: #222 no-repeat center center
+  background-size: cover
+  margin-bottom: 5rem
+  > a
+    padding: 10px 15px
+    border: solid 2px #eee
+    color: gray
+    background: white
+    text-decoration: none
+    box-sizing: border-box
+    text-align: center
+    margin: 30px 0 0 30px
+    border-radius: 3px
+    transition: all 0.5s ease
+    float: left
+    &:hover
+      border: solid 2px #ccc
+      color: black
+
+.post__title
+  color: black
+  font-weight: 400
+  font-size: 2.2rem
+  text-align: center
+  margin: 0
+  line-height: 3rem
+
+.post__content
+  line-height: 40px
+  flex-shrink: 0
+  color: #444A59
+  a
+    text-decoration: none
+    color: $blue
+    &:hover
+      color: darken($blue, 30%)
+  pre
+    background: #f9f9f9
+    padding: 20px
+    border-radius: 5px
+    position: relative
+  .highlighter-rouge
+    padding: 4px 10px
+    background: #ececec
+    border-radius: 5px
+    white-space: nowrap
+  h2
+    font-size: 1.8rem
+  h3
+    font-size: 1.6rem
+  h4
+    font-size: 1.4rem
+  h5
+    font-size: 1.3rem
+  h6
+    font-size: 1.2rem
+  h2,h3,h4,h5,h6
+    font-weight: 400
+  img
+    max-width: 100%
+    display: block
+    margin: auto
+  code
+    padding: 3px 8px
+    background-color: rgba(27,31,35,0.05)
+    border-radius: 5px
+    line-height: 30px
+    font-family: "Roboto Mono"
+  pre
+    overflow: auto
+    -webkit-overflow-scrolling: touch
+  pre > code
+    padding: 0
+    background-color: inherit
+    border-radius: 0
+  blockquote
+    padding: 0 15px;
+    color: #777;
+    border-left: 4px solid #ddd;
+    margin-left: 0
+  .copy-code-btn
+    cursor: pointer
+    position: absolute
+    top: 0
+    right: 15px
+    color: $active
+
+.post__body
+  max-width: 800px
+  padding: 0 20px
+  margin: auto
+
+.post__meta
+  post-meta()
+
+.post__comments
+  .name-desp
+    display: none
+
+@media (max-width: 750px)
+  .post__header
+    height: 40vh

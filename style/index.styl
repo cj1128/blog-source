@@ -1,0 +1,58 @@
+/*
+* @Author: CJ Ting
+* @Date:   2016-06-27 22:19:45
+* @Last Modified by:   cj
+* @Last Modified time: 2017-05-30 08:49:34
+*/
+
+.index
+  content-container()
+
+.index__item
+  border-bottom: 1px solid #e2e2e2
+  margin-bottom: 40px
+
+.index__item__title
+  color: #444a59
+  font-size: 20px
+  line-height: 24px
+  font-weight: 600
+  margin-top: 0
+  transition: all .3s ease-out
+  cursor: pointer
+  text-decoration: none
+  &:hover
+    color: $active
+
+.index__item__meta
+  display: flex
+  margin: 20px 0
+  font-size: 12px
+  > a:first-child
+    margin-left: auto
+    color: $blue
+    text-decoration: none
+  > div:nth-child(2)
+    margin: 0 10px
+    width: 2px
+    background: $border-gray
+  > div:last-child
+    color: #9b9b9b
+
+.index__paginator
+  padding: 20px 0
+  display: flex
+  align-items: center
+  > a
+    color: $blue
+    text-decoration: none
+  > a[disabled]
+    color: $border-gray
+    cursor: not-allowed
+  > a:first-child
+    margin-left: auto
+  > a:last-child
+    margin-right: auto
+
+.index__paginator__info
+  padding: 0 20px

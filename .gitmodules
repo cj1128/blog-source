@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = git@github.com:fate-lovely/fate-lovely.github.io.git
+	branch = master
