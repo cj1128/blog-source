@@ -1,0 +1,38 @@
+/*
+* @Author: cj
+* @Date:   2017-05-24 07:49:42
+* @Last Modified by:   cj
+* @Last Modified time: 2017-05-29 19:23:16
+*/
+.list
+  content-container()
+
+.list__item
+  > ul
+    padding: 0
+
+.list__title
+  font-weight: 400
+
+.list__post
+  display: flex
+  align-items: center
+  padding: 15px
+  > span
+    width: 6px
+    height: 6px
+    border-radius: 50%
+    background: #444a59
+    margin-right: 20px
+    flex-shrink: 0
+  > a
+    text-decoration: none
+    color: #444a59
+    margin-right: 10px
+    &:hover
+      color: $active
+  > div
+    margin-left: auto
+    font-size: 0.8rem
+    color: #999
+

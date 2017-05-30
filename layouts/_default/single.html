@@ -1,0 +1,45 @@
+{{ define "body" }}
+  <div class="post">
+    <header class="post__header" data-cover="{{ default .Site.Params.default_cover .Params.cover }}">
+      <a href="/">
+        HOME
+      </a>
+    </header>
+
+    <div class="post__body">
+      <h1 class="post__title">
+          {{ .Title }}
+      </h1>
+
+      <div class="post__meta">
+        <div class='date'>
+          {{ .Date.Format "2006.01.02" }}
+        </div>
+
+        <div class="tags">
+          {{ range .Params.tags }}
+            <span class="tag">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+
+      <div class="post__content">
+        {{ .Content }}
+      </div>
+
+      <div class="post__comments">
+        <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+        <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+        <script>
+        var cloudTieConfig = {
+          sourceId: "{{.Slug}}{{.Date}}",
+          productKey: "79ce150be00440d1bc3ff82aa7aad88c",
+          target: "cloud-tie-wrapper"
+        };
+        var yunManualLoad = true;
+        Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+        </script>
+      </div>
+    </div>
+  </div>
+{{ end }}
