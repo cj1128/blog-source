@@ -1,5 +1,5 @@
 ---
-cover: http://ww1.sinaimg.cn/large/9b85365dgy1ffkpkmcbenj21e00dwjsa
+cover: http://ww1.sinaimg.cn/large/9b85365dgy1fg4ev5tx5aj21kw16oh4y
 date: 2017-05-13T00:00:00+08:00
 title: Git是怎样生成diff的：Myers算法
 slug: how-git-generate-diff
