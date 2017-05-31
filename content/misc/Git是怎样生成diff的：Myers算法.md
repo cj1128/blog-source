@@ -52,10 +52,10 @@ git为我们生成的diff是很直观易懂的，一看就知道我们对文件�
               def initialize(name)                def initialize(name)
                 @name = name                        @name = name
               end                             +   end
-          -                                   +
-          -   def inspect                     +   def inspect
-          -     @name                         +     @name
-          -   end                                 end
+          +                                   +
+          +   def inspect                     +   def inspect
+          +     @name                         +     @name
+          +   end                                 end
             end                                 end
     ```
 
