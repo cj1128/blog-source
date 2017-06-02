@@ -2,7 +2,6 @@
 cover: http://ww4.sinaimg.cn/large/9b85365djw1f7bmw01i31j21hc0zkgr3.jpg
 date: 2015-06-16T00:00:00+08:00
 title: Underhanded C, 有猫腻的C
-slug: underhanded-c
 tags: [underhanded-c, c]
 ---
 这一切，都要从这篇文章说起，[being-sneaky-in-c](http://www.codersnotes.com/notes/being-sneaky-in-c)。

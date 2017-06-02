@@ -2,7 +2,6 @@
 cover: http://ok2pw0x6d.bkt.clouddn.com/Fscnu6VP6rpydajNrGw-HcwVJlq0.png
 date: 2017-01-23T00:00:00+08:00
 title: 图床on七牛，简单好用的图床插件
-slug: build-an-img-bed-on-qiniu
 tags: [图床, 七牛, chrome]
 ---
 

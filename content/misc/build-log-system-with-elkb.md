@@ -2,7 +2,6 @@
 cover: http://ww2.sinaimg.cn/large/9b85365dgw1f8qjr6igesj21kw0w7ac4.jpg
 date: 2016-10-21T00:00:00+08:00
 title: 从零开始搭建一个ELKB日志收集系统
-slug: build-log-system-with-elkb
 tags: [log, elk, logstash, elasticsearch, kibana]
 aliases:
   - "/misc/2016-10-21-从零开始搭建一个ELKB日志收集系统.html"

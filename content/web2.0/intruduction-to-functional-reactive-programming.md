@@ -2,7 +2,6 @@
 cover: http://ww2.sinaimg.cn/large/9b85365dgw1f7bmcscnvij21jk112496.jpg
 date: 2016-03-20T00:00:00+08:00
 title: Functional Reactive Programming 简介
-slug: intruduction-to-functional-reactive-programming
 tags: [rxjs, javascript, functional-programming]
 ---
 推荐阅读：

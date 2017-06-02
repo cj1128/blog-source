@@ -2,7 +2,6 @@
 cover: http://ww2.sinaimg.cn/large/9b85365djw1f7bk8tdwtej21kw0w0gry.jpg
 date: 2016-05-21T00:00:00+08:00
 title: 使用Ngrok实现内网穿透
-slug: ngrok-tutorial
 tags: [ngrok, nat]
 aliases:
   - "/misc/2016-05-21-使用Ngrok实现内网穿透.html"

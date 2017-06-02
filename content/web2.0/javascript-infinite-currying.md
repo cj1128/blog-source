@@ -2,12 +2,11 @@
 cover: http://ww3.sinaimg.cn/large/9b85365dgw1f7bmdt86ltj21kw0w0wgf.jpg
 date: 2016-01-17T00:00:00+08:00
 title: JavaScript Infinite Currying
-slug: javascript-infinite-currying
 tags: [javascript, functional-programming, curry]
 ---
 很久之前曾看到一个很有意思的JS问题，
 
-``` javascript
+```javascript
 // 定义一个函数add，满足如下性质：
 add(1) == 1
 add(1)(2) == 3

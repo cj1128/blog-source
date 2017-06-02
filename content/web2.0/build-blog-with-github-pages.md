@@ -1,8 +1,7 @@
 ---
 cover: http://ww2.sinaimg.cn/large/9b85365djw1f7aqjz4hpjj21jl0kg75p.jpg
 date: 2013-06-10T00:00:00+08:00
-title: 利用github pages搭建自己的个人博客
-slug: build-blog-with-github-pages
+title: 利用Github Pages搭建自己的个人博客
 tags: [github-pages, blog]
 ---
 很早之前就想写这篇文章，无奈因为一些事情，一直耽误到今天。

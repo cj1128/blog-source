@@ -2,7 +2,6 @@
 cover: http://ww1.sinaimg.cn/large/9b85365dgy1fdllodi902j21ff0ciq33
 date: 2017-03-12T00:00:00+08:00
 title: 使用Prometheus监控服务器性能
-slug: use-prometheus-to-monitor-server
 tags: [prometheus, monitor, golang]
 aliases:
  - "/misc/2017-03-12-使用Prometheus监控服务器性能.html"

@@ -3,7 +3,6 @@ cover: http://ww3.sinaimg.cn/large/9b85365djw1f23bofx48nj20j1084a9z.jpg
 date: 2013-06-23T00:00:00+08:00
 lastmod: 2017-05-28T10:37:15+08:00
 title: 使用CSS绘制Ruby可爱的红宝石标志
-slug: draw-ruby-logo-with-css
 tags: [css, ruby]
 ---
 有一次偶然逛Dribbble，发现了这个可爱的红宝石标志。
