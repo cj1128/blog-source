@@ -2,7 +2,6 @@
 cover: http://ww1.sinaimg.cn/large/9b85365djw1f7bmid1dvsj21kw0u27a9.jpg
 date: 2015-09-24T00:00:00+08:00
 title: Browserify + SASS + BrowserSync + Gulp高效前端开发环境配置
-slug: frontend-development-with-browserify-sass-browsersync-gulp
 tags: [browserify, gulp]
 ---
 之前开发的前端应用都是些比较简单的页面，开发的时候一般就是sublime，然后命令行里面启动`sass --watch` 以及 `coffee --watch` 就行了，修改代码以后自动编译，但是浏览器需要手动刷新。凑合着也能用，所以也就一直这样没有去理会别的解决方案了。

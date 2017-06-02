@@ -2,7 +2,6 @@
 cover: http://ww1.sinaimg.cn/large/9b85365djw1f7bjp0tf5dj21jk0ikq95.jpg
 date: 2016-08-20T00:00:00+08:00
 title: 使用Dnsmasq搭建内网DNS服务器
-slug: use-dnsmasq-to-build-own-dns-server
 tags: [dns, dnsmasq]
 ---
 在日常开发过程中，我们经常要配置各种

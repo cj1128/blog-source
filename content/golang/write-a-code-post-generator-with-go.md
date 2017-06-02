@@ -2,7 +2,6 @@
 cover: http://ok2pw0x6d.bkt.clouddn.com/FjXlzByUAbNpVAYexlrN_3GPCD8P.png
 date: 2017-02-18T00:00:00+08:00
 title: 使用Go编写代码明信片生成器
-slug: write-a-code-post-generator-with-go
 tags: [codeposter, go]
 aliases:
   - "/golang/2017-02-18-使用Go编写代码明信片生成器.html"

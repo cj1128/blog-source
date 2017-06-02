@@ -2,7 +2,6 @@
 cover: http://ww2.sinaimg.cn/large/9b85365djw1f9xjicmnn7j213r0p178e.jpg
 date: 2016-11-14T00:00:00+08:00
 title: 使用pprof优化golang性能
-slug: use-pprof-to-optimize-go
 tags: [golang, pprof]
 aliases:
   - "/golang/2016-11-14-使用pprof优化golang性能.html"

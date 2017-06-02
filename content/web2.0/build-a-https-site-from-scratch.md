@@ -2,7 +2,6 @@
 cover: http://ww2.sinaimg.cn/large/9b85365djw1f7fb60zgzaj21kw11xgyy.jpg
 date: 2016-09-05T00:00:00+08:00
 title: 从零开始搭建一个HTTPS网站
-slug: build-a-https-site-from-scratch
 tags: [http, https]
 aliases:
   - "/web2.0/2016-09-05-从零开始搭建一个HTTPS网站.html"
