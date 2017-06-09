@@ -17,6 +17,7 @@ server:
 deploy:
 	hugo
 	cd public ;\
+	git pull ;\
 	git add -A ;\
 	git commit -m "Rebuilding site `date`" ;\
 	git push origin master
