@@ -1,7 +1,7 @@
 baseURL: http://cjting.me/
 title: CJ Ting's Blog
 metaDataFormat: yaml
-disableKins: ["RSS", "sitemap"]
+disableKinds: ["RSS", "sitemap"]
 hasCJKLanguage: true
 SectionPagesMenu: main
 params:
