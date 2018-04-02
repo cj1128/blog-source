@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 # 启动hugo, stylus, webpack，开发js和css时使用
 dev:
 	forego start
