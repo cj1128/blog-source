@@ -1,6 +1,5 @@
 ---
 date: 2018-03-31T19:40:48+08:00
-draft: true
 title: HTTP Basic Auth是怎么样工作的
 ---
 `HTTP Basic Auth`是HTTP提供的一种验证方式，因为明文传输用户名和密码，非HTTPS环境下很不安全，一般用的非常少。但是在某些情况下用一用还是非常方便的，比如，一些静态站点例如文档系统可以使用HTTP Basic Auth进行简单地权限验证。
