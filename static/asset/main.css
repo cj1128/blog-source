@@ -386,6 +386,9 @@ template {
 .hvr-underline-from-left:active:before {
   right: 0;
 }
+.humane {
+  background: #fc665b !important;
+}
 .u-cursor-zoom-in {
   cursor: zoom-in;
 }

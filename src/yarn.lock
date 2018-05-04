@@ -2639,10 +2639,6 @@ isurl@^1.0.0-alpha5:
     has-to-string-tag-x "^1.2.0"
     is-object "^1.0.1"
 
-jquery@^3.1.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
-
 js-base64@^2.1.9:
   version "2.4.3"
   resolved "http://registry.npm.taobao.org/js-base64/download/js-base64-2.4.3.tgz#2e545ec2b0f2957f41356510205214e98fad6582"
@@ -2893,10 +2889,6 @@ lru-cache@^4.0.1, lru-cache@^4.1.1:
 macaddress@^0.2.8:
   version "0.2.8"
   resolved "http://registry.npm.taobao.org/macaddress/download/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
-
-magnific-popup@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/magnific-popup/-/magnific-popup-1.1.0.tgz#3e7362c5bd18f6785fe99e59d013e20af33d3049"
 
 make-dir@^1.0.0, make-dir@^1.1.0:
   version "1.2.0"
@@ -3256,10 +3248,6 @@ normalize-url@^1.4.0:
 normalize.css@8.0.0:
   version "8.0.0"
   resolved "http://registry.npm.taobao.org/normalize.css/download/normalize.css-8.0.0.tgz#14ac5e461612538a4ce9be90a7da23f86e718493"
-
-notie@^3.9.4:
-  version "3.9.5"
-  resolved "https://registry.yarnpkg.com/notie/-/notie-3.9.5.tgz#dd203c3a7210207fc9838c777c40953532577aa5"
 
 npm-bundled@^1.0.1:
   version "1.0.3"
@@ -5101,6 +5089,6 @@ yeoman-generator@^2.0.4:
     through2 "^2.0.0"
     yeoman-environment "^2.0.5"
 
-zepto@1.2.0:
-  version "1.2.0"
-  resolved "http://registry.npm.taobao.org/zepto/download/zepto-1.2.0.tgz#e127bd9e66fd846be5eab48c1394882f7c0e4f98"
+zoom-vanilla.js@2.0.6:
+  version "2.0.6"
+  resolved "http://registry.npm.taobao.org/zoom-vanilla.js/download/zoom-vanilla.js-2.0.6.tgz#884279f3073584408d758ab31c0affba8be02e48"
