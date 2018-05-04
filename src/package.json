@@ -1,0 +1,28 @@
+{
+  "name": "cj_ting_blog",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "webpack --watch --mode development",
+    "build": "rm -rf ../static/asset && webpack --mode production"
+  },
+  "author": "CJ Ting<fatelovely1128@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "clipboard": "^1.5.15",
+    "file-loader": "1.1.11",
+    "highlight.js": "9.12.0",
+    "jquery": "^3.1.1",
+    "magnific-popup": "^1.1.0",
+    "normalize.css": "8.0.0",
+    "notie": "^3.9.4",
+    "zepto": "1.2.0"
+  },
+  "devDependencies": {
+    "css-loader": "0.28.11",
+    "mini-css-extract-plugin": "0.4.0",
+    "stylus": "0.54.5",
+    "stylus-loader": "3.0.2",
+    "webpack": "4.6.0",
+    "webpack-cli": "2.1.2"
+  }
+}

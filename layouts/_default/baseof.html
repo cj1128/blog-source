@@ -7,22 +7,7 @@
   <meta name="author" content="{{ .Site.Params.author }}">
   <meta name="description" content="{{ default .Title .Description }}">
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="{{ "css/normalize.css" | relURL }}">
-  <link rel="stylesheet" href="{{ "css/bundle.css" | relURL }}">
-  <style type="text/css">
-    @font-face {
-      font-family: 'Roboto Mono';
-      font-style: normal;
-      font-weight: 400;
-      src: local('Roboto Mono'), local('RobotoMono-Regular'), url('{{ "font/Roboto-Mono_400_normal.woff" | relURL }}') format('woff');
-    }
-    @font-face {
-      font-family: 'Roboto Mono';
-      font-style: normal;
-      font-weight: 700;
-      src: local('Roboto Mono Bold'), local('RobotoMono-Bold'), url(' {{ "font/Roboto-Mono_700_normal.woff" | relURL }}') format('woff');
-    }
-  </style>
+  <link rel="stylesheet" href="/asset/main.css">
 </head>
 <body>
   {{ block "body" . }}
@@ -35,16 +20,9 @@
       </div>
     </main>
   {{ end }}
-  <script src="{{ "js/init.js" | relURL }}"></script>
-  <script type="text/javascript">
-    var script = document.createElement("script")
-    if(Global.isMobile) {
-      script.src = {{ "js/mobile.bundle.js" | relURL }}
-    } else {
-      script.src = {{ "js/desktop.bundle.js" | relURL }}
-    }
-    document.body.appendChild(script)
-  </script>
+
+  <script src="/asset/main.js"></script>
+
   <!-- 百度监测 -->
   {{ partial "baidu-analytics" . }}
 </body>
