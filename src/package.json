@@ -9,6 +9,7 @@
   "license": "ISC",
   "dependencies": {
     "clipboard": "^1.5.15",
+    "gitalk": "1.2.2",
     "highlight.js": "9.12.0",
     "normalize.css": "8.0.0",
     "zoom-vanilla.js": "2.0.6"
