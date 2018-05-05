@@ -8,6 +8,11 @@
   <meta name="description" content="{{ default .Title .Description }}">
   <meta charset="utf-8" />
   <link rel="stylesheet" href="/asset/main.css">
+  <script type="text/javascript">
+    window.PAGE = {
+      title: "{{ .Title }}",
+    }
+  </script>
 </head>
 <body>
   {{ block "body" . }}

@@ -1,20 +1,8 @@
 SHELL := /bin/bash
 
-# 只启动hugo，编写文章时使用
 server:
-	forego start hugo
+	hugo server --buildDrafts --bind 0.0.0.0 --port 6200
 .PHONY: server
-
-# 启动hugo, stylus, webpack，开发js和css时使用
-dev:
-	forego start
-.PHONY: dev
-
-# css和js开发完毕后，打包
-build-assets:
-	stylus -c style/main.styl -o static/css/bundle.css
-	cd js && npm run build
-.PHONY: build-assets
 
 deploy:
 	hugo
