@@ -1,11 +1,17 @@
 const path = require("path")
+const yaml = require("js-yaml")
+const fs = require("fs")
+const url = require("url")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+
+const hugoConfig = yaml.safeLoad(fs.readFileSync("../config.yaml", "utf8"))
+const basePath = url.parse(hugoConfig.baseURL).path
 
 module.exports = {
   entry: "./main.js",
   output: {
     path: path.join(__dirname, "..", "static", "asset"),
-    publicPath: "/asset/",
+    publicPath: path.join(basePath, "/asset/"),
   },
   module: {
     rules: [
