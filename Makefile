@@ -6,9 +6,9 @@ server:
 
 deploy:
 	hugo
-	cd public ;\
+	cd fate-lovely.github.io ;\
 	git pull ;\
 	git add -A ;\
-	git commit -m "Rebuilding site `date`" ;\
+	git commit -m "Rebuilding site: `date`" ;\
 	git push origin master
 .PHONY: deploy
