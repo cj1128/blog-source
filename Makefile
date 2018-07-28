@@ -6,7 +6,7 @@ server:
 
 deploy:
 	hugo
-	cd fate-lovely.github.io ;\
+	cd public ;\
 	git pull ;\
 	git add -A ;\
 	git commit -m "Rebuilding site: `date`" ;\

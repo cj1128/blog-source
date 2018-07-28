@@ -259,5 +259,30 @@ Uncaught SyntaxError: Invalid regular expression: /[😆-😜]/: Range out of or
 "ë".normalize("NFC") === "ë".normalize("NFC") // true
 ```
 
+## Reverse the String
+
+由于存在修饰字符，使得字符串取反变成了一个复杂的操作。
+
+如果不考虑非BMP字符，在JS中，对字符串取反的一般方式为`str.split("").reverse().join("")`。
+
+考虑到非BMP字符，我们可以使用`[...str].reverse().join("")`。
+
+但是，如果含有修饰字符的话，使用`...`一样无法返回正确的结果。
+
+```js
+[..."mañana"].reverse().join("") // "anãnam"
+```
+
+这里的问题在于对于`"mañana"`使用`...`产生的字符数组为`["m", "a", "n", "̃", "a", "n", "a"]`，取反以后，修饰字符会跟在`a`的后面，从而产生`ã`。
+
+这个问题需要做手动做一些的处理，在取反之前，将修饰字符和被修饰的字符颠倒一下顺序，然后再取反就行了。我们可以直接使用[esrever]库来处理。
+
+esrever的`reverse`函数具体实现可以看[这里](https://github.com/mathiasbynens/esrever/blob/14b34013dad49106ca08c0e65919f1fc8fea5331/src/esrever.js#L23)。
+
+```js
+esrever.reverse("mañana") // "anañam"
+```
+
 [Elixir]: https://elixir-lang.org/
 [Punycode]: https://github.com/bestiejs/punycode.js/
+[esrever]: https://github.com/mathiasbynens/esrever
