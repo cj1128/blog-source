@@ -4,6 +4,14 @@ metaDataFormat: yaml
 disableKinds: ["RSS", "sitemap"]
 hasCJKLanguage: true
 SectionPagesMenu: main
+
+permalinks:
+  go: /:year/:month/:day/:filename/
+  linux: /:year/:month/:day/:filename/
+  mac: /:year/:month/:day/:filename/
+  misc: /:year/:month/:day/:filename/
+  web2.0: /:year/:month/:day/:filename/
+
 params:
   author: CJ Ting
   default_cover: http://ww2.sinaimg.cn/large/9b85365dgw1f7brwadugzj21kw11x1kx.jpg
