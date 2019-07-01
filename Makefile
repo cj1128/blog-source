@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-server:
+dev:
 	hugo server --buildDrafts --bind 0.0.0.0 --port 6200
 .PHONY: server
 
