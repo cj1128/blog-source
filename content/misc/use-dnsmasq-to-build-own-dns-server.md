@@ -3,6 +3,8 @@ cover: http://ww1.sinaimg.cn/large/9b85365djw1f7bjp0tf5dj21jk0ikq95.jpg
 date: 2016-08-20T00:00:00+08:00
 title: 使用 Dnsmasq 搭建内网 DNS 服务器
 tags: [dns, dnsmasq]
+aliases:
+  - /misc/use-dnsmasq-to-build-own-dns-server/
 ---
 在日常开发过程中，我们经常要配置各种
  host，比如公司内部的各种服务，或者测试项目的时候暂时把生产环境 URL 配置到本地上等等。一般采取的方法都是每个人手动编辑自己的 `/etc/hosts` 文件。这个做法有两个缺点：

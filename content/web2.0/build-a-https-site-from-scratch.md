@@ -4,7 +4,8 @@ date: 2016-09-05T00:00:00+08:00
 title: 从零开始搭建一个 HTTPS 网站
 tags: [https, tls, ssl]
 aliases:
-  - "/web2.0/2016-09-05-从零开始搭建一个HTTPS网站.html"
+  - /web2.0/2016-09-05-从零开始搭建一个HTTPS网站.html
+  - /web2.0/build-a-https-site-from-scratch/
 ---
 我们都知道 HTTP 是非常不安全的，不安全的根源在于 HTTP 是明文传输。你在谷歌搜索了一个关键词（假设 Google 使用 HTTP），HTTP 数据包从你的计算机传送到服务器的过程中，中间经过的任意一个设备都可以轻松解析你的数据包，获取你的关键词，你的隐私毫无保障。
 

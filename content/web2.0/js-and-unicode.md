@@ -3,6 +3,8 @@ title: JavaScript 与 Unicode
 date: 2018-07-22T09:45:12+08:00
 tags: [js encoding]
 cover: http://ww1.sinaimg.cn/large/9b85365dgy1ftpo2tnzjkj21kw11xe83
+aliases:
+  - /web2.0/intruduction-to-functional-reactive-programming/
 ---
 字符串是任何一个编程语言中的重要概念，同时也是一个非常复杂的问题。
 

@@ -2,6 +2,8 @@
 title: 正向代理与反向代理
 date: 2018-08-11T18:08:00+08:00
 cover: http://ww1.sinaimg.cn/large/9b85365dgy1fu7bntj6d9j21kw11xe87
+aliases:
+  - /misc/forward-proxy-and-reverse-proxy/
 ---
 
 代理的英文叫做 *Proxy*，是计算机中的常用软件。

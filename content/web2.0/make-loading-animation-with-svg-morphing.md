@@ -3,6 +3,8 @@ cover: http://ww1.sinaimg.cn/large/9b85365djw1f9ji109m0jj21jk0rstb8.jpg
 date: 2016-11-07T00:00:00+08:00
 title: 使用 SVG Morphing 制作自己的加载动画
 tags: [svg, animation]
+aliases:
+  - /web2.0/make-loading-animation-with-svg-morphing/
 ---
 每一个需要让用户等待的应用都应该有加载界面，可以是简单的文本，比如 `加载中…`，也可以是有趣的动画。当然，一个好玩的加载动画能够大大增加用户等待的耐心，谁喜欢枯燥的文字呢。所以，投入点时间寻找或者制作一个加载动画是很有意义的。感谢 SVG 和相关的动画技术，现在制作一款复杂的动画已经变得十分容易了。
 

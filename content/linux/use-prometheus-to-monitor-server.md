@@ -4,7 +4,8 @@ date: 2017-03-12T00:00:00+08:00
 title: 使用 Prometheus 监控服务器性能
 tags: [prometheus, monitor, golang]
 aliases:
- - "/misc/2017-03-12-使用Prometheus监控服务器性能.html"
+ - /misc/2017-03-12-使用Prometheus监控服务器性能.html
+ - /linux/use-prometheus-to-monitor-server/
 ---
 最近一直在思考如何对线上服务做深度监控。基础的服务可用性监控很简单，定期 Ping 即可。但是怎样才能监控服务器的一些更加关键的数据呢？比如，每一个 API Point 的请求次数（QPS），最大响应时间，平均响应时间等。最终我希望实现的效果是有一个 Dashboard，我可以清楚地看到各种参数曲线，对服务器的运行情况了然于胸。
 

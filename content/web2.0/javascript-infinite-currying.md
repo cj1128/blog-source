@@ -3,6 +3,8 @@ cover: http://ww3.sinaimg.cn/large/9b85365dgw1f7bmdt86ltj21kw0w0wgf.jpg
 date: 2016-01-17T00:00:00+08:00
 title: JavaScript Infinite Currying
 tags: [javascript, functional-programming, curry]
+aliases:
+  - /web2.0/intruduction-to-functional-reactive-programming/
 ---
 很久之前曾看到一个很有意思的 JS 问题，
 

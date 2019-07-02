@@ -3,6 +3,8 @@ cover: http://ww1.sinaimg.cn/large/9b85365dgy1fg4ev5tx5aj21kw16oh4y
 date: 2017-05-13T00:00:00+08:00
 title: Git 是怎样生成 diff 的：Myers 算法
 tags: [git, diff, myers]
+aliases:
+  - /misc/how-git-generate-diff/
 ---
 diff 是我们每天都要使用的一个功能，每次提交时，我都习惯先用 `git diff --cached` 看看这次提交更改了些什么，确定没问题，然后再 `git commit`。git 生成的 diff 非常直观，直观到我从来都没有去思考过 diff 是怎么生成的，觉得这应该是很简单的一件事，两个文件做个对比，不就行了。
 

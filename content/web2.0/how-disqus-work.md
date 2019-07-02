@@ -2,6 +2,8 @@
 date: 2013-11-21T00:00:00+08:00
 title: 关于 Disqus 的作用原理
 tags: [disqus]
+aliases:
+  - /web2.0/how-disqus-work/
 ---
 当初用 jekyll-bootstrap 做博客的时候，里面默认配置了 Disqus 的评论模块。当初懵懵懂懂，去 Disqus 官网按照提示填了字段以后，然后根据 Jekyll 配置文件 `_config.yml` 里面的字段 `short-name` 填了一下，然后评论模块就可以用了。我心里一直觉得不能理解，但是心里觉得可能很麻烦，就一直没有去钻研这个事情，今天有空，耐心看了官方文档，一切豁然开朗。
 

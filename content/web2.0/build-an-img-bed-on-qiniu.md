@@ -3,6 +3,8 @@ cover: http://ww1.sinaimg.cn/large/007FEWc7ly1g1f3uidzsqj31hc0goafm
 date: 2017-01-23T00:00:00+08:00
 title: 图床on七牛，简单好用的图床插件
 tags: [图床, 七牛, chrome]
+aliases:
+  - /web2.0/build-an-img-bed-on-qiniu/
 ---
 
 注：因为七牛 API 修改，编辑于 2019-03-25T16:20:00。

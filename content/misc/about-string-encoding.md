@@ -3,6 +3,8 @@ cover: http://ww1.sinaimg.cn/large/9b85365dgw1f7bo2l69u3j21jk111gui.jpg
 date: 2014-04-24T00:00:00+08:00
 title: 关于字符编码
 tags: [string, encoding, utf-8]
+aliases:
+  - /misc/about-string-encoding/
 ---
 很早之前就碰到过"乱码"这个现象，当时非常困惑，完全不能理解发生了什么。
 
