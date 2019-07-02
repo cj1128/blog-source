@@ -4,7 +4,8 @@ date: 2016-10-21T00:00:00+08:00
 title: 从零开始搭建一个 ELKB 日志收集系统
 tags: [log, elk, logstash, elasticsearch, kibana]
 aliases:
-  - "/misc/2016-10-21-从零开始搭建一个ELKB日志收集系统.html"
+  - /misc/2016-10-21-从零开始搭建一个ELKB日志收集系统.html
+  - /misc/build-log-system-with-elkb/
 ---
 当今的软件开发 **多核** 以及 **分布** 已经成为了常态，基本上稍大型的应用都是多台机器分布式部署。分布式在提高性能的同时也带来了很多问题，今天我们只讨论一点，那就是如何处理多台机器线上系统的日志。
 

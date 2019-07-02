@@ -3,6 +3,8 @@ cover: http://ww1.sinaimg.cn/large/9b85365djw1f7bm61rer2j21hc0u0q58.jpg
 date: 2016-04-06T00:00:00+08:00
 title: 编写第一个 Chrome 插件 —— 图床on微博
 tags: [react, chrome, 微博, 图床]
+aliases:
+  - /web2.0/first-chrome-extension-image-bed-on-weibo/
 ---
 之前写博客需要的图片全部都是本地存储，非常麻烦。流程如下：先用截图工具截图（QQ 截图就很好用），然后移动到目标文件夹，然后在 Markdown 中输入绝对路径（Jekyll 生成站点以后路径会变化，所以不能使用相对路径）。除了麻烦以外，在 Markdown 中编写时还是看不到图的，因为路径不对。
 

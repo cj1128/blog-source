@@ -3,6 +3,8 @@ date: 2017-06-04T15:46:33+08:00
 title: 从 Jekyll 迁移到 Hugo，Hugo 不完全指南
 tags: [hugo, golang, ssg]
 cover: http://ww1.sinaimg.cn/large/9b85365dgy1fgfzerd930j212w0gojsk
+aliases:
+  - /golang/migrate-to-hugo-from-jekyll/
 ---
 最近这段时间一直在忙着迁移博客，把原本基于 Jekyll 的博客迁移到了 Hugo 上。
 

@@ -4,7 +4,8 @@ date: 2016-11-14T00:00:00+08:00
 title: 使用 pprof 优化 Golang 性能
 tags: [golang, pprof]
 aliases:
-  - "/golang/2016-11-14-使用pprof优化golang性能.html"
+  - /golang/2016-11-14-使用pprof优化golang性能.html
+  - /golang/use-pprof-to-optimize-go/
 ---
 *Donald E.Knuth* 说过一句非常著名的话，**过早的优化是万恶之源**，原文如下：
 

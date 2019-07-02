@@ -1,11 +1,11 @@
 {
-  "name": "cj_ting_blog",
+  "name": "cj_blog",
   "version": "1.0.0",
   "scripts": {
     "dev": "webpack --watch --mode development",
     "build": "rm -rf ../static/asset && webpack --mode production"
   },
-  "author": "CJ Ting<fatelovely1128@gmail.com>",
+  "author": "CJ<fatelovely1128@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "clipboard": "^1.5.15",

@@ -4,6 +4,8 @@ date: 2013-06-23T00:00:00+08:00
 lastmod: 2017-05-28T10:37:15+08:00
 title: 使用 CSS 绘制 Ruby 可爱的红宝石标志
 tags: [css, ruby]
+aliases:
+  - /web2.0/draw-ruby-logo-with-css/
 ---
 有一次偶然逛 Dribbble，发现了这个可爱的红宝石标志。
 
