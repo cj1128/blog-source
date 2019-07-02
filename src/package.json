@@ -5,7 +5,7 @@
     "dev": "webpack --watch --mode development",
     "build": "rm -rf ../static/asset && webpack --mode production"
   },
-  "author": "CJ<fatelovely1128@gmail.com>",
+  "author": "CJ<cjting1128@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "clipboard": "^1.5.15",
@@ -16,7 +16,7 @@
   "devDependencies": {
     "css-loader": "0.28.11",
     "file-loader": "1.1.11",
-    "js-yaml": "3.12.0",
+    "js-yaml": "3.13.1",
     "mini-css-extract-plugin": "0.4.0",
     "stylus": "0.54.5",
     "stylus-loader": "3.0.2",

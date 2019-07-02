@@ -1,4 +1,2 @@
 .DS_Store
-node_modules/
-public
-fate-lovely.github.io
+node_modules
