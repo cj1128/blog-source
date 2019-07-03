@@ -18,6 +18,7 @@ if(document.querySelector("#post__comments")) {
     owner: "fate-lovely",
     admin: ["fate-lovely"],
     id: location.pathname,
+    labels: [PAGE.section],
     title: PAGE.title,
   })
   gitalk.render("post__comments")

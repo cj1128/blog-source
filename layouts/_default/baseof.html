@@ -7,12 +7,15 @@
   <meta name="author" content="{{ .Site.Params.author }}">
   <meta name="description" content="{{ default .Title .Description }}">
   <meta charset="utf-8" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="stylesheet" href="{{ "/asset/main.css" | relURL}}">
   <link rel="stylesheet" type="text/css" href="{{ "/gitalk.css" | relURL }}">
   <script src="{{ "/gitalk.min.js" | relURL }}"></script>
   <script type="text/javascript">
     window.PAGE = {
       title: "{{ .Title }}",
+      section: "{{ .Section }}",
     }
   </script>
 </head>
@@ -33,6 +36,19 @@
   <script src="{{ "/asset/main.js" | relURL }}"></script>
 
   <!-- 百度监测 -->
-  {{ partial "baidu-analytics" . }}
+  <script>
+    (function() {
+      var _hmt = _hmt || [];
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?{{ .Site.Params.baidu_token }}";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <!-- 友盟统计 -->
+  <div style="display: none">
+    <script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1277776204&web_id=1277776204"></script>
+  </div>
 </body>
 </html>
