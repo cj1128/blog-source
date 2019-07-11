@@ -316,4 +316,4 @@ function setResult(ok) {
 [The introduction to Reactive Programming you've been missing]: https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
 [Promise]: http://www.html5rocks.com/en/tutorials/es6/promises/
 [RxJS]: https://github.com/Reactive-Extensions/RxJS
-[frp-demo]: https://github.com/fate-lovely/frp-demo)
+[frp-demo]: https://github.com/cj1128/frp-demo)

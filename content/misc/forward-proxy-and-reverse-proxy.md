@@ -120,4 +120,4 @@ Squid 是一个很常用的正向代理软件，可以用来做访问控制，�
 
 [awstats]: https://github.com/eldy/awstats
 [Squid]: http://www.squid-cache.org/
-[squid-trick-proxy-demo]: https://github.com/fate-lovely/squid-trick-proxy-demo
+[squid-trick-proxy-demo]: https://github.com/cj1128/squid-trick-proxy-demo

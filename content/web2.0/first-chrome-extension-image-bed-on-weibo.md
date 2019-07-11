@@ -18,7 +18,7 @@ aliases:
 
 首先，实现微博图床最核心的便是图片的上传接口。通过阅读 `新浪微博图床` 的源码，可以发现接口是[这个](http://picupload.service.weibo.com/interface)，只要登陆了微博就可以使用，非常简单。知道了接口，剩下的事情就简单了。
 
-第二，这个接口在 `picupload.service.weibo.com` 域下，我们本地开发测试的时候怎样跨域需要解决。打包成 Chrome 插件以后怎样跨域也需要解决。关于这个问题可以参考最终项目的 [README](https://github.com/fate-lovely/pic-on-weibo)。
+第二，这个接口在 `picupload.service.weibo.com` 域下，我们本地开发测试的时候怎样跨域需要解决。打包成 Chrome 插件以后怎样跨域也需要解决。关于这个问题可以参考最终项目的 [README](https://github.com/cj1128/pic-on-weibo)。
 
 ## 功能设计
 
@@ -87,7 +87,7 @@ chrome.browserAction.onClicked.addListener(function() {
 
 剩下的便是编码了~大家有兴趣可以自己作为周末项目练练手~
 
-最后，这是完整项目的 [Github Repo](https://github.com/fate-lovely/pic-on-weibo)，这是插件的[地址](https://chrome.google.com/webstore/detail/%E5%9B%BE%E5%BA%8Aon%E5%BE%AE%E5%8D%9A/opblldeehobgiedgjgamaklagilmkagc/related)。欢迎大家使用和评分，需要什么功能或者有什么不满，都可以去 GitHub 吐槽。
+最后，这是完整项目的 [Github Repo](https://github.com/cj1128/pic-on-weibo)，这是插件的[地址](https://chrome.google.com/webstore/detail/%E5%9B%BE%E5%BA%8Aon%E5%BE%AE%E5%8D%9A/opblldeehobgiedgjgamaklagilmkagc/related)。欢迎大家使用和评分，需要什么功能或者有什么不满，都可以去 GitHub 吐槽。
 
 PS：如果翻墙不方便的话，可以 clone 仓库，`npm install && npm run build`，接着进入 `Chrome Extensions` 选项，打开开发者模式，然后把 `chrome` 目录拖进去就可以使用插件了（GIF 如下，有图床了就是任性~）。
 

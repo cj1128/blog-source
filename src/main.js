@@ -14,9 +14,9 @@ if(document.querySelector("#post__comments")) {
   const gitalk = new Gitalk({
     clientID: "f26cc90ab221487c7c8f",
     clientSecret: "fed1fa4d13c28f37a3a9087c6bb5585e14a87439",
-    repo: "fate-lovely.github.io",
-    owner: "fate-lovely",
-    admin: ["fate-lovely"],
+    repo: "cj1128.github.io",
+    owner: "cj1128",
+    admin: ["cj1128"],
     id: location.pathname,
     labels: [PAGE.section],
     title: PAGE.title,
