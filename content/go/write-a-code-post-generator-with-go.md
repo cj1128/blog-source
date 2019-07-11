@@ -71,7 +71,7 @@ aliases:
 
 ## 结果
 
-最终，程序在仓库在 Github 上，[codeposter](http://github.com/fate-lovely/codeposter)。测试了几幅图片，效果还不错。默认使用的字体是 `Hack`，字体大小为 7 x 14，明信片宽度是 114 x 54。如果想提高字符的密度，也就是 **分辨率**，减少字体大小即可😜。
+最终，程序在仓库在 Github 上，[codeposter](http://github.com/cj1128/codeposter)。测试了几幅图片，效果还不错。默认使用的字体是 `Hack`，字体大小为 7 x 14，明信片宽度是 114 x 54。如果想提高字符的密度，也就是 **分辨率**，减少字体大小即可😜。
 
 ![](http://ww1.sinaimg.cn/large/007FEWc7ly1g1f3oqy7ldj30m80l4n55)
 

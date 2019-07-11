@@ -34,7 +34,7 @@ Jekyll 内部用的是 Liquid 模板语言，这是一个非常简单的语言�
 
 ## 注册 GitHub 帐号
 
-注册一个 GitHub 帐号，然后进入你的账号，新建一个 Repo。名字为 `{your_account_name}.github.com`。比如说我的账号是 fate-lovely，那么我的仓库名称便是 `fate-lovely.github.com`。当你建立这样一个仓库的时候，GitHub 默认这个仓库为你的 Pages 仓库。好吧，强大的 **convention over configuration**，我喜欢~。当你向这个仓库推送内容的时候，GitHub 在内部调用 Jekyll 模板引擎，为你生成所有页面，然后，当你访问 `your_account_name.github.com` 的时候，比如我的是 `fate-lovely.github.com` 页面就呈现出来了。当然，对于 Geek 来说，怎么能够容忍这么搓的域名呢？定制域名后面再谈。
+注册一个 GitHub 帐号，然后进入你的账号，新建一个 Repo。名字为 `{your_account_name}.github.com`。比如说我的账号是 cj1128，那么仓库名字就是 `cj1128.github.com`。当你建立这样一个仓库的时候，GitHub 默认这个仓库为你的 Pages 仓库。好吧，强大的 **convention over configuration**，我喜欢~。当你向这个仓库推送内容的时候，GitHub 在内部调用 Jekyll 模板引擎，为你生成所有页面，然后，当你访问 `your_account_name.github.com` 的时候，比如我的是 `cj1128.github.com` 页面就呈现出来了。当然，对于 Geek 来说，怎么能够容忍这么搓的域名呢？定制域名后面再谈。
 
 ## 在本地安装 Jekyll
 

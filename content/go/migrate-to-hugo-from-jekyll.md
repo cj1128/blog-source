@@ -339,6 +339,6 @@ Hugo 官方有一篇文档 [Hosting on GitHub Pages] 说明如何部署在 GitHu
 [Static Gen]: https://www.staticgen.com/
 [Go Template Primer]: https://gohugo.io/templates/go-templates/
 [Hosting on GitHub Pages]: https://gohugo.io/tutorials/github-pages-blog#building-and-deployment
-[hugo-demo]: https://github.com/fate-lovely/hugo-demo
+[hugo-demo]: https://github.com/cj1128/hugo-demo
 [Jekyll]: https://jekyllrb.com/
 [Hexo]: https://hexo.io/

@@ -1,6 +1,6 @@
 # CJ's Blog
 
-[我的个人博客](http://cjting.me)源代码，托管在 [GitHub Pages](https://pages.github.com/)，使用 Hugo 作为模板引擎。
+[我的个人博客](https://cjting.me)源代码，托管在 [GitHub Pages](https://pages.github.com/)，使用 Hugo 作为模板引擎。
 
 ## Gitalk
 

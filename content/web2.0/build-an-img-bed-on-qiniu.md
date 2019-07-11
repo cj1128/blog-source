@@ -158,6 +158,6 @@ function fetch() {
 [JSFiddle 的在线示例]: http://jsfiddle.net/gh/get/extjs/4.2/icattlecoder/jsfiddle/tree/master/uptoken
 [资源列举]: https://developer.qiniu.com/kodo/api/1284/list
 [管理凭证]: https://developer.qiniu.com/kodo/manual/1201/access-token
-[仓库地址]: https://github.com/fate-lovely/pic-on-qiniu
+[仓库地址]: https://github.com/cj1128/pic-on-qiniu
 [上传凭证]: https://developer.qiniu.com/kodo/manual/1208/upload-token
 
