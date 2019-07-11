@@ -1,4 +1,4 @@
-baseURL: http://cjting.me
+baseURL: https://cjting.me
 title: CJ's Blog
 metaDataFormat: yaml
 disableKinds: ["RSS", "sitemap"]

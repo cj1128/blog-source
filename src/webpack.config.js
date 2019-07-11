@@ -1,17 +1,12 @@
 const path = require("path")
-const yaml = require("js-yaml")
-const fs = require("fs")
-const url = require("url")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
 
-const hugoConfig = yaml.safeLoad(fs.readFileSync("../config.yaml", "utf8"))
-const basePath = url.parse(hugoConfig.baseURL).path
-
-module.exports = {
+const config = {
   entry: "./main.js",
   output: {
     path: path.join(__dirname, "..", "static", "asset"),
-    publicPath: path.join(basePath, "/asset/"),
+    publicPath: "/asset/",
   },
   module: {
     rules: [
@@ -40,3 +35,9 @@ module.exports = {
     new MiniCssExtractPlugin(),
   ],
 }
+
+if(process.argv.includes("--analyze")) {
+  config.plugins.push(new BundleAnalyzerPlugin())
+}
+
+module.exports = config
