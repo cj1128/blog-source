@@ -1,7 +1,7 @@
 ---
 title: 正向代理与反向代理
 date: 2018-08-11T18:08:00+08:00
-cover: http://ww1.sinaimg.cn/large/9b85365dgy1fu7bntj6d9j21kw11xe87
+cover: http://asset.cjting.cn/FsdGqw4cM1gB7TriiisPhyGcqQBW.png
 aliases:
   - /misc/forward-proxy-and-reverse-proxy/
 ---
@@ -102,7 +102,7 @@ HTTP 有一个 `CONNECT` 方法，可以创建一条 HTTP 隧道，用来转发�
 1. 因为 HTTP/1.1 要求所有的请求必须包含 `HOST` 头，代理可以通过解析 HOST 得到目标地址
 2. 通过使用 `SO_ORIGINAL_DST` 选项获取数据包原始地址
 
-由于验证起来比较麻烦，这个问题的准确答案留待以后进一步明确😂
+暂时没有空去验证这个问题，这个问题的准确答案留待以后进一步明确😂
 
 ## 一个恶作剧代理
 
@@ -114,9 +114,9 @@ Squid 是一个很常用的正向代理软件，可以用来做访问控制，�
 
 ![](http://ww1.sinaimg.cn/large/9b85365dgy1fu6u1kzebaj21ha0s0e82)
 
-想象这样一个场景：在一个阳光明媚的午后，你发现你的邻居在蹭你的网，你并没有选择修改密码，而是默默地启动这个恶作剧代理，配置你的路由器，使用 iptables 将蹭网流量转发到这个代理。于此同时，你的邻居发现，前一刻还十分精彩的互联网世界，突然颠倒了，他苦苦思索，他不知所措，你的耳边隐约传来他的怒吼，我操。
+想象这样一个场景：在一个阳光明媚的午后，你发现你的邻居在蹭你的网，你并没有选择修改密码，而是默默地启动这个恶作剧代理，配置你的路由器，使用 iptables 将蹭网流量转发到这个代理。于此同时，你的邻居发现，前一刻还十分精彩的互联网世界，突然颠倒了，他苦苦思索，他不知所措，他深深地被这个世界的恶意所伤害。
 
-关于恶作剧代理的具体代码可以去 Github 仓库 [squid-trick-proxy-demo] 上查看。
+关于恶作剧代理的具体代码可以去 GitHub 仓库 [squid-trick-proxy-demo] 上查看。
 
 [awstats]: https://github.com/eldy/awstats
 [Squid]: http://www.squid-cache.org/
