@@ -1,5 +1,6 @@
 {{ define "body" }}
   <div class="post">
+    <img src="{{ default .Site.Params.default_cover .Params.cover }}" class="webfeedsFeaturedVisual" style="display: none">
     <header class="post__header" data-cover="{{ default .Site.Params.default_cover .Params.cover }}">
       <a href="/">
         HOME

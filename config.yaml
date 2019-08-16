@@ -1,9 +1,15 @@
-baseURL: https://cjting.me
+# baseURL: https://cjting.me
+baseURL: http://tmp2.haibao6688.com
 title: CJ's Blog
 metaDataFormat: yaml
-disableKinds: ["RSS", "sitemap"]
 hasCJKLanguage: true
+languageCode: zh-cn
+copyright: "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
 SectionPagesMenu: main
+rssLimit: 10
+
+author:
+  name: CJ Ting
 
 permalinks:
   go: /:year/:month/:day/:filename/
