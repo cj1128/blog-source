@@ -1,5 +1,5 @@
 ---
-cover: http://ww1.sinaimg.cn/large/9b85365djw1f7bjp0tf5dj21jk0ikq95.jpg
+cover: http://asset.cjting.cn/9b85365djw1f7bjp0tf5dj21jk0ikq95.jpg
 date: 2016-08-20T00:00:00+08:00
 title: 使用 Dnsmasq 搭建内网 DNS 服务器
 tags: [dns, dnsmasq]

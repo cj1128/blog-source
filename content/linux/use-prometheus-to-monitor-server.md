@@ -1,5 +1,5 @@
 ---
-cover: http://ww1.sinaimg.cn/large/9b85365dgy1fdllodi902j21ff0ciq33
+cover: http://asset.cjting.cn/Fud1bDjGGvmZBEMsM5y_Crfg77Kb.jpeg
 date: 2017-03-12T00:00:00+08:00
 title: 使用 Prometheus 监控服务器性能
 tags: [prometheus, monitor, golang]
@@ -175,7 +175,7 @@ func sendRequest() {
 
 启动 Prometheus `prometheus -config.file config.yml` 以后，再启动我们的测试程序 `go run test.go`。打开 Prometheus 控制台 `localhost:9090/targets` 就可以看到 Prometheus 正在抓取数据，一切正常。
 
-![](http://ww1.sinaimg.cn/large/9b85365dgy1fdki1jpblnj21gk06mjs1)
+![](http://asset.cjting.cn/9b85365dgy1fdki1jpblnj21gk06mjs1.jpg)
 
 ### 控制台
 
@@ -183,17 +183,17 @@ Prometheus 的一个强大之处在于可以使用各种函数和操作符来查
 
 Prometheus 的控制台自带一个简单的绘图系统，点击 `graph`标签页，输入表达式就可以看到图表。例如，输入 `rate(http_request_count{endpoint="/test"}[10s])` 就可以看到我们测试程序中 `/test`路径的 QPS，从图中可以明显发现，每隔一段时间就会有一个波峰流量。
 
-![](http://ww1.sinaimg.cn/large/9b85365dgy1fdkick67anj21ha0lw416)
+![](http://asset.cjting.cn/9b85365dgy1fdkick67anj21ha0lw416.jpg)
 
 `httpRequestDuration` 是一个 Summary 类型的指标，比简单的 Counter 要复杂，会生成三个数据项。分别是 `http_request_duration_sum` 表示响应时间加在一起的总和，`http_request_duration_count` 表示响应时间的总个数，以及`http_request_duration` 表示响应时间的分布情况，这个数据项会使用 `quantile` 标签对响应时间进行分组。
 
 如下图所示，`quantile=0.5` 值为 50，表示 50% 的请求响应时间都在 50ms 以下。`quantile=0.9` 的值为 54，表示 90% 的请求响应时间都在 54ms 以下。但是，`quantile=0.99` 的值为 103，表示 99% 的请求响应时间在 103ms 以下。这就说明了一个问题，那就是极个别的请求耗费了大量时间。
 
-![](http://ww1.sinaimg.cn/large/9b85365dgy1fdkikzfoyyj21gp0k8tat)
+![](http://asset.cjting.cn/9b85365dgy1fdkikzfoyyj21gp0k8tat.jpg)
 
 通过使用表达式 `http_request_duration_sum / http_request_duration_count` 我们可以得到平均响应时间，如下图。当然，这个图的作用不大（平均数往往反映不了什么问题），不像上图那样，我们无法看出有部分请求花费了大量时间。
 
-![](http://ww1.sinaimg.cn/large/9b85365dgy1fdkiurz15sj21h70kftap)
+![](http://asset.cjting.cn/9b85365dgy1fdkiurz15sj21h70kftap.jpg)
 
 以上只是对数据项的最简单利用，Prometheus 自带了很多函数和操作符，可以方便地对数据进行处理，具体可以参考[官方文档](https://prometheus.io/docs/querying/basics/)。
 
@@ -219,13 +219,13 @@ Grafana 默认监听在 3000 端口上，默认用户名和密码都是 `admin`�
 
 输入用户名和密码以后，进入 Grafana 页面。第一件事是要设置数据源 (Data Source)，即 Grafana 从什么地方获取数据，选择 Prometheus 即可。
 
-![](http://ww1.sinaimg.cn/large/9b85365dgy1fdll4hyc91j20sk0joaeg)
+![](http://asset.cjting.cn/9b85365dgy1fdll4hyc91j20sk0joaeg.jpg)
 
 数据源设置好以后，接下来就是创建 Dashboard 了。Dashboard 里面可以放置很多组件。比如，图表，状态值，表格，文字等等。这里我们选择 `Graph`图表，Grafana 会创建一个默认的空图表。
 
 点击图表标题，选择 `Edit` 来编辑图表参数。最重要的参数就是 `Metrics` 标签里的 `Query`字段，这个字段定义了我们的图表到底要展示什么数据。输入 `rate(http_request_count{endpoint="/test"}[10s])`，就可以看到 `/test` 路径的 QPS 曲线了。
 
-![](http://ww1.sinaimg.cn/large/9b85365dgy1fdllazj0cvj20ya0k841q)
+![](http://asset.cjting.cn/9b85365dgy1fdllazj0cvj20ya0k841q.jpg)
 
 同理，在 Query 中输入 `http_request_duration` 就可以得到响应时间曲线。通过使用 Prometheus 提供的操作符和函数，我们可以对数据进行我们想要的任意可视化，十分灵活。
 

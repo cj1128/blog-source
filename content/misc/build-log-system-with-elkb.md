@@ -1,5 +1,5 @@
 ---
-cover: http://ww2.sinaimg.cn/large/9b85365dgw1f8qjr6igesj21kw0w7ac4.jpg
+cover: http://asset.cjting.cn/9b85365dgw1f8qjr6igesj21kw0w7ac4.jpg
 date: 2016-10-21T00:00:00+08:00
 title: 从零开始搭建一个 ELKB 日志收集系统
 tags: [log, elk, logstash, elasticsearch, kibana]
@@ -309,4 +309,4 @@ Kibana 不需要什么配置，直接启动即可。`service kibana start`，默
 
 最终效果如下，我们可以在 Kibana 中浏览我们的 Nginx 日志，并进行任意搜索。
 
-![](http://ww4.sinaimg.cn/large/9b85365djw1f8zwhs3j5vj21h50mijxx.jpg)
+![](http://asset.cjting.cn/9b85365djw1f8zwhs3j5vj21h50mijxx.jpg)

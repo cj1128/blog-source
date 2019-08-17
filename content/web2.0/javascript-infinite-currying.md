@@ -1,5 +1,5 @@
 ---
-cover: http://ww3.sinaimg.cn/large/9b85365dgw1f7bmdt86ltj21kw0w0wgf.jpg
+cover: http://asset.cjting.cn/9b85365dgw1f7bmdt86ltj21kw0w0wgf.jpg
 date: 2016-01-17T00:00:00+08:00
 title: JavaScript Infinite Currying
 tags: [javascript, functional-programming, curry]

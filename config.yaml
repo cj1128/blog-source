@@ -1,24 +1,20 @@
-# baseURL: https://cjting.me
-baseURL: http://tmp2.haibao6688.com
+baseURL: https://cjting.me
 title: CJ's Blog
 metaDataFormat: yaml
 hasCJKLanguage: true
 languageCode: zh-cn
-copyright: "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
 SectionPagesMenu: main
-rssLimit: 10
 
 author:
-  name: CJ Ting
+  name: CJ
 
 permalinks:
   go: /:year/:month/:day/:filename/
   linux: /:year/:month/:day/:filename/
-  mac: /:year/:month/:day/:filename/
   misc: /:year/:month/:day/:filename/
   web2.0: /:year/:month/:day/:filename/
 
 params:
   author: CJ
-  default_cover: http://ww2.sinaimg.cn/large/9b85365dgw1f7brwadugzj21kw11x1kx.jpg
+  default_cover: http://asset.cjting.cn/FuPonm3F5RFQTgT1UCWAtZArt1Om.jpeg
   baidu_token: 4f34ee3c85734c8235badd2b99b092a6
