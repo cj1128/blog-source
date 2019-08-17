@@ -1,5 +1,5 @@
 ---
-cover: http://ww1.sinaimg.cn/large/9b85365djw1f7bm61rer2j21hc0u0q58.jpg
+cover: http://asset.cjting.cn/9b85365djw1f7bm61rer2j21hc0u0q58.jpg
 date: 2016-04-06T00:00:00+08:00
 title: 编写第一个 Chrome 插件 —— 图床on微博
 tags: [react, chrome, 微博, 图床]
@@ -91,4 +91,4 @@ chrome.browserAction.onClicked.addListener(function() {
 
 PS：如果翻墙不方便的话，可以 clone 仓库，`npm install && npm run build`，接着进入 `Chrome Extensions` 选项，打开开发者模式，然后把 `chrome` 目录拖进去就可以使用插件了（GIF 如下，有图床了就是任性~）。
 
-![](http://ww4.sinaimg.cn/large/9b85365djw1f2twd1698tg21a90p51ky.gif)
+![](http://asset.cjting.cn/9b85365djw1f2twd1698tg21a90p51ky.gif)

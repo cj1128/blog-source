@@ -2,11 +2,11 @@
 date: 2018-03-31T19:40:48+08:00
 title: HTTP Basic Auth 是怎么样工作的
 tags: [http, auth]
-cover: http://ww1.sinaimg.cn/large/9b85365dgy1fqyilt27xgj21kw11xata
+cover: http://asset.cjting.cn/FtsKJCGdjEVMPYYiuCucEfkwa3pn.jpeg
 aliases:
   - /web2.0/how-http-basic-auth-work/
 ---
-`HTTP Basic Auth` 是 HTTP 提供的一种验证方式，因为明文传输用户名和密码，非 HTTPS 环境下很不安全，一般用的非常少。但是在某些情况下用一用还是非常方便的，比如，一些静态站点例如文档系统可以使用 HTTP Basic Auth 进行简单地权限验证。
+`HTTP Basic Auth` 是 HTTP 提供的一种验证方式，因为明文传输用户名和密码，非 HTTPS 环境下很不安全，一般用的非常少。但是在某些情况下用一用还是非常方便的，比如，一些静态站点例如文档系统可以使用 HTTP Basic Auth 进行简单的权限验证。
 
 <!--more-->
 

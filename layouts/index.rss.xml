@@ -20,8 +20,17 @@
           <link>{{ .Permalink }}</link>
           <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
           {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
+
           <guid>{{ .Permalink }}</guid>
-          <description>{{ .Content | html }}</description>
+
+          <description>{{ `<![CDATA[` | safeHTML }}
+            <!-- 用于 Feedly 显示缩略图 -->
+            <img src="{{ default .Site.Params.default_cover .Params.cover }}" class="webfeedsFeaturedVisual">
+
+            {{ .Content | safeHTML }}
+          ]]>
+          </description>
+
         </item>
       {{ end }}
     {{ end }}

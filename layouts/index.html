@@ -3,7 +3,7 @@
     {{ $paginator := .Paginate (where .Pages "Params.type" "!=" "page") }}
     {{ range $paginator.Pages }}
       <div class="index__item">
-        <a class="index__item__title hvr-underline-from-left" href="{{ .URL }}">
+        <a class="index__item__title hvr-underline-from-left" href="{{ .RelPermalink }}">
           {{ .Title }}
         </a>
 
@@ -13,7 +13,7 @@
 
         <div class="index__item__meta">
           {{ $section := .Site.GetPage "section" .Section }}
-          <a href="{{ $section.URL }}">
+          <a href="{{ $section.RelPermalink }}">
             {{ .Section }}
           </a>
           <div>

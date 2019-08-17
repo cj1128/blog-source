@@ -1,5 +1,5 @@
 ---
-cover: http://ww1.sinaimg.cn/large/9b85365dgw1f7bo2l69u3j21jk111gui.jpg
+cover: http://asset.cjting.cn/9b85365dgw1f7bo2l69u3j21jk111gui.jpg
 date: 2014-04-24T00:00:00+08:00
 title: 关于字符编码
 tags: [string, encoding, utf-8]
@@ -26,7 +26,7 @@ aliases:
 
 用工具查看内部字节可以看出，如图：
 
-![](http://ww3.sinaimg.cn/large/9b85365djw1f23cmmpfu1j20ex01qaa9.jpg)
+![](http://asset.cjting.cn/9b85365djw1f23cmmpfu1j20ex01qaa9.jpg)
 
 同样的道理，如果使用 utf-8 编码，丁在 Unicode 字符集中的编号为 `0x4E01`，但它存储在计算机中并不是简单的将 `0x4E01` 翻译为对应的二进制。
 
