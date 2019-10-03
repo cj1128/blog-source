@@ -26,6 +26,20 @@ draft: true
 
 <!--more-->
 
+寻找大的质数。
+https://zh.wikipedia.org/wiki/AKS%E8%B3%AA%E6%95%B8%E6%B8%AC%E8%A9%A6
+
+
+整数分解为什么困难。
+https://zh.wikipedia.org/wiki/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3
+
+
+计算 e。
+https://zh.wikipedia.org/wiki/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95
+
+为什么教科书的 RSA 不安全？为什么需要 Padding。
+https://crypto.stackexchange.com/questions/20085/which-attacks-are-possible-against-raw-textbook-rsa
+
 ## 数学原理
 
 现在我们来看看这样一个神奇的系统背后的数学原理，数学作为人类智慧皇冠上最灿烂的明珠，永远是那么的冷静迷人。
