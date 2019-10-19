@@ -135,13 +135,13 @@ TCP 通信不管上层怎么封装，最下面用的始终是 Socket 的一套�
 从数据包来看：
 
 1. Client: 发送 SYN，连接状态进入 `SYN_SENT`
-2. Server: 收到 SYN, 创建连接状态为 `SYN_RCVD` 的 Socket，响应 SYN/ACK
+2. Server: 收到 SYN, 创建连接状态为 `SYN_RCVD/SYN_RECV` 的 Socket，响应 SYN/ACK
 3. Client: 收到 SYN/ACK，连接状态从 `SYN_SENT` 变为 `ESTABLISHED`，响应 ACK
 4. Server: 收到 ACK，连接状态变为 `ESTABLISHED`
 
 此时，双方的 Socket 都已经进入了 `ESTABLISHED` 状态，接下来就可以开始交换数据了。
 
-从上面的过程中我们可以看出，Server 需要两个队列，分别存储 `SYN_SENT` 状态的连接和 `ESTABLISHED` 状态的连接，这就是半连接队列和全连接队列。
+从上面的过程中我们可以看出，Server 需要两个队列，分别存储 `SYN_RCVD` 状态的连接和 `ESTABLISHED` 状态的连接，这就是半连接队列和全连接队列。
 
 ## somaxconn & tcp_max_syn_backlog
 
@@ -197,7 +197,7 @@ max_queue_length = 2^8 = 256
 
 ## 半连接队列溢出 & SYN Flood
 
-SYN Flood 的思路很简单，发送大量的 SYN 数据包给 Server，然后不回应 Server 响应的 SYN/ACK，这样，Server 端就会存在大量处于 `SYN_RCVD` 状态的连接，这样的连接会持续填充半连接队列，最终导致半连接队列溢出。
+SYN Flood 的思路很简单，发送大量的 SYN 数据包给 Server，然后不回应 Server 响应的 SYN/ACK，这样，Server 端就会存在大量处于 `SYN_RECV` 状态的连接，这样的连接会持续填充半连接队列，最终导致半连接队列溢出。
 
 当半连接队列溢出时，Server 收到了新的发起连接的 SYN：
 
