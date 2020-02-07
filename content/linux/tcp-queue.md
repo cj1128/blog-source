@@ -1,6 +1,6 @@
 ---
 title: 从一次 Connection Reset 说起，TCP 半连接队列与全连接队列
-cover: http://asset.cjting.cn/FtEkcDD5AJAaZ3KPOABUwLrt_YPS.jpg
+cover: http://asset.cjting.cn/FmiIWhP-NK5UDBmgXxkwkvHg29Zg.jpg
 date: 2019-08-28T15:55:08+08:00
 tags: ["linux", "network", "tcp"]
 ---
@@ -12,7 +12,7 @@ tags: ["linux", "network", "tcp"]
 
 ## 奇怪的 Connection Reset
 
-服务器代码如下：
+Server 代码如下：
 
 ```go
 package main
@@ -33,7 +33,7 @@ func main() {
 }
 ```
 
-客户端代码如下：
+Client 代码如下：
 
 ```go
 package main
@@ -96,7 +96,7 @@ func do() {
 
 在我的 Mac 上运行的时候，会遇到如下错误：
 
-```
+```text
 error: Get http://127.0.0.1:7777: read tcp 127.0.0.1:53868->127.0.0.1:7777: read: connection reset by peer
 ```
 
@@ -162,7 +162,7 @@ backlog = min(somaxconn, backlog)
 nr_table_entries = backlog
 nr_table_entries = min(backlog, sysctl_max_syn_backlog)
 nr_table_entries = max(nr_table_entries, 8)
-// roundup_pow_of_two: 将参数向上取整到最小的 2^n 
+// roundup_pow_of_two: 将参数向上取整到最小的 2^n
 // 注意这里存在一个 +1
 nr_table_entries = roundup_pow_of_two(nr_table_entries + 1)
 max_qlen_log = max(3, log2(nr_table_entries))
@@ -177,7 +177,7 @@ max_queue_length = 2^max_qlen_log
 
 我们假设 `listen` 传入的 backlog = 511，其他配置都是默认值，我们来计算一下半连接队列的具体长度。
 
-```
+```text
 backlog = min(128, 511) = 128
 nr_table_entries = 128
 nr_table_entries = min(128, 1024) = 128
@@ -210,7 +210,7 @@ SYN Flood 的思路很简单，发送大量的 SYN 数据包给 Server，然后�
 
 这里涉及到一个 `net.ipv4.tcp_syncookies` 配置项，这是内核用于抵御 SYN Flood 攻击的一种方式，它的核心思想在于：攻击者对于我们返回的 SYN/ACK 包是不会回复的，而正常用户会回复一个 ACK 包。
 
-通过生成一个 Cookie 携带在我们返回的 SYN/ACK 包中，之后我们收到了 ACK 包，我们可以验证 Cookie 是否正确，如果正确，则允许建立连接。详细的过比较复杂，这里不再讨论了。
+通过生成一个 Cookie 携带在我们返回的 SYN/ACK 包中，之后我们收到了 ACK 包，我们可以验证 Cookie 是否正确，如果正确，则允许建立连接。详细的过程比较复杂，这里不再讨论了。
 
 当 `net.ipv4.syncookies` 开启的时候，即便半连接队列已经满了，正常用户依旧可以和服务器进行通信。
 
