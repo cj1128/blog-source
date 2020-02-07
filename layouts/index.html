@@ -1,6 +1,6 @@
 {{ define "content" }}
-  <div class="index">
-    {{ $paginator := .Paginate (where .Pages "Params.type" "!=" "page") }}
+  <div class="index u-content-container">
+    {{ $paginator := .Paginate (where .Site.RegularPages "Params.type" "!=" "page") }}
     {{ range $paginator.Pages }}
       <div class="index__item">
         <a class="index__item__title hvr-underline-from-left" href="{{ .RelPermalink }}">

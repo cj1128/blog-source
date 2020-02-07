@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 dev:
-	hugo server --buildDrafts --bind 0.0.0.0 --port 6200
+	hugo server --buildDrafts --bind 0.0.0.0 --port 6200 --disableFastRender
 .PHONY: server
 
 deploy:

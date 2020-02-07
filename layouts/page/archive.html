@@ -1,6 +1,6 @@
 {{ define "main" }}
   <div class="container">
-    <div class="archive">
+    <div class="archive u-content-container">
       {{ $pages := where .Site.RegularPages "Params.type" "!=" "page" }}
       {{ range $pages.GroupByDate "2006" }}
         <div class="archive__item">
