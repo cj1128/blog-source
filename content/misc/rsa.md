@@ -480,7 +480,7 @@ OpenSSH Private Key
   q: 0xCC3B8F3B39EB0C5C6876A765844BFA70F8BC49B85AAD65963C3B2DAE04D24A5CD7855978A888BE0482530B0603F3E7316483BDEA305D9C4CFFD715288EF33ABA2D424ECBA1672833C5F1EA398E46888F22CADEE7BD06317BF40076BE407900F4B03414BA439B2BC8AAA5693D6EDE6C7EE391591CB07F665E220E7E34E14A0CA5
 ```
 
-如果使用 `openssl` 的话，可以通过如下指令解析私钥。`ssh-keygen` 无法直接更改私钥的格式，需要曲线救国，使用它“修改密码”的功能。参考 [这个提问](https://unix.stackexchange.com/questions/84060/convert-openssh-private-key-into-ssh2-private-key)
+如果使用 `openssl` 的话，可以通过如下指令解析私钥。`ssh-keygen` 无法直接更改私钥的格式，需要曲线救国，使用它“修改密码”的功能，参考 [这个提问](https://unix.stackexchange.com/questions/84060/convert-openssh-private-key-into-ssh2-private-key)
 
 ```bash
 $ cp rsa rsa.pem
