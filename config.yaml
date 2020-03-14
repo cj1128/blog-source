@@ -1,5 +1,5 @@
 baseURL: https://cjting.me
-title: CJ's Blog
+title: CJ Ting's Blog
 metaDataFormat: yaml
 hasCJKLanguage: true
 languageCode: zh-cn
@@ -18,7 +18,7 @@ markup:
     tabWidth: 2
 
 author:
-  name: CJ
+  name: CJ Ting
 
 permalinks:
   go: /:year/:month/:day/:filename/
@@ -27,6 +27,6 @@ permalinks:
   web2.0: /:year/:month/:day/:filename/
 
 params:
-  author: CJ
+  author: CJ Ting
   default_cover: http://asset.cjting.cn/FuPonm3F5RFQTgT1UCWAtZArt1Om.jpeg
   baidu_token: 4f34ee3c85734c8235badd2b99b092a6

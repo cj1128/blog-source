@@ -1,9 +1,5 @@
-# CJ's Blog
+# Blog Source
 
-[我的个人博客](https://cjting.me) 源代码，使用 Hugo 引擎渲染。
+Source code of my [blog](https://cjting.me). Rendered by [hugo](https://gohugo.io/).
 
-## Gitalk
-
-评论系统使用 `gittalk`，Webpack 打包引入存在 bug，因此采用直接引入方式，相关 [issue](https://github.com/gitalk/gitalk/issues/90)。
-
-Gitalk 根据 Issue 的 Label 来标识 Issue，所以，每个 Issue 都会携带一个和 ID 值一样的 Label。
+Use [gitalk](https://github.com/gitalk/gitalk) as the comment system.
