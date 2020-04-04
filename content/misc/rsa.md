@@ -602,7 +602,7 @@ Encrypt result: 9803
 然后我们来进行解密：
 
 ```bash
-$ rsademo -dec 101 103 1024
+$ rsademo -dec 101 103 9803
 Key details:
   p: 101
   q: 103
