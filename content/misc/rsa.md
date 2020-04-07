@@ -400,7 +400,7 @@ $ ssh-keygen -e -m PEM -f rsa.pub | openssl asn1parse -inform PEM
   265:d=1  hl=2 l=   3 prim: INTEGER           :010001
 ```
 
-可以很容易地看出第一个数字是 d，第二个数字是 e，都是十六进制的表达方式。
+可以很容易地看出第一个数字是 n，第二个数字是 e，都是十六进制的表达方式。
 
 私钥的内容如下。
 
