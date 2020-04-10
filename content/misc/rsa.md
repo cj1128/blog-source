@@ -379,7 +379,7 @@ PEM 编码的数据是三个 `(length, data)` 数据块，`length` 为四个字�
 
 - 第一个 data 表示秘钥类型，和公钥第一部分相同
 - 第二个 data 为 RSA exponent，也就是 e
-- 第三个 data 为 RSA modulus，也就是 d
+- 第三个 data 为 RSA modulus，也就是 n
 
 根据上面的知识，我们可以很容易地解析 `rsa.pub` 文件，下文中提到的 `rsademo` 程序实现了公钥解析的逻辑。
 
