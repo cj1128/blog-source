@@ -6,6 +6,9 @@ languageCode: zh-cn
 SectionPagesMenu: main
 
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
   highlight:
     codeFences: true
     guessSyntax: false

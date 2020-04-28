@@ -6,11 +6,11 @@ tags: [underhanded-c, c]
 aliases:
   - /misc/underhanded-c/
 ---
-这一切，都要从这篇文章说起，[being-sneaky-in-c](http://www.codersnotes.com/notes/being-sneaky-in-c)。
+这一切，都要从这篇文章说起，[Being Sneaky in C](http://www.codersnotes.com/notes/being-sneaky-in-c)。
 
 通过这篇文章，我了解到，原来外国有一种比赛，叫做 *Underhanded C*（中文翻译：有猫腻的 C），完成规定的题目，要求是写出看起来毫无问题的代码，但是却偷偷的藏有 Bug 或者说后门。
 
-这篇文章说的就是作者参与了这个比赛，以及他的解决方案。 
+这篇文章说的就是作者参与了这个比赛，以及他的解决方案。
 
 <!--more-->
 
@@ -31,7 +31,7 @@ uint8 *block1 = (uint8 *)malloc(1000);
 *block1 = 100;
 free(block1);
 uint8 *block2 = (uint8 *)malloc(1000); // this time, it's very likely that block2 == block1
-assert(*block2 == 100); // we can get previous value 
+assert(*block2 == 100); // we can get previous value
 ```
 
 `malloc` 是一个常用的堆内存管理函数，不过却有一些非常严重的问题，以上就是一个例子。安全问题往往都在细微之处，但是却都非常致命，上一次非常著名的 HeartBleed 心脏滴血漏洞也是一个细微的问题导致的。
