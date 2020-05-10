@@ -12,12 +12,6 @@
         </div>
 
         <div class="index__item__meta">
-          {{ $section := .Site.GetPage "section" .Section }}
-          <a href="{{ $section.RelPermalink }}">
-            {{ .Section }}
-          </a>
-          <div>
-          </div>
           <div>
             {{ .Lastmod.Format "2006.01.02" }}
           </div>
