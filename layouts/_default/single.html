@@ -12,14 +12,14 @@
       </h1>
 
       <div class="post__meta">
-        <div class='date'>
-          {{ .Date.Format "2006.01.02" }}
-        </div>
-
         <div class="tags">
           {{ range .Params.tags }}
             <span class="tag">{{ . }}</span>
           {{ end }}
+        </div>
+
+        <div class='date'>
+          {{ .Date.Format "2006.01.02" }}
         </div>
       </div>
 

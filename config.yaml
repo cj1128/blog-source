@@ -24,10 +24,7 @@ author:
   name: CJ Ting
 
 permalinks:
-  go: /:year/:month/:day/:filename/
-  linux: /:year/:month/:day/:filename/
-  misc: /:year/:month/:day/:filename/
-  web2.0: /:year/:month/:day/:filename/
+  post: /:year/:month/:day/:filename/
 
 params:
   author: CJ Ting

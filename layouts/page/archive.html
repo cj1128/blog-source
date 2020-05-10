@@ -8,11 +8,9 @@
 
           <ul>
             {{ range .Pages }}
-              {{ $section := .Site.GetPage "section" .Section }}
               <li class="archive__post">
                 <span></span>
                 <a href="{{ .Permalink }}">{{ .Title }}</a>
-                <a href="{{ $section.RelPermalink  }}">{{ .Section }}</a>
                 <div>{{ .Date.Format "2006.01.02" }}</div>
               </li>
             {{ end }}
