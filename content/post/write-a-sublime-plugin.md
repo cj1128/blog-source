@@ -2,7 +2,7 @@
 title: 编写第一个 Sublime 插件 —— BuildX
 date: 2020-05-10T10:04:40+08:00
 cover: http://asset.cjting.cn/FvnQbq-MpgcAKuLDYeuhUuern_Yr.jpg
-tags: [sublime]
+tags: [sublime, texteditor]
 ---
 
 从我接触计算机开始到现在 Sublime 一直是我的主力编辑器，现代化的 UI、流畅的速度以及众多的插件，特别是各种开箱即用的特性，让他一直默默成为我的生产力助手。
