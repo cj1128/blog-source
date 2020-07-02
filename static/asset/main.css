@@ -307,6 +307,10 @@ body {
   font-family: Roboto Mono;
 }
 
+.post__tip {
+  background: gray;
+}
+
 .post__body {
   max-width: 800px;
   padding: 0 20px;
