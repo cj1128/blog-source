@@ -1,18 +1,5 @@
 ;(function() {
   function initGitalk() {
-    if(document.querySelector("#post__comments")) {
-      const gitalk = new Gitalk({
-        clientID: "f26cc90ab221487c7c8f",
-        clientSecret: "fed1fa4d13c28f37a3a9087c6bb5585e14a87439",
-        repo: "cj1128.github.io",
-        owner: "cj1128",
-        admin: ["cj1128"],
-        id: location.pathname,
-        labels: [PAGE.section],
-        title: PAGE.title,
-      })
-      gitalk.render("post__comments")
-    }
   }
 
   var notyf = new Notyf()
@@ -33,11 +20,10 @@
     var id = "code-block-" + index
     ele.setAttribute("id", id)
 
-    var btn = document.createElement("span")
-    btn.innerText = "copy"
-    btn.classList.add("copy-code-btn")
-    btn.setAttribute("data-clipboard-target", "#" + id)
-    ele.parentElement.appendChild(btn)
+    var icon = document.createElement("i")
+    icon.classList.add("iconfont", "icon-copy", "copy-code-btn")
+    icon.setAttribute("data-clipboard-target", "#" + id)
+    ele.parentElement.appendChild(icon)
   })
 
   var clipboard = new ClipboardJS(".copy-code-btn")
@@ -54,11 +40,44 @@
 
   // make images zoomable
   $$(".post__content img").forEach(function(ele) {
-    if(ele.naturalWidth > ele.width) {
-      ele.dataset.action = "zoom"
+    var f = function() {
+      if(ele.naturalWidth > ele.width) {
+        ele.dataset.action = "zoom"
+      }
+    }
+
+    if(ele.naturalWidth == 0) {
+      ele.onload = f
+    } else {
+      f()
     }
   })
 
-  // gitalk
-  initGitalk()
+  // init gitalk
+  if(document.querySelector("#post__comments") && location.hostname !== "localhost") {
+    const gitalk = new Gitalk({
+      clientID: "f26cc90ab221487c7c8f",
+      clientSecret: "fed1fa4d13c28f37a3a9087c6bb5585e14a87439",
+      repo: "cj1128.github.io",
+      owner: "cj1128",
+      admin: ["cj1128"],
+      id: location.pathname,
+      labels: [PAGE.section],
+      title: PAGE.title,
+    })
+    gitalk.render("post__comments")
+  }
+
+  // init tocbot
+  if(document.querySelector(".post__toc")) {
+    tocbot.init({
+      tocSelector: ".post__toc",
+      contentSelector: ".post__content",
+      headingSelector: "h1, h2, h3, h4, h5, h6",
+      collapseDepth: 6,
+      positionFixedSelector: ".post__toc",
+      positionFixedClass: "post__toc--fixed",
+    })
+  }
 })()
+

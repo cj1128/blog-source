@@ -108,7 +108,7 @@ $$
 
 第二步，计算 n 的欧拉函数 $\phi(n)$。
 
-根据公式，$\phi(n) = (p-1)(q-1)$，我么可以得知 $\phi(63) = 6 \times 8 = 48。
+根据公式，$\phi(n) = (p-1)(q-1)$，我么可以得知 $\phi(63) = 6 \times 8 = 48$。
 
 
 第三步，选择一个数 e 使得 e 与 $\phi(n)$ 互质。很多文章会提到 $1 < e < \phi(n)$，其实这并不严谨，只是工程上的考虑，在数学上来说，e 随便选择，只要与 $\phi(n)$ 互质即可，具体可以参考 [Can the encryption exponent e be greater than ϕ(N)?](https://crypto.stackexchange.com/questions/5729/can-the-encryption-exponent-e-be-greater-than-%CF%95n).

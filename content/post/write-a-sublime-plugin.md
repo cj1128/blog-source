@@ -13,7 +13,7 @@ tags: [sublime, texteditor]
 
 <!--more-->
 
-## Sublime && Vim
+## Sublime/Vim
 
 虽然 Sublime 满足了我的各种需要，但是我心里其实一直在积累换掉他的想法，原因是我觉得 Sublime 的定制性不够。当然，现在回过头看，这是一个偏见，或者说这个论点不够站得住脚。
 
@@ -39,7 +39,7 @@ tags: [sublime, texteditor]
 - 足够大的社区
 - 对 Vim 的知识积累会带来价值，越使用，越了解，越熟练。
 
-有一次在看 [Handmade Hero](https://handmadehero.org/) 时，我实在太想要 Emacs 中那个构建、显示错误信息、跳转到错误行 这个功能了，大大解放了生产力。
+有一次在看 [Handmade Hero](https://handmadehero.org/) 时，我实在太想要 Emacs 中那个 **构建、显示错误信息、跳转到错误行** 这个功能了，大大解放了生产力。
 
 ![](http://asset.cjting.cn/lq6s1RwXWtdSZunK3V4AFhpO5kEL.gif)
 
@@ -101,7 +101,7 @@ Sublime 让我不满意的时候非常少，可以说占比 5%，在 95% 的时�
 
 既然 Sublime 已有的插件不能满足我的需求，为什么不能自己开发一款？抱着这个态度，我读了一下 Sublime 的插件文档，学习了一些插件的源码，我发现，Sublime 的插件系统设计的很好，接口文档也很清楚，我想要的功能，实现起来很简单。
 
-## Sublime && Plugin System
+## Sublime Plugin System
 
 先来简单介绍一下 Sublime 的插件体系。
 
@@ -302,7 +302,7 @@ class BuildXListener(sublime_plugin.EventListener):
 
 这样每次构建时，如果没有 Target View，就会新建一个。
 
-#### 拷贝 Exec Panel 中的内容
+### 拷贝 Exec Panel 中的内容
 
 最后，我们要做的就是在 `on_modified` 的时候拷贝内容到我们的 Target View 中。
 

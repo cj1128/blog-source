@@ -17,13 +17,11 @@ cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 
 <!--more-->
 
-## 进攻
-
-### 问题
-
 {{% tip %}}
 下文中所谈的具体细节高度依赖斗鱼网页的实现，很有可能当你阅读这篇文章的时候已经不再是那样。虽然代码会过时地很快，但是，技巧和方法是永远不会过时的。
 {{% /tip %}}
+
+## 进攻
 
 感兴趣的读者可以打开控制台，看看显示关注人数的那个 span 元素里面的内容，会发现根本不是显示的数字。
 
@@ -88,13 +86,13 @@ cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 
 斗鱼的这个关注人数很明显是 JS 渲染的，我们有两条路可以走：
 
-- 使用 Headless 浏览器。也就是使用一个完整的浏览器来渲染整个页面，然后获取 DOM 中的值。这个是兜底办法，永远可行，但是缺点是效率太差，大家可以看一下打开斗鱼页面的速度，正产情况下没个 5s 也是不行的。
+- 使用 Headless Browser。也就是使用一个完整的浏览器来渲染整个页面，然后获取 DOM 中的值。这个是兜底办法，永远可行，但是缺点是效率太差，大家可以看一下打开斗鱼直播间页面的速度，正常情况下没个 5s 是不行的。
 - 我们找到数据源。找到斗鱼的 JS 是请求了哪个接口获取到了数据，然后直接请求该接口。
 
 第二个办法的效率会高很多，但是同时也困难很多。因为 JS 通过什么手段获取了数据实在是灵活性太高了，有太多的办法：
 
 - 可以请求多个接口，然后拼接得到数据
-- 可以请求某个接口，返回变形后的数据，然后 JS 再组装
+- 可以请求某个接口，返回变形后的数据，然后 JS 再反向处理
 - 组合上面两种方式
 - ...
 
@@ -102,9 +100,9 @@ cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 
 考虑到性能以及让生活变的更有乐趣，这里我们选择第二种办法。
 
-{% tip %}
-第一种办法我顺带提一下，使用 [Selenium](https://www.selenium.dev/) 或者 [Puppeteer](https://github.com/puppeteer/puppeteer) 都可以。无非就是加载网页，然后轮询直到对应的 DOM 中有值即可，通杀任何网站。
-{% /tip %}
+{{% tip %}}
+第一种办法我顺带提一下，使用 [Selenium](https://www.selenium.dev/) 或者 [Puppeteer](https://github.com/puppeteer/puppeteer) 都可以。加载网页以后，轮询直到对应的 DOM 中有值即可，通杀任何网站。
+{{% /tip %}}
 
 现在我们来看第二个问题，也就是如何通过字体来获取映射关系。
 
@@ -112,11 +110,11 @@ cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 
 那还能怎么办呢？只能渲染好以后找个人来看吗？
 
-如果时光倒退 20 年到 2000 年，恐怕只能这样做了。虽然那个时候也有图形识别技术，但是不像现在这样成熟也不像现在这样随手可得。
+如果时光倒退 20 年回到 2000 年，恐怕只能这样做了。虽然那个时候也有图形识别技术，但是不像现在这样成熟也不像现在这样随手可得。
 
 但是现在是 2020 年，OCR 图形识别技术已经非常成熟了，我们随便找个 OCR 库应该就够用了。
 
-所以这个问题解决了，我们使用字体渲染好图形，然后调用 OCR 识别图形对应的数字便可以获取到映射关系。
+所以这个问题的解决方案也有了，我们使用字体渲染好图形，然后调用 OCR 识别图形对应的数字便可以获取到映射关系。
 
 按照这个思路，我们整个流程便是
 
@@ -132,50 +130,51 @@ cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 
 这其实是一个很有意思的过程，我建议有兴趣的同学先暂停下来，花点时间自己试着找找，看能不能找到。
 
-我的第一个想法很简单，JS 一定是通过某个接口得到了这些数据，那么，我把所有网络请求导出为 HAR 格式，然后在里面搜索试试。
+我的第一个想法很简单，JS 一定是通过某个接口得到了这些数据，那么，我们把所有网络请求导出为 HAR 格式，然后在里面搜索试试。
 
 ![](http://asset.cjting.cn/Fq-dtkNrMytLeymlkrYvFC4vypzV.png)
 
+{{% tip %}}
 点击上图中标记为红色的按钮就可以导出请求为 HAR 格式，HAR 是一个文本格式，非常有利于搜索。
+{{% /tip %}}
 
 我试了用假数据也就是 `96809` 和字体 ID `mpepc5unpb` 来搜索，都没有任何结果。
 
-只能说我们的运气不太好，这里情况实在太多了，有可能返回的值经过了一定的处理比如 base64 或者 rot13，也有可能是多接口返回然后再拼接组装。我们没办法进一步验证了，只能放弃这条路。
+只能说我们的运气不太好，这里情况实在太多了，有可能返回的值经过了一定的处理比如 base64 或者 rot13，也有可能是多接口返回然后再拼接组装。我们没办法进一步验证，只能放弃这条路。
 
-{% tip %}
+{{% tip %}}
 其实在大部分情况下，使用关键词搜索一下 HAR 是很有效的手段，很容易找到对应的接口。
-{% /tip %}
+{{% /tip %}}
 
-既然此路不通，我们换个思路，请求到了数据以后，JS 代码一定会调用相关 API 去修改 DOM，能不能监听到这个动作？在它修改 DOM 的时候打上断点，这样就可以通过调用栈知道是哪段 JS 在做此操作，同时也可以顺腾摸瓜找到对应的接口。
+既然此路不通，我们换个思路，请求到了数据以后，JS 代码一定会调用相关 API 去修改 DOM，能不能监听到这个动作？在它修改 DOM 的时候打上断点，这样就可以通过调用栈知道是哪段 JS 在做此操作，然后顺腾摸瓜找到对应的接口。
 
-这个时候我们就要用上十分方便的 `MutationObserver` 了，通过 MutationObserver 我们可以任意监听 DOM 的修改事件。
+答案是是可以的，通过使用 `MutationObserver` 我们可以任意监听 DOM 的修改事件。
 
 ```js
 new MutationObserver((mutations, observer) => {
   const el = document.querySelector("span.Title-followNum")
   if (el != null) {
     observer.disconnect()
+    new MutationObserver((mutations, observer) => {
+      debugger
+    }).observe(el, {childList: true, subtree: true})
   }
-
-  new MutationObserver((mutations, observer) => {
-    debugger
-  }).observe(el, {childList: true, subtree: true})
 }).observe(document, {childList: true, subtree: true})
 ```
 
 通过 [Tampermonkey](https://www.tampermonkey.net/) 加载上面的代码，刷新，等待断点的触发。
 
-![](http://asset.cjting.cn/FhXG9N6FYCb5uvfsI0fJsDnN4WEB.png)
+![](http://asset.cjting.cn/FiL0ZC_TXcbRcuw8HwUUUn65oB9w.png)
 
-从上面的调用栈我们很容易看出，数据来源自 WebSocket。
+从上面的调用栈可以看出，数据来源自 WebSocket。
 
-去 Network 面板中看一下，果然是这样的。
+去 Network 面板中看一下，果然是这样。
 
 ![](http://asset.cjting.cn/Fq8Fro93Owx2qIK0GVvjB-KcwAMw.png)
 
-{% tip %}
+{{% tip %}}
   之后爬取像斗鱼这样的复杂网站，应该先检查一下 WebSocket 中的消息。
-{% /tip %}
+{{% /tip %}}
 
 这个消息格式很好理解，我们可以猜到 `cfdc@=63206` 表示字符为 63206，`ci@=t3gadgbaon` 表示字体 ID 是 t3gadgbaon，和 DOM 对照一下，确实如此。
 
@@ -183,30 +182,9 @@ new MutationObserver((mutations, observer) => {
 
 ### 协议
 
-分析 WebSocket 消息会发现，客户端连接以后会发送一个登录消息，然后服务端会回复多个消息，其中，就有我们感兴趣的 `followed_count`。
+分析 WebSocket 消息会发现，客户端连接以后会发送一条登录消息，然后服务端会回复多个消息，其中，就有我们感兴趣的 `followed_count`。
 
 客户端发送的消息如下：
-
-```
-00000000: 1b01 0000 1b01 0000 b102 0000 7479 7065  ............type
-00000001: 403d 6c6f 6769 6e72 6571 2f72 6f6f 6d69  @=loginreq/roomi
-00000002: 6440 3d37 3837 3435 3739 2f64 666c 403d  d@=7874579/dfl@=
-00000003: 736e 4041 413d 3130 3540 4153 7373 4041  sn@AA=105@ASss@A
-00000004: 413d 312f 7573 6572 6e61 6d65 403d 2f70  A=1/username@=/p
-00000005: 6173 7377 6f72 6440 3d2f 6c74 6b69 6440  assword@=/ltkid@
-00000006: 3d2f 6269 7a40 3d2f 7374 6b40 3d2f 6465  =/biz@=/stk@=/de
-00000007: 7669 6440 3d34 6439 6333 3961 3861 3933  vid@=4d9c39a8a93
-00000008: 3734 3662 3664 6235 3336 3735 3830 3030  746b6db536758000
-00000009: 3231 3530 312f 6374 403d 302f 7074 403d  21501/ct@=0/pt@=
-0000000a: 322f 6376 7240 3d30 2f74 7672 403d 372f  2/cvr@=0/tvr@=7/
-0000000b: 6170 6440 3d2f 7274 403d 3135 3933 3632  apd@=/rt@=159362
-0000000c: 3330 3335 2f76 6b40 3d36 6539 6466 6236  3035/vk@=6e9dfb6
-0000000d: 3363 6461 6533 3130 6639 3737 3030 6137  3cdae310f97700a7
-0000000e: 3530 6232 6661 3437 662f 7665 7240 3d32  50b2fa47f/ver@=2
-0000000f: 3031 3930 3631 302f 6176 6572 403d 3231  0190610/aver@=21
-00000010: 3831 3031 3930 312f 646d 6274 403d 6368  8101901/dmbt@=ch
-00000011: 726f 6d65 2f64 6d62 7640 3d38 332f 00    rome/dmbv@=83/.
-```
 
 ![](http://asset.cjting.cn/FuQwIkMoJdPyskwe1E_jFezsbBkk.png)
 
@@ -218,13 +196,13 @@ new MutationObserver((mutations, observer) => {
 
 上面的消息长度是 287 个字节，而 `0x0000011b = 283`，所以，长度编码的值实际上是整个消息的长度减去 4。
 
-这里设计其实挺奇怪的，长度信息比实际长度少四个字节，同时开头又多四个字节的冗余数据，怎么看怎么都像是设计失误，第二个四字节是多余的。
+这里设计其实挺奇怪的，长度信息比实际长度少了四个字节，同时开头又多了四个字节的冗余数据，怎么看怎么都像是设计失误，第二个四字节是多余的。
 
-当然，作为外部人员，我们是永远无法弄清楚真实情况的。可能这四个字节有其他用处，可能就是设计失误，也有可能一开始没有这四个字节，但是后来因为事故不小心加上了，为了后向兼容，所以就一直带上了。
+{{% tip %}}
+对于一个协议来说，作为外部人员，我们是永远无法弄清楚有些问题的成因的。可能这四个字节有其他用处，可能就是设计失误，也有可能一开始没有这四个字节，后来因为 bug 不小心加上了，然后为了后向兼容，就一直带上了。
+{{% /tip %}}
 
-这些和我们的目的没有什么关系，只是觉得有点意思所以提出来。我们的目标是搞清楚”是什么“而不是”为什么“。
-
-现在我们来看具体的请求体，将请求体拆开以后是如下键值对：
+现在我们来看具体的键值对：
 
 ```text
 type@=loginreq
@@ -249,11 +227,11 @@ dmbt@=chrome
 dmbv@=83
 ```
 
-这些参数中，`type`, `roomid`, `devid` 都很好理解，`dfl`, `ver`, `aver`, `dmbt`, `dmbv` 这些看起来像是普通的信息携带字段，传递一些客户端信息。
+这些参数中，`type`, `roomid`, `devid` 都很好理解，`dfl`, `ver`, `aver`, `dmbt`, `dmbv` 这些看起来像是不重要的信息携带字段。
 
 `rt` 很容易发现是一个秒级时间戳，现在唯一剩下的就是 `vk` 这个字段。我们可以通过修改字段值的方式来大致判断字段的作用和重要性。
 
-如果我们原封不动的使用这个请求体（在检查器中右键选择 `Copy message... -> Copy as hex`）请求斗鱼的 WebSocket 服务，会发现一开始是有值的，过几分钟后就报错了。
+如果我们原封不动的使用这个请求体（在检查器中右键选择 `Copy message... -> Copy as hex`）请求斗鱼的 WebSocket 服务，会发现一开始是有正常响应的，但是过几分钟后就报错了。
 
 ```js
 const WebSocket = require("ws")
@@ -271,11 +249,11 @@ ws.on("message", payload => {
 
 很明显，斗鱼会校验 `rt` 的值，如果服务器时间和 `rt` 时间超过一定间隔，那么会返回错误，这是一个很常见的设计。
 
-如果我们修改了一下 `vk`，会得到一个错误，这说明 `vk` 是类似签名的东西，而不是什么信息携带字段，服务端会校验它的有效性。
+如果我们修改了一下 `vk`，也会得到一个错误，这说明 `vk` 是类似签名的东西，而不是什么信息携带字段，服务端会校验它的有效性。
 
-对于 `dfl`, `ver`, `aver`, `dmbt`, `dmbv` 这些字段，我们会发现随便修改，都不会影响结果，说明我们的猜测是正确的，他们就是普通字段用于携带客户端信息的。
+对于 `dfl`, `ver`, `aver`, `dmbt`, `dmbv` 这些字段，我们会发现随便修改都不会影响结果，说明我们的之前的猜测是正确的。
 
-所以，现在剩下的问题就是搞清楚 `vk` 的签名规则，这个最好的方式是从源码入手。
+所以，现在剩下的问题就是要搞清楚 `vk` 的签名规则，这个只能从源码入手。
 
 Chrome 检查器中对于每个网络请求都会显示它的 Initiator，也就是这个请求是什么代码发起的。
 
@@ -284,8 +262,6 @@ Chrome 检查器中对于每个网络请求都会显示它的 Initiator，也就
 鼠标放上去可以看到完整的调用栈。
 
 ![](http://asset.cjting.cn/Fv229dbVo8CcUkUxA2mQqhbUQRv7.png)
-
-我们会发现主要涉及到两个 JS 文件，一个是 `playerSDK-room_4a27f53.js`，另一个是 `common-pre~9fd51f5d.js`。
 
 我们的思路是找到发送消息的地方，打上断点，通过调用栈往上找。
 
@@ -305,7 +281,7 @@ Chrome 检查器中对于每个网络请求都会显示它的 Initiator，也就
 
 ![](http://asset.cjting.cn/FgPsfPNSU-t8PhBHlQpRiDpCqUVF.png)
 
-然后我们就发现 `vk` 的值等于 `L(y + "r5*^5;}2#${XF[h+;'./.Q'1;,-]f'p[" + p)`。到这里就简单了，通过断点可以发现 `y` 就是 `rt`，而 `p` 是 `devid`，而 `L` 函数是求 md5 值。
+然后我们就发现 `vk` 的值等于 `L(y + "r5*^5;}2#${XF[h+;'./.Q'1;,-]f'p[" + p)`。到这里就简单了，通过断点可以发现 `y` 就是 `rt`，`p` 是 `devid`，而 `L` 是一个求 md5 值的函数。
 
 所以 `vk` 的签名算法是 `vk = md5(rt + "r5*^5;}2#${XF[h+;'./.Q'1;,-]f'p[" + devid)`
 
@@ -382,7 +358,7 @@ ws.on("message", payload => {
 
 我们先使用字体 ID 将字体下载下来，字体的下载 URL 是固定的 `https://shark.douyucdn.cn/app/douyu/res/font/FONT_ID.woff`。
 
-怎样渲染字体到图片呢？这个问题方案有很多，上文中我们利用了浏览器，现在我选择使用 SDL。
+怎样渲染字体到图片呢？这个问题方案有很多，上文中我们利用了浏览器，这里我选择使用 SDL。
 
 ```c
 #include <stdio.h>
@@ -395,7 +371,7 @@ main(void)
 {
   if(TTF_Init() == -1) {
     printf("error: %s\n", TTF_GetError());
-    exit(1);
+    return 1;
   }
 
   TTF_Font *font = TTF_OpenFont("test.woff", 50);
@@ -412,10 +388,11 @@ main(void)
   }
 
   IMG_SavePNG(surface, "test.png");
+  return 0;
 }
 ```
 
-渲染速度很快，结果也很清楚，用来 OCR 应该足够了。
+SDL 渲染速度非常快，结果也很清楚，用来 OCR 应该足够了。
 
 ![](http://asset.cjting.cn/FpSLekVg2B25ags6kwehiDgAgZ0r.png)
 
@@ -453,7 +430,7 @@ func main() {
 
 ### 最终实现
 
-最后，我们把上面的各个步骤都整合一下，使用 Go 来实现一个完整的爬取斗鱼关注人数的程序，最后的代码在这里 [douyu-crawler-demo](https://github.com/cj1128/douyu-crawler-demo)。
+最后，我们把上面的各个步骤整合一下，使用 Go 来实现一个完整的斗鱼关注人数爬虫，最终的代码在这里 [douyu-crawler-demo](https://github.com/cj1128/douyu-crawler-demo)。
 
 代码的大致流程如下：
 
@@ -488,9 +465,9 @@ $ douyu-crawler-demo -f roomids.txt
 2020/07/02 13:28:41   ocr failed: 0
 ```
 
-120 个主播，一共花费了 36s，这个速度还是非常理想的，使用 Headless 是不可能有这个速度的。
+120 个主播，一共花费了 36s，这个速度还是非常理想的，使用 Headless Browser 是不可能有这个速度的。
 
-但是我们会发现，其中有一些失败了，看日志主要是 WebSocket 没有返回值或者超时了，这在爬虫中很正常，生产级的爬虫加上重试就可以了，这里我们简单一点，再运行一遍：
+但是我们会发现，其中有一些失败了，看日志主要是 WebSocket 没有返回值或者超时了，这在爬虫中很正常，直接重试一下就行了。
 
 ```bash
 $ douyu-crawler-demo -f roomids.txt
@@ -503,6 +480,10 @@ $ douyu-crawler-demo -f roomids.txt
 ```
 
 这次全部成功了，结果文件在 `result/result.txt` 中。
+
+{{% tip %}}
+可以发现 OCR 没有一次失败，tesseract 太赞了👍
+{{% /tip %}}
 
 ```bash
 $ head result/result.txt
@@ -518,19 +499,15 @@ $ head result/result.txt
 5747228,svk3del36j,319692,127978
 ```
 
-{% tip %}
-可以发现 OCR 没有一次失败，看来 tesseract 还是非常强的 👍。
-{% /tip %}
-
 每个字段分别是房间号、字体 ID、假数据以及真数据。
 
 ## 防守
 
-讲完了攻击，现在我们来看看如果我们站在防守方，需要使用这种技巧来反爬，该怎么做？
+讲完了进攻，现在我们来看看如果我们站在防守方，需要使用这种技巧来反爬，该怎么做？
 
-字体反爬的核心是随机生成一个映射，根据映射生成相应字体，然后返回字体和假数据给到前端即可。
+字体反爬的核心是随机生成一个映射，根据映射生成字体，然后返回字体和假数据给到前端。
 
-这个时候我们就需要了解一下字体文件格式了。常见的字体格式有 `ttf`, `otf`, `woff`。其中 `woff` 是一个包装格式，里面的字体不是 `ttf` 就是 `otf` 的，所以真正的存储格式只有两种，`ttf` 和 `otf`。
+这个时候我们就需要了解一下字体的文件格式了。常见的字体格式有 `ttf`, `otf`, `woff`。其中 `woff` 是一个包装格式，里面的字体不是 `ttf` 就是 `otf` 的，所以真正的存储格式只有两种，`ttf` 和 `otf`。
 
 这两种格式很明显都是二进制格式，没法直接打开看。但是，幸运的是，字体有一个格式叫做 `ttx`，是一个 XML 的可读格式。
 
@@ -580,7 +557,7 @@ Dumping 'GSUB' table...
 
 我们会发现目录下多了一个 `hack.subset.ttx` 文件，打开观察一下。
 
-很容易就可以发现，`cmap` 标签中定义了字符和图形的映射，而 `TTGlyph` 标签定义了具体的图形。
+很容易就可以发现，`cmap` 标签中定义了字符和图形的映射。
 
 ```xml
 <cmap>
@@ -625,7 +602,7 @@ Dumping 'GSUB' table...
 </TTGlyph>
 ```
 
-那么怎么制作混淆字体的方法就简单了，我们修改一下这个 XML 即可。手动把 `TTGlyph(name="zero")` 标签的 `zero` 换成 `eight` 然后把 `TTGlyph(name="eight")` 标签的 `eight` 换成 `zero`，保存文件为 `fake.ttx`。
+那么怎么制作混淆字体的方法就不言而喻了，我们修改一下这个 XML，把 `TTGlyph(name="zero")` 标签的 `zero` 换成 `eight` 然后把 `TTGlyph(name="eight")` 标签的 `eight` 换成 `zero`，保存文件为 `fake.ttx`。
 
 导出 ttx 到 ttf 依然是使用 `ttx` 工具。
 
@@ -650,14 +627,15 @@ Parsing 'gasp' table...
 Parsing 'GSUB' table...
 ```
 
-使用上面的 HTML 渲染 `fake.ttf` 字体，可以看到，我们成功的制作了一个混淆字体。
+使用上文提到的 HTML 使用 `fake.ttf` 渲染 0 ~ 9，可以看到，我们成功地制作了一个混淆字体。
 
 ![](http://asset.cjting.cn/FsXY7liRLS9B1_55DC3HQCY0Va7a.png)
 
-[genfont.py](https://github.com/cj1128/douyu-crawler-demo/blob/master/genfont.py) 是我使用 Python 编写的脚本，可以自动生成所需数量的混淆字体。
+[genfont.py](https://github.com/cj1128/douyu-crawler-demo/blob/master/genfont.py) 是我使用 Python 编写的脚本，可以自动生成任意数量的混淆字体。
 
 ```bash
-$ ./genfont.py hack.subset.ttf 20 # 使用 hack.subset.ttf 为基础生成 20 个混淆字体
+# 使用 hack.subset.ttf 为基础生成 20 个混淆字体
+$ ./genfont.py hack.subset.ttf 20
 ....
 $ ls result/generated # 结果存储在这个目录中
 0018fb8365.7149586203.ttf  267ccb0e95.8402759136.ttf

@@ -74,7 +74,7 @@ const imageminSvgo = require("imagemin-svgo")
 
 注意，`quality` 参数需要自己测试去确定，怎样在质量和尺寸中权衡，每个团队有自己的标准。
 
-### Progressive JPEG VS Baseline JPEG
+### Progressive VS Baseline
 
 JPEG 根据显示方式的不同，分为两种。Progressive JPEG 会先加载模糊的整张图片，然后变的越来越清晰。
 
