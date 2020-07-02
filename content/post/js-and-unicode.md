@@ -94,8 +94,6 @@ UTF8 因为它的灵活性，尤其是与 ASCII 的兼容性，目前已经成�
 
 ## JS 中的字符串问题和解决方法
 
-### JS 的字符串和字符
-
 JS 中的字符串，我们可以认为是 **理解 Surrogate Pair 的 UCS-2**。
 
 这是因为，JS 中的字符串，我们可以使用 Surrogate Pair 来编码非 BMP 字符，这是 UTF16 的特性，单纯的 UCS-2 是不能理解 Surrogate Pair 的。
