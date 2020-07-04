@@ -86,7 +86,7 @@ cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 
 斗鱼的这个关注人数很明显是 JS 渲染的，我们有两条路可以走：
 
-- 使用 Headless Browser。也就是使用一个完整的浏览器来渲染整个页面，然后获取 DOM 中的值。这个是兜底办法，永远可行，但是缺点是效率太差，大家可以看一下打开斗鱼直播间页面的速度，正常情况下没个 5s 是不行的。
+- 使用 Headless Browser。也就是使用一个完整的浏览器来渲染整个页面，然后获取 DOM 中的值。这个是兜底办法，永远可行，但是缺点是效率太差。大家可以看一下打开斗鱼直播间页面的速度，正常情况下等到关注人数显示的时候至少需要 5 秒钟。
 - 我们找到数据源。找到斗鱼的 JS 是请求了哪个接口获取到了数据，然后直接请求该接口。
 
 第二个办法的效率会高很多，但是同时也困难很多。因为 JS 通过什么手段获取了数据实在是灵活性太高了，有太多的办法：
@@ -148,7 +148,7 @@ cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 
 既然此路不通，我们换个思路，请求到了数据以后，JS 代码一定会调用相关 API 去修改 DOM，能不能监听到这个动作？在它修改 DOM 的时候打上断点，这样就可以通过调用栈知道是哪段 JS 在做此操作，然后顺腾摸瓜找到对应的接口。
 
-答案是是可以的，通过使用 `MutationObserver` 我们可以任意监听 DOM 的修改事件。
+答案是是可以的，通过使用 `MutationObserver` 我们可以监听任意 DOM 的修改事件。
 
 ```js
 new MutationObserver((mutations, observer) => {
@@ -162,7 +162,7 @@ new MutationObserver((mutations, observer) => {
 }).observe(document, {childList: true, subtree: true})
 ```
 
-通过 [Tampermonkey](https://www.tampermonkey.net/) 加载上面的代码，刷新，等待断点的触发。
+通过 [Tampermonkey](https://www.tampermonkey.net/) 加载上面的代码，刷新，等待断点触发。
 
 ![](http://asset.cjting.cn/FiL0ZC_TXcbRcuw8HwUUUn65oB9w.png)
 
@@ -190,7 +190,7 @@ new MutationObserver((mutations, observer) => {
 
 虽然是二进制消息，但是可以看到消息主体都是可读的文本，很明显，斗鱼这里是自己实现了一个内部协议格式。
 
-开头 12 个自己字节暂时不清楚什么含义，然后紧跟着一段键值对数据，使用 `@=` 连接键和值，使用 `/` 分割，最后跟上 `/\x00`。
+开头 12 个字节暂时不清楚什么含义，然后紧跟着一段键值对数据，使用 `@=` 连接键和值，使用 `/` 分割，最后跟上 `/\x00`。
 
 多查看几个直播间以后，对于开头的 12 个字节，我们不难分析出前四个字节和消息长度有关，使用 Little Endian，中间四个字节和前四个字节相同，而最后四个字节是固定值 `0xb1020000`。
 
