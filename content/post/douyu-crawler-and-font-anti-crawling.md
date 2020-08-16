@@ -121,7 +121,7 @@ cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 - 寻找数据源
 - 根据数据源获取字体文件和假数据
 - 根据字体文件渲染图形
-- 使用 OCR 技术识别图形得到映射关系
+- 使用 OCR 识别图形得到映射关系
 - 根据映射关系和假数据得到真数据
 
 ### 数据源
@@ -192,7 +192,7 @@ new MutationObserver((mutations, observer) => {
 
 开头 12 个字节暂时不清楚什么含义，然后紧跟着一段键值对数据，使用 `@=` 连接键和值，使用 `/` 分割，最后跟上 `/\x00`。
 
-多查看几个直播间以后，对于开头的 12 个字节，我们不难分析出前四个字节和消息长度有关，使用 Little Endian，中间四个字节和前四个字节相同，而最后四个字节是固定值 `0xb1020000`。
+多查看几个直播间以后，对于开头的 12 个字节，我们不难分析出前四个字节和消息长度有关，使用 Little Endian，中间四个字节和前四个字节相同，而最后四个字节是固定值 `0xb1 0x02 0x00 0x00`。
 
 上面的消息长度是 287 个字节，而 `0x0000011b = 283`，所以，长度编码的值实际上是整个消息的长度减去 4。
 
@@ -304,7 +304,7 @@ const md5 = payload => {
   return md5Hash.update(payload).digest("hex")
 }
 
-// 4-byte length, 4-byte length, 0xb102, 0x0000
+// 4-byte length, 4-byte length, 0xb1, 0x02, 0x00, 0x00
 const getPayload = obj => {
   const arr = [0, 0, 0, 0, 0, 0, 0, 0, 0xb1, 0x02, 0x00, 0x00]
 
