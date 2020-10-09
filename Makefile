@@ -13,13 +13,6 @@ deploy-github:
 	echo "Deploy to GitHub Done"
 .PHONY: deploy-github
 
-deploy-cn:
-	hugo
-	rsync --progress -r --update public/ cjdev:/data/cjting.cn/
-	echo "Deploy to CN Done"
-.PHONY: deploy-cn
-
 deploy:
 	make deploy-github
-	make deploy-cn
 .PHONY: deploy
