@@ -5,6 +5,8 @@ tags: [cs107e, os, raspberrypi]
 cover: http://asset.cjting.cn/Fi3BVvyRelkPNZ-GdNYw1bAcobCK.jpg
 ---
 
+2020.10.09 更新：**最近收到了一封官方的邮件，希望我把仓库隐藏起来，避免新同学直接 copy 我的代码。既然是来自官方的要求，自然毫不犹豫地配合。仓库和我归档的 Winter 2020 课程现在都不可见了，想要学习这门课程的同学可以直接去官方站点学习，祝大家学习愉快~**
+
 [CS107e](http://cs107e.github.io/) 全称为 *CS107e: Computer Systems from the Ground Up*，是斯坦福大学的一门计算机课程，也是我目前为止发现的最好的关于硬件、底层和 C 的一门课程。
 
 在课程学习过程中，我们会一步一步地从头开始使用 C 为树莓派开发一个操作系统核心。
