@@ -28,7 +28,7 @@ Jesse Li 的博客图文并茂，讲述了如何用 Go 开发一个 BT 的下载
 我们先来看一下 BT 是什么。
 
 {{% tip %}}
-BT 一直在演进，新的功能比如有 DHT，磁力链接等，这里我们关注最早版本的 BT。
+BT 一直在演进，新的功能有 DHT，磁力链接等，这里我们关注早期版本的 BT。
 {{% /tip %}}
 
 BT 是一个协议，和 HTTP, FTP 一样，是一个应用层的协议，这个协议被设计用来实现 P2P(Peer to Peer) 下载。
@@ -134,7 +134,7 @@ $ deno run --allow-read decode.ts debian-10.6.0-amd64-netinst.iso.torrent
 
 这里就涉及到另外一个问题，[单文件种子](https://wiki.theory.org/BitTorrentSpecification#Info_in_Single_File_Mode) 和 [多文件种子](https://wiki.theory.org/BitTorrentSpecification#Info_in_Multiple_File_Mode)，它们存储的信息略有不同，我们用一个例子来看。
 
-我随便找了一个 Taylow Swift 的专辑 Red 的种子，打开看看。
+我随便找了一个 Taylor Swift 的专辑 Red 的种子，打开看看。
 
 ```
 $ deno run --allow-read decode.ts red.torrent
@@ -297,7 +297,7 @@ Tracker 使用 HTTP 协议，请求时通过 Query 携带参数，下面是三�
 
 - `info_hash`: 这个用来表明我们请求的资源是什么，在 BT 下载中，对资源的唯一标识使用的是 InfoHash，也就是种子文件中的 `info` 字段的内容进行 SHA1 哈希以后得到的结果，20 个字节
 - `peer_id`: 我们自己生成的标识身份的一个 ID，20 个字节
-- `port`: 我们客户端的监听端口，用于接受其他 Peer 发来的消息
+- `port`: 我们客户端的监听端口，用于接收其他 Peer 发来的消息
 
 Tracker 返回的信息使用 Bencode 编码，里面含有两个数据，`interval` 和 `peers`。
 
@@ -320,7 +320,7 @@ Tracker 返回的信息使用 Bencode 编码，里面含有两个数据，`inter
 
 `peers` 是一个 Byte Array，每 6 个字节代表一个 Peer，前 4 个字节为 IP 地址，后 2 个字节为 BigEndian 的端口号。
 
-以上面的输出为例，我们可以看出，第一个 Peer 是 `171.33.254.92:51413`。
+以上面的输出为例，我们可以得知，第一个 Peer 的地址是 `171.33.254.92:51413`。
 
 {{% tip %}}
 当然，后来 BT 扩展了一个 `peers6` 字段用来返回 IPv6 的地址。
@@ -345,13 +345,13 @@ Tracker 返回的信息使用 Bencode 编码，里面含有两个数据，`inter
 
 发送如下数据给到对方进行握手：
 
-- 协议长度 ProtocolLength，填写固定值 `0x13`
-- 协议名 ProtocolName，填写固定值 `BitTorrent protocol`
-- 8 个保留字节 Reserved，都填写为 0
-- 从种子文件中计算得到的 InfoHash，20 个字节
-- 我们自己生成的 PeerID，20 个字节
+- 1 字节的协议长度 ProtocolLength，填写固定值 `0x13`
+- 19 个字节的协议名 ProtocolName，填写固定值 `BitTorrent protocol`
+- 8 字节的保留字段 Reserved，都填写为 0
+- 20 个字节的 InfoHash，从种子文件中计算得到
+- 20 个字节的 PeerID，我们自己生成
 
-如果对方是一个正常的 BT Peer 的话，我们会收到同样结构的响应，从中提取出 InfoHash，如果和我们发送的 InfoHash 一样的话，那么就握手成功了🤝
+如果对方是一个正常的 BT Peer 的话，我们会收到同样结构的响应，从中提取出 InfoHash，如果和我们发送的 InfoHash 一样，那么就握手成功了~
 
 握手成功以后，接下来便是互发消息。BT 是基于 TCP 的一个上层协议，和任何一个自定义协议一样，BT 定义了自己的消息格式 BTMessage，Peer 之间通过 BTMessage 来交换信息。
 
@@ -378,7 +378,7 @@ Tracker 返回的信息使用 Bencode 编码，里面含有两个数据，`inter
 
 - 握手
 - 接收 Peer 发送的 Bitfield 信息，获知 Peer 有哪些 Piece
-- 等待 Peer 发送的 Unchoke 信息
+- 等待 Peer 发送 Unchoke 信息
 - 下载 Piece1
   - 发送 `Request` 消息给 Peer，请求 Piece1 的 Block1
   - 收到 `Piece` 消息，得到 Block1 数据
@@ -386,7 +386,7 @@ Tracker 返回的信息使用 Bencode 编码，里面含有两个数据，`inter
   - 收到 Block2 数据
   - ...
   - Piece1 的所有 Block 下载完毕，校验 SHA1 哈希值
-  - 开始下载 Piece2
+  - 下载 Piece2
 
 每一个消息类型的具体消息体这样就不再展开了，这些细节对于理解 BT 不重要，在编码时对照 [Spec](https://wiki.theory.org/BitTorrentSpecification#Messages) 来做就好。
 
@@ -398,11 +398,11 @@ Tracker 返回的信息使用 Bencode 编码，里面含有两个数据，`inter
 
 这样一个问题给到我，我的第一想法自然是 Go，网络 + 并发这都是 Go 的强项，再加上强大的标准库和生态，写一个 CLI 的 BT 下载器自然是手到擒来。
 
-但是，考虑到 Jesse 的程序就是用 Go 写的，不如换个语言来写，可以加深自己对 BT 的理解和认识。
+但是，考虑到 Jesse 的程序就是用 Go 写的，我也用 Go 的话难免不从他那儿“借鉴”，不如换个语言来写，可以加深自己对 BT 的理解和认识。
 
 ### Why Deno?
 
-我最熟悉的语言除了 Go 就是 JS，Deno 也是我关注很久的项目，一直没有去认真体验，不如借着这个机会去试试看 Deno+TypeScript 的感觉如何。
+我最熟悉的语言除了 Go 就是 JS，Deno 是我关注很久的项目，但一直没有在上面去写点什么，不如借着这个机会去试试看 Deno+TypeScript 感觉到底如何。
 
 Deno 是 Node 的作者 Ryan Dahl 的最新作品，目标是提供一个安全、现代化的 JS+TS 运行时，修复 Node 的一些问题。
 
@@ -425,9 +425,9 @@ Deno 的名称实际上是把 `Node` 的 `no` 和 `de` 重新排列而得到的�
 
 TypeScript 所代表的类型系统有很多好处：
 
-- 更精确的表达：完备的类型系统可以更加精确的抽象我们要描述的问题
-- 尽早地发现 bug：在编译时而不是在运行时
-- 放心大胆地重构：我想前端人员对于重构 JS 代码应该都是很忐忑的，没有什么办法能保证所有涉及到的地方都已经被修改
+- 更精确的表达：完备的类型系统可以更加精确地抽象和表达我们要描述的问题
+- 尽早发现 bug：在编译时而不是在运行时
+- 放心大胆的重构：我想前端人员对于重构 JS 代码应该都是很忐忑的，没有什么办法能保证所有涉及到的地方都已经被修改
 - 更快的性能：编译器/虚拟机可以根据类型信息生成更高效的代码
 - 最好的文档：注释总会过时，类型不会
 
@@ -441,7 +441,7 @@ TypeScript 所代表的类型系统有很多好处：
 
 确定了语言以后，在正式开发前，我们先来思考一下怎么测试我们的程序。
 
-一开始我的想法是使用一些官方的种子，比如 Debian 的，但是它的问题是里面包含的文件很大，300+ MB，因为服务器在国外，下载速度也很慢，这用来测试显然是很不理想的。
+一开始我的想法是使用一些官方的种子，比如 Debian 的，但是它的问题是里面包含的文件很大，300+ MB，因为服务器在国外，下载速度很慢，用来测试显然是很不理想的。
 
 所以，一个很自然的想法是，能不能找到小一点的官方的种子？
 
@@ -469,7 +469,7 @@ $ yarn add bittorrent-tracker
 $ ./node_modules/.bin/bittorrent-tracker --http
 ```
 
-现在我们拥有了一个运行在本机 8080 端口的 Tracker 服务器，Tracker URL 是 `http://localhost:8000/announce`。
+现在我们拥有了一个运行在本机 8000 端口的 Tracker 服务器，Tracker URL 是 `http://localhost:8000/announce`。
 
 接下来我们需要个 BT 客户端来给我们做种。
 
@@ -486,7 +486,7 @@ Jesse 的客户端是可以下载 Debian 的种子的，所以客户端实现没
 然后我就找到了 [Folx](https://mac.eltima.com/download-manager.html)，果然，收费的软件看起来都特别精致，UI 和体验都舒服极了，完全不是粗糙的 qBittorrent 能比。
 
 {{% tip %}}
-当然，开源也有很多很精致的软件，比如 uTorrent。
+当然，开源也有很多精致的软件，比如 [iina](https://github.com/iina/iina)。
 {{% /tip %}}
 
 打开 Folx，选择 `File -> Create Torrent File`，随便选择一个文件，填入 Tracker 地址，我们就得到了一个种子。
@@ -543,7 +543,7 @@ Node 的库只要没有用到 Node 特有的 Module，都可以直接拷贝过�
 
 UTF8 是兼容 ASCII 的，但是在这个包的 [代码](https://github.com/wayfind/is-utf8/blob/master/is-utf8.js) 中却认为 ASCII 的控制字符不是 UTF8，也就是 `isUTF8("\x00") === false`。
 
-下载量如此大的包，实现竟然根本不对，令人唏嘘。
+下载量如此大的包，竟然有如此明显的错误，实在是让人无话可说。
 
 - 其次，虽然 Deno/Node 拥有事件驱动的异步模型，但是要编写高并发的 IO 程序依旧很痛苦。
 
@@ -559,7 +559,7 @@ UTF8 是兼容 ASCII 的，但是在这个包的 [代码](https://github.com/way
 
 感受最深的是，涉及到网络的接口比如 `Deno.conect` 居然没有超时选项，这是认真的吗？
 
-当然，我们可以自己想办法包装，但是这些事情接口层应该要强调，超时在网络开发中是十分重要的，新手很容易忽略。
+当然，我们可以自己想办法包装，但是这些事情接口层应该要强调，超时在网络开发中是十分重要的配置，新手很容易忽略。
 
 其次，文档还有欠缺。比如说当我用了 [ky](https://github.com/sindresorhus/ky) 这个库以后，Deno 会报一些类型冲突的错误，但是我找遍了文档，也不知道该怎么去限制 Deno 加载的类型库。
 
