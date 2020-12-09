@@ -1,7 +1,9 @@
-# Source of CJ Ting's Blog
+# Blog Source
 
-Source code of my [blog](https://cjting.me). Rendered by [hugo](https://gohugo.io/).
+Source code of my [blog](https://cjting.me), rendered by [hugo](https://gohugo.io/).
 
-RSS link: https://cjtign.me/index.xml. For RSS reader, personally I like using [feedly](https://feedly.com/).
+RSS link: https://cjtign.me/index.xml.
+
+For RSS reader, I personally like using [feedly](https://feedly.com/).
 
 Use [gitalk](https://github.com/gitalk/gitalk) as the comment system.
