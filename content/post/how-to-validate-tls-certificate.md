@@ -3,7 +3,6 @@ title: "安全背后: 浏览器是如何校验证书的"
 date: 2021-03-02T21:39:22+08:00
 cover: http://asset.cjting.cn/FohSIOjDywFAmZueZxCU1QrNi1sm.jpg
 tags: [tls certificate https]
-draft: true
 ---
 
 现如今的 Web，HTTPS 早已经成为标配，公开的 HTTP 网站已经和 Flash 一样，慢慢在消亡了。
