@@ -127,11 +127,11 @@ main(void)
 
 但是在计算机中，整数除法运算返回的结果是整数，这里面实际上可以有三种模式。
 
-第一种，truncating，运算结果始终向 0 截断。
+- truncating，运算结果始终向 0 截断
 
-第二种，floor，运算结果始终向下截断。
+- floor，运算结果始终向下截断
 
-第三种，modulus，余数始终为非负。
+- modulus，余数始终为非负
 
 $$
 \begin{align*}
@@ -165,9 +165,9 @@ $$
 
 首先，我们将 1431655766 这个 Magic Number 改写一下形式。
 
-{{% tip %%}}
+{{% tip %}}
 https://betterexplained.com/articles/understanding-quakes-fast-inverse-square-root/
-%%{ /tip %%}
+{{% /tip %}}
 
 $$
 1431655766 = \frac{2^{32} + 2}{3}
