@@ -2,6 +2,7 @@
 title: Shell 启动类型探究 ── login && interactive
 date: 2020-08-16T11:30:23+08:00
 cover: http://asset.cjting.cn/FgNP1hv-An94wEaBmEuMraLR457-.jpg
+tags: [shell, bash, zsh]
 ---
 
 Shell 对程序员来说是必不可少的生产力工具。

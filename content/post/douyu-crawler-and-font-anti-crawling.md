@@ -1,7 +1,7 @@
 ---
 title: 斗鱼关注人数爬取 ── 字体反爬的攻与防
 date: 2020-07-01T23:47:32+08:00
-tags: [js crawler]
+tags: [js, crawler]
 cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 ---
 

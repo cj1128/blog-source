@@ -2,7 +2,9 @@
 title: 消失的除法指令：Part1
 date: 2021-03-16T20:13:21+08:00
 cover: http://asset.cjting.cn/FtjQZJYq8i7cRUwvcLX63Qqnvggz.png
-tags: [gcc clang compiler assembly math]
+tags: [gcc, clang, compiler, assembly, math]
+aliases:
+  - /the-missing-div-instruction-part1/
 ---
 
 之前学汇编的时候观察到一个现象，我在 C 语言中写了一个函数进行除法操作，但是编译得到的汇编代码中却没有除法指令，取而代之的是一条乘法指令。

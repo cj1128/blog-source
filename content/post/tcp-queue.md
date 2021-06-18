@@ -2,7 +2,7 @@
 title: 从一次 Connection Reset 说起，TCP 半连接队列与全连接队列
 cover: http://asset.cjting.cn/FmiIWhP-NK5UDBmgXxkwkvHg29Zg.jpg
 date: 2019-08-28T15:55:08+08:00
-tags: ["linux", "network", "tcp"]
+tags: [linux, network, tcp]
 ---
 之前用 Go 编写过一个简单的服务器和客户端，用来测试 Go 的 HTTP 性能，无意中发现了一个奇怪的问题。
 

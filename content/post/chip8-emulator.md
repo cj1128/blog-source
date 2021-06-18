@@ -2,7 +2,7 @@
 title: 用 C 实现一个 CHIP-8 模拟器
 date: 2020-06-07T17:17:58+08:00
 cover: http://asset.cjting.cn/FrxGU8-3EO8dEfXB-zxLk_L3b4pK.png
-tags: [chip8 emulator c]
+tags: [chip8, emulator, c]
 ---
 
 很早之前我就想写一个 GBA 模拟器，因为小时候的 GBA 游戏给我留下了深刻的印象。

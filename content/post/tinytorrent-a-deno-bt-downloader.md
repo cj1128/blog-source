@@ -2,7 +2,7 @@
 title: "tinyTorrent: 从头写一个 Deno 的 BitTorrent 下载器"
 date: 2020-10-31T23:30:48+08:00
 cover: https://asset.cjting.cn/FlijgHgi1MIL_TKTl6i9eZdvIvix.jpg
-tags: [bittorrent bt deno]
+tags: [bittorrent, bt, deno]
 ---
 
 BitTorrent 想必大家应该都不陌生，中文名叫做“种子”。

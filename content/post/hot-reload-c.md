@@ -1,9 +1,11 @@
 ---
-title: 热重载 C
+title: "热重载 C"
 created_date: 2021-04-25T21:27:10+08:00
 date: 2021-06-10T23:10:10+08:00
 cover: http://asset.cjting.cn/Fkc6gm7qyhWpzfzhPpDqHwDtO2ML.png
-tags: [c linker ld]
+tags: [c, linker, ld]
+aliases:
+  - /hot-reload-c/
 ---
 
 热重载是一个非常好用的功能，可以在不重启的情况下更新应用，从而大大提高开发效率。

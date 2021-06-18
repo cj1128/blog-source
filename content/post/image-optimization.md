@@ -2,7 +2,7 @@
 title: 从图片优化说起
 date: 2019-07-29T14:52:50+08:00
 cover: http://asset.cjting.cn/Fk_kBecsmewI-l6GwB9HsQBNQqsW.jpeg
-tags: ["image", "picture", "compression"]
+tags: [image, picture, compression]
 ---
 
 图片是大部分网页的重要组成部分，一般情况下，我们不会太关注这方面的问题，需要显示图片直接一个 `img` 标签搞定。

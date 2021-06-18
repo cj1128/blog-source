@@ -2,6 +2,7 @@
 title: 正向代理与反向代理
 date: 2018-08-11T18:08:00+08:00
 cover: http://asset.cjting.cn/Fly_Jp2zD-BbHRl-97_m7PqwbTvX.jpeg
+tags: [proxy]
 aliases:
   - /misc/forward-proxy-and-reverse-proxy/
 ---
