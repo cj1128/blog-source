@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+      "folder_exclude_patterns": [
+        "cj1128.github.io"
+      ]
+		}
+	]
+}
