@@ -1,5 +1,5 @@
 ---
-cover: http://asset.cjting.cn/9b85365djw1f9xjicmnn713r0p178e.jpg
+cover: /image/9b85365djw1f9xjicmnn713r0p178e.jpg
 date: 2016-11-14T00:00:00+08:00
 title: 使用 pprof 优化 Golang 性能
 tags: [golang, pprof]
@@ -17,7 +17,7 @@ aliases:
 
 我们都知道，性能最好的代码往往并不是优美直观的代码，往往看起来非常晦涩。下图是 JS 转换字符串到数字的三个方法在 Chrome 下的性能对比。可以看出，`+` 是最快的方法。但是 `+str` 这种写法明显是不如 `parseInt(str)` 或者是 `Number(str)` 容易理解。*Donald E.Knuth* 的那句话，我的理解就是在提醒我们，不用使用 `+str`，而应该使用更加语义化的 `parseInt(str)`。
 
-![](http://asset.cjting.cn/9b85365dgw1f9xaluvkarj20qp0733zq.jpg)
+![](/image/9b85365dgw1f9xaluvkarj20qp0733zq.jpg)
 
 不应该过早的优化，那么应该做的就是在适当的时候进行优化。程序在功能开发完毕并且测试好以后，就可以进入优化环节了。所有的优化都应该基于性能分析（Profiling），凭空想象进行优化是一件很危险并且没有效率的事情。很多你觉得可以优化的点说不定编译器早替你做了，很多你觉得很慢的地方说不定非常快。
 
@@ -74,7 +74,7 @@ func fibonacci(n int) int {
 
 编译以后，运行程序便可以生成 `cpu-profile.prof` 文件。使用 `go tool pprof finabocci cpu-profile.prof` 进入 Profiling 控制台，输入`web` 指令跳入浏览器中查看 Golang 为我们生成的可视化性能数据。
 
-![](http://asset.cjting.cn/9b85365djw1f9xgcymlqpj20zo0h3jvw.jpg)
+![](/image/9b85365djw1f9xgcymlqpj20zo0h3jvw.jpg)
 
 ## Benchmark Test
 
@@ -134,7 +134,7 @@ Showing top 5 nodes out of 35 (cum >= 610ms)
 
 程序自带了测试和 Benchmark，所以我们先来生成一个 Profiling 文件，看看哪个地方开销最大。
 
-![](http://asset.cjting.cn/9b85365dgw1f9xhhnlv05j20s70mcafx.jpg)
+![](/image/9b85365dgw1f9xhhnlv05j20s70mcafx.jpg)
 
 很明显，`ValidInSquare`这个函数开销很大，这个函数是检测一个数字在九宫格里面存不存在，作者的实现如下。
 
@@ -186,7 +186,7 @@ func (s *Sudoku) ValidInSquare(row, col, val int) bool {
 
 再运行一次测试，看看性能改善了多少。
 
-![](http://asset.cjting.cn/9b85365dgw1f9xhx008q9j212g0m3q8x.jpg)
+![](/image/9b85365dgw1f9xhx008q9j212g0m3q8x.jpg)
 
 很好！CPU 开销已经由 9770ms 降低到了 5460ms，性能提高 79%。现在程序的性能瓶颈已经是 `ValidInColumnAndRow` 这个函数了。
 
@@ -228,7 +228,7 @@ func (s *Sudoku) ValidInColumnAndRow(row, col, val int) bool {
 
 我们再来看看 Profiling 数据。
 
-![](http://asset.cjting.cn/9b85365dgw1f9xi9qhf6uj211m0idjvs.jpg)
+![](/image/9b85365dgw1f9xi9qhf6uj211m0idjvs.jpg)
 
 性能再次得到了提升，由 5460ms 降低到了 3610ms。初步看来，已经没有了明显可以优化的地方了。到此为止，我们的程序性能已经得到了 170% 的提升！我们并没有怎么努力，只不过是生成了 Profiling 文件，一眼看出问题在哪儿，然后针对性地优化而已。
 

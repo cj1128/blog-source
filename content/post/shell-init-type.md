@@ -1,7 +1,7 @@
 ---
 title: Shell 启动类型探究 ── login && interactive
 date: 2020-08-16T11:30:23+08:00
-cover: http://asset.cjting.cn/FgNP1hv-An94wEaBmEuMraLR457-.jpg
+cover: /image/FgNP1hv-An94wEaBmEuMraLR457-.jpg
 tags: [shell, bash, zsh]
 ---
 
@@ -175,7 +175,7 @@ SSH 登录以后，输入 `bash` 再启动一个 Bash 就是 `non-login + intera
 
 最后我们总结一下，可以得到这样一幅图。
 
-![](http://asset.cjting.cn/Fp3wlzbJBjk9xBPbr-t8SHf9KTbb.png)
+![](/image/Fp3wlzbJBjk9xBPbr-t8SHf9KTbb.png)
 
 是的，看起来很复杂，欢迎来到真实世界🙂。好在我们无需去记住这些细节，只要做到如果有一天遇到了问题，有一个清晰的排查方向就行了。
 

@@ -2,7 +2,7 @@
 title: "热重载 C"
 created_date: 2021-04-25T21:27:10+08:00
 date: 2021-06-10T23:10:10+08:00
-cover: http://asset.cjting.cn/Fkc6gm7qyhWpzfzhPpDqHwDtO2ML.png
+cover: /image/Fkc6gm7qyhWpzfzhPpDqHwDtO2ML.png
 tags: [c, linker, ld]
 aliases:
   - /hot-reload-c/
@@ -23,7 +23,7 @@ aliases:
 我们先来看看，最后的效果如何。
 
 <video controls>
-  <source src="http://asset.cjting.cn/FrUTcH3rMiOk_2TaWamOutbVvWgs.mp4" type="video/mp4">
+  <source src="/image/FrUTcH3rMiOk_2TaWamOutbVvWgs.mp4" type="video/mp4">
 </video>
 
 这里我用 SDL 打开了一个窗口进行绘制，通过热重载，我们可以在不重启程序的情况下修改绘图代码并查看效果。

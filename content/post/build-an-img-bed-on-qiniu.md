@@ -1,5 +1,5 @@
 ---
-cover: http://asset.cjting.cn/007FEWc7ly1g1f3uidzsqj31hc0goafm.jpg
+cover: /image/007FEWc7ly1g1f3uidzsqj31hc0goafm.jpg
 date: 2017-01-23T00:00:00+08:00
 title: 图床on七牛，简单好用的图床插件
 tags: [图床, 七牛, chrome]
@@ -149,7 +149,7 @@ function fetch() {
 
 到这里，核心功能就做好了，剩下的就是 UI 层面的事情，在 *图床on微博* 的基础上，将历史记录功能优化成了和 Unsplash 一样的三栏显示。最终效果如下所示，关于插件的安装使用仓库 README 中有详细说明，[仓库地址]。
 
-![](http://asset.cjting.cn/007FEWc7ly1g1f3v5j3f4g31810jcnpd.gif)
+![](/image/007FEWc7ly1g1f3v5j3f4g31810jcnpd.gif)
 
 [JavaScript SDK]: https://developer.qiniu.com/kodo/sdk/1283/javascript
 [Plupload]: http://www.plupload.com/

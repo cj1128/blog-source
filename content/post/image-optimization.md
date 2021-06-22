@@ -1,7 +1,7 @@
 ---
 title: 从图片优化说起
 date: 2019-07-29T14:52:50+08:00
-cover: http://asset.cjting.cn/Fk_kBecsmewI-l6GwB9HsQBNQqsW.jpeg
+cover: /image/Fk_kBecsmewI-l6GwB9HsQBNQqsW.jpeg
 tags: [image, picture, compression]
 ---
 
@@ -36,7 +36,7 @@ numfmt --field=2 --to=iec |\
 column -t | bat
 ```
 
-![](http://asset.cjting.cn/9b85365dgy1g5i03r4vdnj20h7051wfj.jpg)
+![](/image/9b85365dgy1g5i03r4vdnj20h7051wfj.jpg)
 
 筛选出需要压缩的图片以后，接下来就是压缩、比对、调整参数。图片压缩的工具实在是太多了，Google *image compression tool* 选择会多得你眼花缭乱。
 
@@ -78,15 +78,15 @@ const imageminSvgo = require("imagemin-svgo")
 
 JPEG 根据显示方式的不同，分为两种。Progressive JPEG 会先加载模糊的整张图片，然后变的越来越清晰。
 
-![](http://asset.cjting.cn/9b85365dgy1g5hw2y2pipj21900u0kjq.jpg)
+![](/image/9b85365dgy1g5hw2y2pipj21900u0kjq.jpg)
 
-![](http://asset.cjting.cn/9b85365dgy1g5hw3pr599j20lc07ngu4.jpg)
+![](/image/9b85365dgy1g5hw3pr599j20lc07ngu4.jpg)
 
 而 Baseline JPEG 会先清晰地加载图片的一部分，然后慢慢显示剩余的部分。
 
-![](http://asset.cjting.cn/9b85365dgy1g5hw2y2pipj21900u0kjq.jpg)
+![](/image/9b85365dgy1g5hw2y2pipj21900u0kjq.jpg)
 
-![](http://asset.cjting.cn/9b85365dgy1g5hw39pw5bj20lc07n7b9.jpg)
+![](/image/9b85365dgy1g5hw39pw5bj20lc07n7b9.jpg)
 
 从视觉效果来说，Progressive JPEG 自然更好一些。但它也有一些缺点，比如它的解码速度比 Baseline JPEG 要慢，占用的 CPU 时间更多。
 
@@ -128,7 +128,7 @@ oimg 使的流程是这样的：
 
 oimg 的输出如下，可以很方便地看出压缩的效果如何。
 
-![](http://asset.cjting.cn/9b85365dgy1g5i0rjw4qpj20n402qaak.jpg)
+![](/image/9b85365dgy1g5i0rjw4qpj20n402qaak.jpg)
 
 ## 响应式图片
 

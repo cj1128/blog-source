@@ -1,7 +1,7 @@
 ---
 title: 编写一个最小的 64 位 Hello World
 tags: [linux, elf, assembly]
-cover: http://asset.cjting.cn/FnMniJy5zFNdS5hK8UcXxwcvnoKC.jpg
+cover: /image/FnMniJy5zFNdS5hK8UcXxwcvnoKC.jpg
 draft_date: 2020-12-30T21:31:08+08:00
 date: 2020-12-10T01:13:48+08:00
 ---

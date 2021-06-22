@@ -2,7 +2,7 @@
 date: 2018-03-31T19:40:48+08:00
 title: HTTP Basic Auth 是怎么样工作的
 tags: [http, auth]
-cover: http://asset.cjting.cn/FtsKJCGdjEVMPYYiuCucEfkwa3pn.jpeg
+cover: /image/FtsKJCGdjEVMPYYiuCucEfkwa3pn.jpeg
 aliases:
   - /web2.0/how-http-basic-auth-work/
 ---

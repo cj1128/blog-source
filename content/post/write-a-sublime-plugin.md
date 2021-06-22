@@ -1,7 +1,7 @@
 ---
 title: 编写第一个 Sublime 插件 —— BuildX
 date: 2020-05-10T10:04:40+08:00
-cover: http://asset.cjting.cn/FvnQbq-MpgcAKuLDYeuhUuern_Yr.jpg
+cover: /image/FvnQbq-MpgcAKuLDYeuhUuern_Yr.jpg
 tags: [sublime, texteditor]
 ---
 
@@ -41,13 +41,13 @@ tags: [sublime, texteditor]
 
 有一次在看 [Handmade Hero](https://handmadehero.org/) 时，我实在太想要 Emacs 中那个 **构建、显示错误信息、跳转到错误行** 这个功能了，大大解放了生产力。
 
-![](http://asset.cjting.cn/lq6s1RwXWtdSZunK3V4AFhpO5kEL.gif)
+![](/image/lq6s1RwXWtdSZunK3V4AFhpO5kEL.gif)
 
 Sublime 自带的构建系统可以构建也可以跳转到错误行，但是，构建信息是显示在底部的而不是侧边，看起来非常不方便。我使用了 [sublime text 2 buildview](https://packagecontrol.io/packages/sublime-text-2-buildview) 这个插件将构建信息显示到侧边，但是这个插件又不能跳转到错误行，以至于每次我都要自己看错误信息，然后手动跳转，别提多烦了。
 
 Sublime 默认的构建是输出在底部，位置无法调整：
 
-![](http://asset.cjting.cn/FgoHDJ0reZJl2bl9ZD3OOZsMZBek.png)
+![](/image/FgoHDJ0reZJl2bl9ZD3OOZsMZBek.png)
 
 为了这个功能，也为了以后 N 个想要的功能，我下定决心迁移到 Vim。前后花了大概一个月的时间才把我想要的各项功能都在 Vim 中实现了。
 
@@ -125,7 +125,7 @@ Sublime 所有的插件都在 Sublime 的插件目录下。打开 Command Palett
 - `Region`: 一个连续的区域
 - `Selection`: 当前选中的内容，由一或多个 Region 构成，因为 Sublime 允许多个光标，所以需要区分 Region 和 Selection
 
-![](http://asset.cjting.cn/FgSf8kONWHFqqBXVLy5yQDXO-ocX.png)
+![](/image/FgSf8kONWHFqqBXVLy5yQDXO-ocX.png)
 
 ## Hello World Plugin
 
@@ -159,7 +159,7 @@ Sublime 提供了几个基础类用于我们继承来实现一些基本功能，
 
 配置好以后我们的插件就可以工作了，按下 `ctrl+-` 会发现最前面插入了 `Hello, World!`。
 
-![](http://asset.cjting.cn/FrQGL9ISx_JJ6qrRLP_Z_ccOoZHF.gif)
+![](/image/FrQGL9ISx_JJ6qrRLP_Z_ccOoZHF.gif)
 
 但这离我们要的效果还差了一点，我们的目标是在当前光标位置插入内容，而不是在文件的最前面。
 
@@ -182,7 +182,7 @@ class ExampleCommand(sublime_plugin.TextCommand):
       self.view.insert(edit, selections[0].begin(), "Hello, World!")
 ```
 
-![](http://asset.cjting.cn/Fv7cIbgvITQv5GEasA4W04435vxI.gif)
+![](/image/Fv7cIbgvITQv5GEasA4W04435vxI.gif)
 
 ## BuildX
 
@@ -194,7 +194,7 @@ Sublime 的构建系统默认会输出内容到底部的 Exec Panel，看起来�
 
 我们的插件最终效果如下，构建以后，侧边显示输出信息，同时可以快速跳转到报错的行。
 
-![](http://asset.cjting.cn/Ft6ukJ3VEUopUnL0hXtEpSkn8S-l.gif)
+![](/image/Ft6ukJ3VEUopUnL0hXtEpSkn8S-l.gif)
 
 参考了 `sublime text 2 buildview` 的实现，插件的设计思路是：
 
@@ -357,7 +357,7 @@ class BuildXListener(sublime_plugin.EventListener):
 
 到了这里，核心功能就已经有了，构建的输出可以在 Target View 中显示，从现在开始我们就可以摆脱底部的 Exec Panel 了。
 
-![](http://asset.cjting.cn/Fn3sCw7H8q7ZJAtx2znBsuSHf4LK.gif)
+![](/image/Fn3sCw7H8q7ZJAtx2znBsuSHf4LK.gif)
 
 ## 最后
 
@@ -380,6 +380,6 @@ class BuildXListener(sublime_plugin.EventListener):
 
 XKCD 的这幅漫画很能引发思考，在你动手 切换工具/造工具/改进工具 的时候，一定要评估一下你投入的时间以及节省的时间是否匹配。
 
-![](http://asset.cjting.cn/Ft_ZecIdlpHJGqhla063FcO3txrv.png)
+![](/image/Ft_ZecIdlpHJGqhla063FcO3txrv.png)
 
 如果说一个任务你每天做一次，每次耗费 6 分钟，你觉得很慢，动手改进，改进到了 1 分钟，那么这次改进带来的提升是节省了 5 分钟，以五年为例，一共为你节省了 6 天。问题是，将一个工具从 6 分钟改进到 1 分钟如此巨大的性能提升 6 天内你能搞定吗？如果搞不定的话，就要好好想想了。

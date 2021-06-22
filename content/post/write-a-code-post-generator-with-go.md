@@ -1,5 +1,5 @@
 ---
-cover: http://asset.cjting.cn/FpensV5yWTWbHKwENPRdEvUtEsYW.jpeg
+cover: /image/FpensV5yWTWbHKwENPRdEvUtEsYW.jpeg
 date: 2017-02-18T00:00:00+08:00
 title: 使用 Go 编写代码明信片生成器
 tags: [codeposter, go]
@@ -9,7 +9,7 @@ aliases:
 ---
 很早之前就看过到关于 [commits.io](http://commits.io) 的一个帖子，这个站点专门制作代码明信片。什么是代码明信片呢？如下图。
 
-![](http://asset.cjting.cn/007FEWc7ly1g1f3o6zdtwj30sj0ee45m.jpg)
+![](/image/007FEWc7ly1g1f3o6zdtwj30sj0ee45m.jpg)
 
 <!--more-->
 
@@ -37,7 +37,7 @@ aliases:
 
 这里，我使用 `Hack` 字体为例，可以看出，当字体选择 Hack，字体大小为 16.63px 像素时，单个字符的宽度是 10，高度是 19。
 
-![](http://asset.cjting.cn/007FEWc7ly1g1f3oef7bsj30mn0fgab6.jpg)
+![](/image/007FEWc7ly1g1f3oef7bsj30mn0fgab6.jpg)
 
 最后，图片尺寸一般比代码明信片的尺寸要小，放在中央位置。所以，我们还需要一个背景颜色（bgColor），对于位置不在图片中的字符，应该填充背景色。
 
@@ -73,9 +73,9 @@ aliases:
 
 最终，程序在仓库在 Github 上，[codeposter](http://github.com/cj1128/codeposter)。测试了几幅图片，效果还不错。默认使用的字体是 `Hack`，字体大小为 7 x 14，明信片宽度是 114 x 54。如果想提高字符的密度，也就是 **分辨率**，减少字体大小即可😜。
 
-![](http://asset.cjting.cn/007FEWc7ly1g1f3oqy7ldj30m80l4n55.jpg)
+![](/image/007FEWc7ly1g1f3oqy7ldj30m80l4n55.jpg)
 
-![](http://asset.cjting.cn/007FEWc7ly1g1f3ox5d2gj30m70l37ce.jpg)
+![](/image/007FEWc7ly1g1f3ox5d2gj30m70l37ce.jpg)
 
-![](http://asset.cjting.cn/007FEWc7ly1g1f3p3nf61j30m70l3wmc.jpg)
+![](/image/007FEWc7ly1g1f3p3nf61j30m70l3wmc.jpg)
 

@@ -1,6 +1,6 @@
 ---
 title: 从一次 Connection Reset 说起，TCP 半连接队列与全连接队列
-cover: http://asset.cjting.cn/FmiIWhP-NK5UDBmgXxkwkvHg29Zg.jpg
+cover: /image/FmiIWhP-NK5UDBmgXxkwkvHg29Zg.jpg
 date: 2019-08-28T15:55:08+08:00
 tags: [linux, network, tcp]
 ---
@@ -126,7 +126,7 @@ sudo tcpdump -nn -i lo0 src port 7777 | tee output.txt
 
 我们首先来复习一下 TCP 三次握手，下面是 TCP 的状态变化图。
 
-![](http://asset.cjting.cn/FuLfMxUTfLJeZgkFQuJvez1oeAAI.png)
+![](/image/FuLfMxUTfLJeZgkFQuJvez1oeAAI.png)
 
 TCP 通信不管上层怎么封装，最下面用的始终是 Socket 的一套接口。
 
@@ -320,11 +320,11 @@ attack() # 发送大量的 SYN 包给目标地址
 
 查看 tcpdump 的输出，我们会发现全部都是 SYN/ACK 包，因为 Server 没有收到客户端的 ACK，所以会超时重发 SYN/ACK 给客户端。
 
-![](http://asset.cjting.cn/FnRuxggtfoszNF6p6Ax1W34L7IYM.png)
+![](/image/FnRuxggtfoszNF6p6Ax1W34L7IYM.png)
 
 使用 `netstat` 获取 Socket 状态，会看到 16 个处于 `SYN_RECV` 的 Socket。
 
-![](http://asset.cjting.cn/FhTwQcNe0Uuxex-M6gM2S_obva8S.png)
+![](/image/FhTwQcNe0Uuxex-M6gM2S_obva8S.png)
 
 ## 全连接队列溢出
 
@@ -382,7 +382,7 @@ static inline bool sk_acceptq_is_full(const struct sock *sk)
 
 这里顺手提一下 `ss` 这个工具，一个现代化的用于取代 `netstat` 的工具，使用它，我们可以看到全连接队列的长度。
 
-![](http://asset.cjting.cn/FqGFoNM8OPnt1J6xBfFN4k9pzDsj.png)
+![](/image/FqGFoNM8OPnt1J6xBfFN4k9pzDsj.png)
 
 对于监听中的 Socket，`Recv-Q` 表示全连接队列当前的长度，`Send-Q` 表示全连接队列配置的长度。可以看到，对于 8877 端口，一个是 2，一个是 1。
 
@@ -406,7 +406,7 @@ $ iptables -A OUTPUT -p tcp --tcp-flags RST RST --dport 8877 -j DROP
 
 使用 `connect` 函数我们会发现，Server 会返回一个 RST 包，同时也不存在 `SYN_RECV` 状态的连接。
 
-![](http://asset.cjting.cn/FvB_BwUp1vO5BImwmJD5EJN6ymMX.png)
+![](/image/FvB_BwUp1vO5BImwmJD5EJN6ymMX.png)
 
 ## 回到 Mac
 

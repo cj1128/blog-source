@@ -2,7 +2,7 @@
 title: JavaScript 与 Unicode
 date: 2018-07-22T09:45:12+08:00
 tags: [js, encoding]
-cover: http://asset.cjting.cn/FgUXmK5q8oVb8ZKJStDsqVtd_PXj.jpg
+cover: /image/FgUXmK5q8oVb8ZKJStDsqVtd_PXj.jpg
 aliases:
   - /web2.0/intruduction-to-functional-reactive-programming/
 ---

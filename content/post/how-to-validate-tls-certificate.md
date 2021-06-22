@@ -1,7 +1,7 @@
 ---
 title: "安全背后: 浏览器是如何校验证书的"
 date: 2021-03-02T21:39:22+08:00
-cover: http://asset.cjting.cn/FohSIOjDywFAmZueZxCU1QrNi1sm.jpg
+cover: /image/FohSIOjDywFAmZueZxCU1QrNi1sm.jpg
 tags: [tls, certificate, https]
 ---
 
@@ -9,7 +9,7 @@ tags: [tls, certificate, https]
 
 启用 HTTPS 的核心是一个叫做 **证书** 的东西。不知道大家是否有留意，前几年上 12306 的时候，浏览器都会提示「您的链接不是私密链接」，这其实就是因为 12306 的证书有问题。如果点击「继续前往」，打开 12306 网站，它会提示你下载安装它提供的“根证书”。
 
-![](http://asset.cjting.cn/FrBOHRLcNkDuAUnDstdn4Sjk4xMr.png)
+![](/image/FrBOHRLcNkDuAUnDstdn4Sjk4xMr.png)
 
 那么，证书是什么？里面含有什么内容？浏览器为什么会不信任 12306 的证书？为什么下载 12306 提供的根证书就可以解决这个问题？根证书又是什么？
 
@@ -120,7 +120,7 @@ A 使用自己的私钥给 B 生成签名的过程也就是「签发证书」，
 
 在 Mac 上，打开 Keychain Access，选择侧边的 `System Roots` 就可以看到我们系统中安装的所有根证书。
 
-![](http://asset.cjting.cn/FirK2IaLZGajhfpLAORBz6CL6NiD.png)
+![](/image/FirK2IaLZGajhfpLAORBz6CL6NiD.png)
 
 其中很明显地显示了一栏叫做「Expires」，过期时间。
 
@@ -144,7 +144,7 @@ Let's Encrypt 在 2015 年创建了一个新的根证书 `ISRG Root X1`，在 20
 
 根证书的特征是 Subject 和 Issuer 的信息是一致的，也就是所谓的「自签名」（Self-Signed）。
 
-![](http://asset.cjting.cn/FuWvD3k8eGdc6j81xg3ZDPd72hfJ.png)
+![](/image/FuWvD3k8eGdc6j81xg3ZDPd72hfJ.png)
 
 因为证书的签名是由上级证书的私钥来签的，根证书没有上级证书，所有根证书的签名是用自己的私钥签的。
 

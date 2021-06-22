@@ -2,7 +2,7 @@
 date: 2017-06-04T15:46:33+08:00
 title: 从 Jekyll 迁移到 Hugo，Hugo 不完全指南
 tags: [hugo, golang, ssg]
-cover: http://asset.cjting.cn/FlKmTvbJZO1j12pQzImT2EbtVgac.jpeg
+cover: /image/FlKmTvbJZO1j12pQzImT2EbtVgac.jpeg
 aliases:
   - /golang/migrate-to-hugo-from-jekyll/
 ---
@@ -186,7 +186,7 @@ echo "# This is index page" >> content/_index.md
 
 > git checkout skeleton
 
-![](http://asset.cjting.cn/9b85365dgy1fgesi9dqzwj20lz0ay0ss.jpg)
+![](/image/9b85365dgy1fgesi9dqzwj20lz0ay0ss.jpg)
 
 这里来梳理一下，当 Hugo 编译我们站点时，发现 `content/_index.md` 文件，Hugo 会使用 `layouts/index.html` 和 `layouts/_default/baseof.html` 模板来渲染这个文件，并将得到的 HTML 文件放在结果文件夹的根目录下，当我们访问首页时，就会看到这个文件。
 
@@ -237,7 +237,7 @@ Hugo 提供了一套复杂的菜单系统，这个配置告诉 Hugo，将所有�
 
 浏览器页面如下。
 
-![](http://asset.cjting.cn/9b85365dgy1fgeslx5j0ij20ly0bgglo.jpg)
+![](/image/9b85365dgy1fgeslx5j0ij20ly0bgglo.jpg)
 
 看起来，header 生效了，但是，为什么两个分类的名称叫做 `_index` 呢？这是因为，默认情况下，Hugo 会使用分类对应的源文件的 `title`属性，这个属性默认是文件名。
 
@@ -273,7 +273,7 @@ Hugo 提供了一套复杂的菜单系统，这个配置告诉 Hugo，将所有�
 
 模板代码的含义是根据日期和时间来渲染分类下的博文，效果如下。
 
-![](http://asset.cjting.cn/9b85365dgy1fgetkmelx0j20nl0azq30.jpg)
+![](/image/9b85365dgy1fgetkmelx0j20nl0azq30.jpg)
 
 ## 博文页
 
@@ -289,7 +289,7 @@ Hugo 提供了一套复杂的菜单系统，这个配置告诉 Hugo，将所有�
 
 很简单，直接渲染博文内容，`http://localhost:1313/c1/p1/` 页面如下。
 
-![](http://asset.cjting.cn/9b85365dgy1fgetqxr6fhj20nl078mx4.jpg)
+![](/image/9b85365dgy1fgetqxr6fhj20nl078mx4.jpg)
 
 目前为止，我们的博客基本结构就搭建好了。
 
@@ -320,7 +320,7 @@ Hugo 根目录中的 `static` 目录用于存储各种静态文件，包括 CSS 
 
 引入 JS 的道理同上。至于具体的样式代码，这里就不再赘述了。最终效果如下。
 
-![](http://asset.cjting.cn/9b85365dgy1fgfz1ofshej20sj0e33ys.jpg)
+![](/image/9b85365dgy1fgfz1ofshej20sj0e33ys.jpg)
 
 > git checkout final
 

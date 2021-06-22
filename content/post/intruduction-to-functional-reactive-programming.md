@@ -1,5 +1,5 @@
 ---
-cover: http://asset.cjting.cn/9b85365dgw1f7bmcscnvij21jk112496.jpg
+cover: /image/9b85365dgw1f7bmcscnvij21jk112496.jpg
 date: 2016-03-20T00:00:00+08:00
 title: Functional Reactive Programming 简介
 tags: [rxjs, javascript, functional-programming]
@@ -28,7 +28,7 @@ HTML5Rocks 有一篇关于 [Promise](http://www.html5rocks.com/en/tutorials/es6/
 
 [RxJS] 指的是 **Functional Reactive Programming extensions for JavsScript**，Functional Reactive Programming 是一种编程思想，并不局限于某一个语言。这种思想的核心就是流，RxJS 中的使用的术语是 `Observable`，但是我觉得这个词不好理解，用流也就是 `Stream` 更好理解。流代表的是一个随着时间而变化的序列，在这过程中，它可以产生值，或者错误，或者终止信号，只有这三种情况。
 
-![](http://asset.cjting.cn/9b85365djw1f238lhm2c4j20e807974m.jpg)
+![](/image/9b85365djw1f238lhm2c4j20e807974m.jpg)
 
 流的引入最大的优点是我们有了一个手段来表示“无尽”的东西，并且可以对它们进行各种变换，就像我们处理数组那样。处理数组我们有 `map`, `filter`，`reduce` 这几个核心方法。对于流我们也有类似这些的基本方法，这里推荐一个好用的网站 [RxMarbles](http://rxmarbles.com/)，非常直观的显示一些方法是怎样操作流的。
 
@@ -61,7 +61,7 @@ var resultInputStream = originInputStream
 
 这里我们要介绍两个重要的方法，分别是 `flatMap` 以及 `flatMapLatest`。`map` 方法是根据流（mainStream）里面的值，产生一个新的值，如果这个新的值是一个流（subStream）怎么办呢？大部分情况下，我们会希望这个新的流（subStream）它的值出现在 mainStream 中，这样我们可以直接监听 mainStream 而不用去监听每一个 subStream，如图所示：
 
-![](http://asset.cjting.cn/9b85365djw1f23ftn0686j208z04cdg4.jpg)
+![](/image/9b85365djw1f23ftn0686j208z04cdg4.jpg)
 
 `flatMap` 就是这样一个方法，`flatMapLatest` 顾名思义，他只会处理最新的 subStream，之前的 subStream 的值全部丢掉。这非常吻合我们的需求，因为当用户输入新的字符串时，之前的字符串的返回结果我们不再需要了。
 
@@ -105,7 +105,7 @@ suggestionStream.subscribe(
 
 上面是一个使用 RxJS 的经典例子，下面我们再来看一个例子。
 
-![](http://asset.cjting.cn/9b85365djw1f23koqhfbmj20n10603yk.jpg)
+![](/image/9b85365djw1f23koqhfbmj20n10603yk.jpg)
 
 这是一个十分常见的用户注册表单，几乎每一个网站都要实现的功能。实现起来也比较简单，用户点击 Submit 的时候提交内容到后台就行了，根据后台的结果再进行反馈，比如后台返回成功，则告诉用户注册成功，跳转到个人中心，后台返回“用户名已存在”，则告诉用户注册失败，重新输入。
 

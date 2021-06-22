@@ -1,7 +1,7 @@
 ---
 title: 正向代理与反向代理
 date: 2018-08-11T18:08:00+08:00
-cover: http://asset.cjting.cn/Fly_Jp2zD-BbHRl-97_m7PqwbTvX.jpeg
+cover: /image/Fly_Jp2zD-BbHRl-97_m7PqwbTvX.jpeg
 tags: [proxy]
 aliases:
   - /misc/forward-proxy-and-reverse-proxy/
@@ -113,7 +113,7 @@ Squid 是一个很常用的正向代理软件，可以用来做访问控制，�
 
 这样做的效果就是，当你上网浏览时，所有的图片都是倒过来的😉，效果如下：
 
-![](http://asset.cjting.cn/FkC-GZsJPKErvn7WW3GVdhfhB9aE.jpg)
+![](/image/FkC-GZsJPKErvn7WW3GVdhfhB9aE.jpg)
 
 想象这样一个场景：在一个阳光明媚的午后，你发现你的邻居在蹭你的网，你并没有选择修改密码，而是默默地启动这个恶作剧代理，配置你的路由器，使用 iptables 将蹭网流量转发到这个代理。于此同时，你的邻居发现，前一刻还十分精彩的互联网世界，突然颠倒了，他苦苦思索，他不知所措，他深深地被这个世界的恶意所伤害。
 

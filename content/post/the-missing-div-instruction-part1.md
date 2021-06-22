@@ -1,7 +1,7 @@
 ---
 title: 消失的除法指令：Part1
 date: 2021-03-16T20:13:21+08:00
-cover: http://asset.cjting.cn/FtjQZJYq8i7cRUwvcLX63Qqnvggz.png
+cover: /image/FtjQZJYq8i7cRUwvcLX63Qqnvggz.jpg
 tags: [gcc, clang, compiler, assembly, math]
 aliases:
   - /the-missing-div-instruction-part1/
@@ -9,7 +9,7 @@ aliases:
 
 之前学汇编的时候观察到一个现象，我在 C 语言中写了一个函数进行除法操作，但是编译得到的汇编代码中却没有除法指令，取而代之的是一条乘法指令。
 
-![](http://asset.cjting.cn/FjCkN1q9ePhijDTEBzws-jI0B7w1.png)
+![](/image/FjCkN1q9ePhijDTEBzws-jI0B7w1.png)
 
 图片对应的 GodBolt 地址在 [这里](https://gcc.godbolt.org/z/YrK4vnY1E)，可以看到有一个 `imulq` 指令，这是一个乘法指令，乘了一个奇怪的数字 1431655766。
 

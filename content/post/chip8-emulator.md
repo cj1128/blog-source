@@ -1,7 +1,7 @@
 ---
 title: 用 C 实现一个 CHIP-8 模拟器
 date: 2020-06-07T17:17:58+08:00
-cover: http://asset.cjting.cn/FrxGU8-3EO8dEfXB-zxLk_L3b4pK.png
+cover: /image/FrxGU8-3EO8dEfXB-zxLk_L3b4pK.png
 tags: [chip8, emulator, c]
 ---
 
@@ -52,7 +52,7 @@ CHIP-8 的绘图指令非常简单，指定了三个参数，`x`, `y` 以及 `n`
 
 最终完成时的效果如下，图中在运行的程序是俄罗斯方块。
 
-![](http://asset.cjting.cn/FtbhROUInp7O-OOHurKuK6fVQ7VK.png)
+![](/image/FtbhROUInp7O-OOHurKuK6fVQ7VK.png)
 
 ## Spec
 

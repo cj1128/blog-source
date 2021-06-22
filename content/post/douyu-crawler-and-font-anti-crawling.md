@@ -2,14 +2,14 @@
 title: 斗鱼关注人数爬取 ── 字体反爬的攻与防
 date: 2020-07-01T23:47:32+08:00
 tags: [js, crawler]
-cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
+cover: /image/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 ---
 
 之前因为业务原因需要爬取一批斗鱼主播的相关数据，在这过程中我发现斗鱼使用了一种很有意思的反爬技术，字体反爬。
 
 打开任何一个斗鱼主播的直播间，例如 [这个主播](https://www.douyu.com/7874579)，他的关注人数数据显示在右上角：
 
-![](http://asset.cjting.cn/Fp11DQiiqvE_vQddpXH1tgazywrA.png)
+![](/image/Fp11DQiiqvE_vQddpXH1tgazywrA.png)
 
 斗鱼在关注数据这里使用了字体反爬。什么是字体反爬？也就是通过自定义字体来自定义字符与渲染图形的映射。比如，字符 1 实际渲染的是 9，那么如果 HTML 中的数字是 111，实际显示就是 999。
 
@@ -25,7 +25,7 @@ cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 
 感兴趣的读者可以打开控制台，看看显示关注人数的那个 span 元素里面的内容，会发现根本不是显示的数字。
 
-![](http://asset.cjting.cn/Fta2MA78inWQx-YXBJsQ-9dWh3Br.png)
+![](/image/Fta2MA78inWQx-YXBJsQ-9dWh3Br.png)
 
 从上图可以看出，显示的是 59605，这个是真实值，但是字符却是 96809，这个是虚假值。右边的 `font-family` 告诉我们这个元素使用了一个自定义字体。
 
@@ -59,7 +59,7 @@ cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 </html>
 ```
 
-![](http://asset.cjting.cn/Fvk8_hOHE5ac4YpWHy_j7idottWG.png)
+![](/image/Fvk8_hOHE5ac4YpWHy_j7idottWG.png)
 
 在这个字体中，字符 `0` 会渲染图形 `0`，字符 `1` 会渲染图形 `7`，以此类推，因此，HTML 中的字符 `96809` 渲染的图形就是 `59605`。
 
@@ -132,7 +132,7 @@ cover: http://asset.cjting.cn/FuVqI-ejvbgBEDfa4NxH6sjjzb0o.jpg
 
 我的第一个想法很简单，JS 一定是通过某个接口得到了这些数据，那么，我们把所有网络请求导出为 HAR 格式，然后在里面搜索试试。
 
-![](http://asset.cjting.cn/Fq-dtkNrMytLeymlkrYvFC4vypzV.png)
+![](/image/Fq-dtkNrMytLeymlkrYvFC4vypzV.png)
 
 {{% tip %}}
 点击上图中标记为红色的按钮就可以导出请求为 HAR 格式，HAR 是一个文本格式，非常有利于搜索。
@@ -164,13 +164,13 @@ new MutationObserver((mutations, observer) => {
 
 通过 [Tampermonkey](https://www.tampermonkey.net/) 加载上面的代码，刷新，等待断点触发。
 
-![](http://asset.cjting.cn/FiL0ZC_TXcbRcuw8HwUUUn65oB9w.png)
+![](/image/FiL0ZC_TXcbRcuw8HwUUUn65oB9w.png)
 
 从上面的调用栈可以看出，数据来源自 WebSocket。
 
 去 Network 面板中看一下，果然是这样。
 
-![](http://asset.cjting.cn/Fq8Fro93Owx2qIK0GVvjB-KcwAMw.png)
+![](/image/Fq8Fro93Owx2qIK0GVvjB-KcwAMw.png)
 
 {{% tip %}}
   之后爬取像斗鱼这样的复杂网站，应该先检查一下 WebSocket 中的消息。
@@ -186,7 +186,7 @@ new MutationObserver((mutations, observer) => {
 
 客户端发送的消息如下：
 
-![](http://asset.cjting.cn/FuQwIkMoJdPyskwe1E_jFezsbBkk.png)
+![](/image/FuQwIkMoJdPyskwe1E_jFezsbBkk.png)
 
 虽然是二进制消息，但是可以看到消息主体都是可读的文本，很明显，斗鱼这里是自己实现了一个内部协议格式。
 
@@ -257,29 +257,29 @@ ws.on("message", payload => {
 
 Chrome 检查器中对于每个网络请求都会显示它的 Initiator，也就是这个请求是什么代码发起的。
 
-![](http://asset.cjting.cn/FovjSlp1Srpyg5rxzb4UAbUgLnq3.png)
+![](/image/FovjSlp1Srpyg5rxzb4UAbUgLnq3.png)
 
 鼠标放上去可以看到完整的调用栈。
 
-![](http://asset.cjting.cn/Fv229dbVo8CcUkUxA2mQqhbUQRv7.png)
+![](/image/Fv229dbVo8CcUkUxA2mQqhbUQRv7.png)
 
 我们的思路是找到发送消息的地方，打上断点，通过调用栈往上找。
 
 所以打开最上面的 `playerSDK-room_4a27f53.js` 文件，搜索关键字 `send`，很容易找到下面这段代码。
 
-![](http://asset.cjting.cn/Fp_7vBkxaKHx5DLxAY3Td1rcoZNn.png)
+![](/image/Fp_7vBkxaKHx5DLxAY3Td1rcoZNn.png)
 
 通过断点我们可以看出，登录消息就是通过这里发送的，因为 `e` 是登录的消息体。
 
 展开调用栈，会发现有一个函数叫做 `userLogin`，点进去。
 
-![](http://asset.cjting.cn/FuvEM10TjNMxYOCIioM_Bjsc7wLe.png)
+![](/image/FuvEM10TjNMxYOCIioM_Bjsc7wLe.png)
 
 可以发现我们来到了 `common-pre~9fd51f5d.js` 文件，可以猜到 `h.default.jsEncrypt.async()` 这段代码应该就是签名相关的代码。
 
 我们可以断点进这个函数，然后继续找。或者，我们直接搜索 `vk`。
 
-![](http://asset.cjting.cn/FgPsfPNSU-t8PhBHlQpRiDpCqUVF.png)
+![](/image/FgPsfPNSU-t8PhBHlQpRiDpCqUVF.png)
 
 然后我们就发现 `vk` 的值等于 `L(y + "r5*^5;}2#${XF[h+;'./.Q'1;,-]f'p[" + p)`。到这里就简单了，通过断点可以发现 `y` 就是 `rt`，`p` 是 `devid`，而 `L` 是一个求 md5 值的函数。
 
@@ -350,7 +350,7 @@ ws.on("message", payload => {
 
 成功了！
 
-![](http://asset.cjting.cn/Ful4n8KK-B5sBNFK9i8eEX3oUIIu.png)
+![](/image/Ful4n8KK-B5sBNFK9i8eEX3oUIIu.png)
 
 ### OCR
 
@@ -394,7 +394,7 @@ main(void)
 
 SDL 渲染速度非常快，结果也很清楚，用来 OCR 应该足够了。
 
-![](http://asset.cjting.cn/FpSLekVg2B25ags6kwehiDgAgZ0r.png)
+![](/image/FpSLekVg2B25ags6kwehiDgAgZ0r.png)
 
 图形识别这一块我并没有什么太多经验，但是没关系，感谢开源世界。我们 Google OCR，很容易就会找到一个看起来很厉害的库 [tesseract](https://github.com/tesseract-ocr/tesseract)。
 
@@ -426,7 +426,7 @@ func main() {
 
 然后我们很顺利地就得到了结果，开源万岁！🎉
 
-![](http://asset.cjting.cn/Fp-epduQcenYERhgqPyFAhesEOJl.png)
+![](/image/Fp-epduQcenYERhgqPyFAhesEOJl.png)
 
 ### 最终实现
 
@@ -629,7 +629,7 @@ Parsing 'GSUB' table...
 
 使用上文提到的 HTML 使用 `fake.ttf` 渲染 0 ~ 9，可以看到，我们成功地制作了一个混淆字体。
 
-![](http://asset.cjting.cn/FsXY7liRLS9B1_55DC3HQCY0Va7a.png)
+![](/image/FsXY7liRLS9B1_55DC3HQCY0Va7a.png)
 
 [genfont.py](https://github.com/cj1128/douyu-crawler-demo/blob/master/genfont.py) 是我使用 Python 编写的脚本，可以自动生成任意数量的混淆字体。
 

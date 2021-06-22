@@ -1,5 +1,5 @@
 ---
-cover: http://asset.cjting.cn/9b85365djw1f7bmw01i31j21hc0zkgr3.jpg
+cover: /image/9b85365djw1f7bmw01i31j21hc0zkgr3.jpg
 date: 2015-06-16T00:00:00+08:00
 title: Underhanded C, 有猫腻的 C
 tags: [underhanded-c, c]

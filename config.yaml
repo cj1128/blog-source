@@ -28,5 +28,5 @@ permalinks:
 
 params:
   author: CJ Ting
-  default_cover: http://asset.cjting.cn/FuPonm3F5RFQTgT1UCWAtZArt1Om.jpeg
+  default_cover: /image/FuPonm3F5RFQTgT1UCWAtZArt1Om.jpeg
   baidu_token: 4f34ee3c85734c8235badd2b99b092a6

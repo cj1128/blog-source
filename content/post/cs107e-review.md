@@ -2,7 +2,7 @@
 title: "CS107e: 树莓派，ARM 和操作系统"
 date: 2020-09-11T08:15:31+08:00
 tags: [cs107e, os, raspberrypi]
-cover: http://asset.cjting.cn/Fi3BVvyRelkPNZ-GdNYw1bAcobCK.jpg
+cover: /image/Fi3BVvyRelkPNZ-GdNYw1bAcobCK.jpg
 ---
 
 2020.10.09 更新：**最近收到了一封官方的邮件，希望我把仓库隐藏起来，避免新同学直接 copy 我的代码。既然是来自官方的要求，自然毫不犹豫地配合。仓库和我归档的 Winter 2020 课程现在都不可见了，想要学习这门课程的同学可以直接去官方站点学习，祝大家学习愉快~**
@@ -56,35 +56,35 @@ CS107e 让我如此喜欢的原因就在于，它把**计算机的本质彻底�
 
 从控制树莓派点亮一盏灯：
 
-![](http://asset.cjting.cn/FrDheJ0DE-ONw_LuXblotUFw00Fa.gif)
+![](/image/FrDheJ0DE-ONw_LuXblotUFw00Fa.gif)
 
 到加上一个按钮实现开关：
 
-![](http://asset.cjting.cn/FnrNK1ne17DRpaIZSAONWcebU8Mc.gif)
+![](/image/FnrNK1ne17DRpaIZSAONWcebU8Mc.gif)
 
 再到实现自己的 Larson Scanner：
 
 <video controls autoplay muted loop>
-  <source src="http://asset.cjting.cn/Fmr8kaOBr8mmrgf9JPTDHzrS_wrL.mp4" type="video/mp4">
+  <source src="/image/Fmr8kaOBr8mmrgf9JPTDHzrS_wrL.mp4" type="video/mp4">
 </video>
 
 从实现一个简单的时钟：
 
 <video controls autoplay muted loop>
-  <source src="http://asset.cjting.cn/Fq0dcHfCKl_9H3wLItvE3I1Y4aGV.mp4" type="video/mp4">
+  <source src="/image/Fq0dcHfCKl_9H3wLItvE3I1Y4aGV.mp4" type="video/mp4">
 </video>
 
 到驱动 PS2 键盘：
 
-![](http://asset.cjting.cn/FruyRlglkpHynmKRfcM9XTtiLENX.jpeg)
+![](/image/FruyRlglkpHynmKRfcM9XTtiLENX.jpeg)
 
 从绘制简单的图形：
 
-![](http://asset.cjting.cn/Fr4g9O2qc0tTQF-HRalT_oyXUm58.jpeg)
+![](/image/Fr4g9O2qc0tTQF-HRalT_oyXUm58.jpeg)
 
 到实现完整的 Shell：
 
-![](http://asset.cjting.cn/FoYnBc9WqXMtOhaQWYmfDzd1k3Se.jpeg)
+![](/image/FoYnBc9WqXMtOhaQWYmfDzd1k3Se.jpeg)
 
 每一步都充满了乐趣和挑战。
 

@@ -1,5 +1,5 @@
 ---
-cover: http://asset.cjting.cn/FvSatw-mAY94H60cISWGryzrCODq.jpeg
+cover: /image/FvSatw-mAY94H60cISWGryzrCODq.jpeg
 date: 2017-05-13T00:00:00+08:00
 title: Git 是怎样生成 diff 的：Myers 算法
 tags: [git, diff, myers]
@@ -74,7 +74,7 @@ git 为我们生成的 diff 是很直观易懂的，一看就知道我们对文�
 
 那么，图中每一条从左上角到右下角的路径，都表示一个 diff。向右表示“删除”，向下表示”新增“，对角线则表示“原内容保持不动“。
 
-![](http://asset.cjting.cn/9b85365dgy1ffjxfo7r42j20lm0nudhx.jpg)
+![](/image/9b85365dgy1ffjxfo7r42j20lm0nudhx.jpg)
 
 比如，我们选择这样一条路径：
 
@@ -141,7 +141,7 @@ Myers 算法就是一个能在大部分情况产生”最短的直观的“ diff
 + C
 ```
 
-![](http://asset.cjting.cn/9b85365dgy1ffjz1967znj20p20k9gmg.jpg)
+![](/image/9b85365dgy1ffjz1967znj20p20k9gmg.jpg)
 
 现在我们可以知道，其实 Myers 算法是一个典型的”动态规划“算法，也就是说，父问题的求解归结为子问题的求解。要知道 d=5 时所有 k 对应的最优坐标，必须先要知道 d=4 时所有 k 对应的最优坐标，要知道 d=4 时的答案，必须先求解 d=3，以此类推，和 01 背包问题很是相似。
 

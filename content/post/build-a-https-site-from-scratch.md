@@ -1,5 +1,5 @@
 ---
-cover: http://asset.cjting.cn/9b85365djw1f7fb60zgzaj21kw11xgyy.jpg
+cover: /image/9b85365djw1f7fb60zgzaj21kw11xgyy.jpg
 date: 2016-09-05T00:00:00+08:00
 title: 从零开始搭建一个 HTTPS 网站
 tags: [https, tls, ssl]
@@ -56,7 +56,7 @@ SSL/TLS 协议的核心是 `RSA 非对称加密`。RSA 是一个伟大的发明�
 
 根据上面的论述，SSL/TLS 协议的核心便是怎样安全的生成一个 *对话密钥* 来加密之后的通信。这个过程称之为 *握手*。
 
-![](http://asset.cjting.cn/9b85365dgw1f7fdsr6gbzj20tv0m3q7r.jpg)
+![](/image/9b85365dgw1f7fdsr6gbzj20tv0m3q7r.jpg)
 
 握手一共有四次请求，注意，这些请求都是明文的（也没法加密）。
 
@@ -180,11 +180,11 @@ cd /opt/letsencrypt
 
 回车之后，`letsencrypt` 会进行一系列操作生成所需的证书文件，最后会有一个弹窗，提示你输入电子邮件地址，如果证书丢了，可以恢复。
 
-![](http://asset.cjting.cn/9b85365djw1f7hzf480y7j20sp0ap3zk.jpg)
+![](/image/9b85365djw1f7hzf480y7j20sp0ap3zk.jpg)
 
 最后，`letsencrypt` 的输出结果如下。
 
-![](http://asset.cjting.cn/9b85365djw1f7hzfmf062j20v60bj456.jpg)
+![](/image/9b85365djw1f7hzfmf062j20v60bj456.jpg)
 
 可以看到，最为关键的证书文件存放在 `/etc/letsencrypt/live/leaningmoon.io/fullchain.pem`。
 
@@ -227,7 +227,7 @@ server {
 
 重启 Nginx，`systemctl reload nginx`。再次访问网站，我们可以看到，我们的网站也多了一把可爱的小绿锁~
 
-![](http://asset.cjting.cn/9b85365dgw1f7hzuvhh4jj212h0bqgpx.jpg)
+![](/image/9b85365dgw1f7hzuvhh4jj212h0bqgpx.jpg)
 
 **参考链接**
 

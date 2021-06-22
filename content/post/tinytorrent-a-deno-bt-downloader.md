@@ -1,7 +1,7 @@
 ---
 title: "tinyTorrent: 从头写一个 Deno 的 BitTorrent 下载器"
 date: 2020-10-31T23:30:48+08:00
-cover: https://asset.cjting.cn/FlijgHgi1MIL_TKTl6i9eZdvIvix.jpg
+cover: /image/FlijgHgi1MIL_TKTl6i9eZdvIvix.jpg
 tags: [bittorrent, bt, deno]
 ---
 
@@ -491,7 +491,7 @@ Jesse 的客户端是可以下载 Debian 的种子的，所以客户端实现没
 
 打开 Folx，选择 `File -> Create Torrent File`，随便选择一个文件，填入 Tracker 地址，我们就得到了一个种子。
 
-![](http://asset.cjting.cn/Fj8tqLOSaNgHiLJ1neUm1m8yHfXv.png)
+![](/image/Fj8tqLOSaNgHiLJ1neUm1m8yHfXv.png)
 
 至此，我们终于解决了测试种子的问题🎉 可以开始着手编写代码了~
 

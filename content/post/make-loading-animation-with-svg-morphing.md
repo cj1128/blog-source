@@ -1,5 +1,5 @@
 ---
-cover: http://asset.cjting.cn/9b85365djw1f9ji109m0jj21jk0rstb8.jpg
+cover: /image/9b85365djw1f9ji109m0jj21jk0rstb8.jpg
 date: 2016-11-07T00:00:00+08:00
 title: 使用 SVG Morphing 制作自己的加载动画
 tags: [svg, animation]
@@ -19,7 +19,7 @@ aliases:
 
 上面的动画里，有三个量在变换。图形的形状，图形的位置以及颜色。位置和颜色都是比较简单的，CSS Transition 就可以搞定。问题就是形状的变化比较复杂。形变技术理解起来比较简单，图形从一个形状变换到另一个形状，无非就是构成图形的顶点位置发生了变化。所以，只要将开始图形和结束图形的顶点之间的对应关系找到，然后对顶点进行 transition 就行了。从这可以看出，SVG 的形变必须要求开始图形和结束图形的顶点数一定要相同，如下所示。
 
-![](http://asset.cjting.cn/9b85365dgw1f9jdl0i3e2g20a008gh6t.gif)
+![](/image/9b85365dgw1f9jdl0i3e2g20a008gh6t.gif)
 
 <p data-height="500" data-theme-id="light" data-slug-hash="XNJBOy" data-default-tab="result" data-user="fatelovely" data-embed-version="2" data-pen-title="SVG Morphing Demo" class="codepen">See the Pen <a href="http://codepen.io/fatelovely/pen/XNJBOy/">SVG Morphing Demo</a> by fatelovely (<a href="http://codepen.io/fatelovely">@fatelovely</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
@@ -126,8 +126,8 @@ nightmare.run(function(err) {
 
 运行以后，可以在 loading 文件夹里面看到所有截屏出来的图片，将多余的图片剔除掉以后，上传到 [gifcreator](http://gifcreator.me/) 上，调整一下速度，然后导出即可。
 
-![](http://asset.cjting.cn/9b85365djw1f9jheun5t8j20rt0r60yg.jpg)
+![](/image/9b85365djw1f9jheun5t8j20rt0r60yg.jpg)
 
 最终，GIF 效果如下。
 
-<img width="100" src="http://asset.cjting.cn/9b85365djw1f9jhfdkgy8g20b40b4wfc.gif">
+<img width="100" src="/image/9b85365djw1f9jhfdkgy8g20b40b4wfc.gif">
