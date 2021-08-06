@@ -2,6 +2,11 @@
   function initGitalk() {
   }
 
+  function truncate(str, length) {
+    if(str.length > length) return str.slice(0, length -3) + "..."
+    return str
+  }
+
   var notyf = new Notyf()
 
   // replace post header image
@@ -56,12 +61,13 @@
   // init gitalk
   if(document.querySelector("#post__comments") && location.hostname !== "localhost") {
     const gitalk = new Gitalk({
-      clientID: "bbd19fbff5bc623e090e",
-      clientSecret: "e751f74757554518d7f935005876dee2ae4589cd",
+      clientID: "f26cc90ab221487c7c8f",
+      clientSecret: "33ac387c8f26b66303cff5902fbed3d4fff9e700",
       repo: "cj1128.github.io",
       owner: "cj1128",
       admin: ["cj1128"],
-      id: location.pathname,
+      // github 有限制，label 长度不能超过 50
+      id: truncate(location.pathname, 50),
       labels: ["gitalk"],
       title: PAGE.title,
     })
