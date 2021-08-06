@@ -4,6 +4,9 @@ metaDataFormat: yaml
 hasCJKLanguage: true
 languageCode: zh-cn
 SectionPagesMenu: main
+disableKinds:
+  - taxonomy
+  - term
 
 markup:
   goldmark:
