@@ -84,8 +84,6 @@ JPEG 根据显示方式的不同，分为两种。Progressive JPEG 会先加载�
 
 而 Baseline JPEG 会先清晰地加载图片的一部分，然后慢慢显示剩余的部分。
 
-![](keke.jpg)
-
 ![](keke.baseline.jpg)
 
 从视觉效果来说，Progressive JPEG 自然更好一些。但它也有一些缺点，比如它的解码速度比 Baseline JPEG 要慢，占用的 CPU 时间更多。
