@@ -93,7 +93,7 @@ write_wav(200)
 
 {{% tip %}}
 
-如果想了解一点乐理，[LITENOTE](https://www.lightnote.co/music-theory/sound-waves) 非常不错。
+如果想了解一点乐理，[LIGHTNOTE](https://www.lightnote.co/music-theory/sound-waves) 非常不错。
 
 它的网页做得很棒，通过互动的形式讲述基本的乐理知识，包括音阶、和弦，十二平均律等。
 
