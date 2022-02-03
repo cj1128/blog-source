@@ -117,6 +117,10 @@ shopt -q login_shell && echo 'Login shell' || echo 'Non-login shell'
 
 一般来说我们对 Bash 的配置都会放在 `~/.bashrc` 中，因为我们知道 Bash 在启动以后会 source 这个文件。但其实这并不一定，启动类型会影响启动文件。
 
+{{% tip %}}
+关于 Bash 的脚本编写，这篇 [BASH Cheat Sheet](https://www.pcwdld.com/bash-cheat-sheet) 很不错。
+{{% /tip %}}
+
 现在我们知道了 Shell 组合起来看有四种类型：
 
 - `login + interactive`
