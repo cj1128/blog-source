@@ -48,10 +48,6 @@ sin_wave(200)
 
 下面是用 [scipy](https://www.scipy.org/) 生成的 200hz 的声音，大家可以听听看。
 
-<audio controls>
-  <source src="200hz.wav" type="audio/wav">
-</audio>
-
 ```python
 import scipy.io.wavfile as wav
 
@@ -66,6 +62,10 @@ def write_wav(hz):
 
 write_wav(200)
 ```
+
+<audio controls>
+  <source src="200hz.wav" type="audio/wav">
+</audio>
 
 这是 800hz 的声音，可以明显感觉到，声音更加尖锐了。
 
@@ -453,7 +453,11 @@ const draw = (spectrum) => {
 }
 ```
 
-然后我们来看看结果，打开 [audio-vis-demo][demo]，选择一个音频文件，取消勾选 "Smooth"，点击播放，然后我们会发现，柱子可以正常地绘制出来，但是它们”跳跃“得非常厉害，不够平稳。
+然后我们来看看结果，打开 [audio-vis-demo][demo]，选择一个音频文件，可以看到随着音乐节拍跳动的柱子了🎉。
+
+![](./final.gif)
+
+这里有一个点需要提及，我们的 demo 中有一个 "Smooth" 的复选框，如果取消勾选会发现，柱子可以正常地绘制出来，但是它们”跳跃“得非常厉害，不够平稳。
 
 这是因为我们漏了一步，叫做 Time smoothing。
 
