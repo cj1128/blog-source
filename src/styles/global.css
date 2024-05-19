@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-text-main: 23 23 23; /* #171717 */
+    --color-bg-main: 242 241 236; /* #F2F1EC */
+    --color-bg-muted: 234 233 225; /* #EAE9E1 */
+    --color-border-main: 23 23 23; /* #171717 */
+
+    /* tip content color */
+    --color-comp-tip-text: #71717a; /* zinc500 */
+    --color-comp-tip-a: #3f3f46; /* zinc700 */
+  }
+
+  html.dark {
+    --color-text-main: 231 229 228; /* #e7e5e4 */
+    --color-bg-main: 23 23 23; /* #171717 */
+    --color-bg-muted: 36 36 36; /* #242424 */
+    --color-border-main: 242 241 236; /* #F2F1EC */
+
+    --color-comp-tip-a: #a1a1aa; /* zinc400 */
+  }
+
+  mjx-container {
+    @apply overflow-auto pb-4 sm:pb-1;
+  }
+}

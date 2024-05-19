@@ -1,0 +1,41 @@
+---
+import type { GetStaticPathsOptions, Page } from 'astro'
+import { type CollectionEntry, getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Pagination from '../../components/Pagination.astro'
+import PostPreview from '../../components/PostPreview.astro'
+import siteConfig from '../../data/site-config'
+import { filterPosts, sortItemsByDateDesc } from '../../utils/data-utils'
+import groupBy from 'lodash/groupBy'
+
+const posts: CollectionEntry<'posts'>[] = (await getCollection('posts', filterPosts)).sort(sortItemsByDateDesc)
+const groupByYear = Object.entries(groupBy(posts, (d) => (d.data.date || d.data.createdDate || new Date()).getFullYear())).sort((a, b) =>
+  b[0] > a[0] ? 1 : -1
+)
+---
+
+<BaseLayout
+  title="Blog"
+  description="Embark on a journey of personal insights and experiences through my blog"
+  image={{ src: '/dante-preview.jpg', alt: 'The preview of the site' }}
+  showHeader={false}
+>
+  {
+    groupByYear.map(([year, posts]) => (
+      <>
+        <section class="mb-12">
+          <h2 class="text-3xl italic mb-4 border-b font-serif">{year}</h2>
+
+          {posts.map((post) => {
+            return (
+              <PostPreview
+                post={post}
+                class="mb-8"
+              />
+            )
+          })}
+        </section>
+      </>
+    ))
+  }
+</BaseLayout>

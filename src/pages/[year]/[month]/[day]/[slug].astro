@@ -1,0 +1,125 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import FormattedDate from '@/components/FormattedDate.astro'
+import PostPreview from '@/components/PostPreview.astro'
+import { sortItemsByDateDesc, postURL } from '@/utils/data-utils'
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('posts')).sort(sortItemsByDateDesc)
+  const postCount = posts.length
+
+  return posts.map((post, index) => {
+    const { year, month, day } = postURL(post)
+    return {
+      params: { year, month, day, slug: post.slug },
+      props: {
+        post,
+        prevPost: index + 1 !== postCount ? posts[index + 1] : null,
+        nextPost: index !== 0 ? posts[index - 1] : null,
+      },
+    }
+  })
+}
+
+type Post = CollectionEntry<'posts'>
+type Props = { post: Post; prevPost: Post; nextPost: Post }
+
+const { post, prevPost, nextPost } = Astro.props
+const { title, date, updatedDate, excerpt, tags = [], seo } = post.data
+const { Content } = await post.render()
+---
+
+<BaseLayout
+  title={seo?.title ?? title}
+  description={seo?.description ?? excerpt}
+  image={seo?.image}
+  pageType="article"
+  showHeader={false}
+  gitalk={true}
+>
+  <article class="">
+    <header class="mb-8">
+      <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{title}</h1>
+      <div class="mt-2 text-sm">
+        <FormattedDate date={date} />
+        {
+          updatedDate && (
+            <>
+              {' '}
+              <span>
+                (Updated on <FormattedDate date={updatedDate} />)
+              </span>
+            </>
+          )
+        }
+      </div>
+    </header>
+
+    <div class="max-w-none prose prose-cj prose-lg">
+      <Content />
+    </div>
+  </article>
+
+  {
+    (
+      <div class="mt-12 gap-8 grid grid-cols-2">
+        <div>
+          {nextPost && (
+            <PostPreview
+              titleClass="line-clamp-1"
+              post={nextPost}
+              headingLevel="h3"
+            />
+          )}
+        </div>
+
+        <div class="text-right">
+          {prevPost && (
+            <PostPreview
+              titleClass="line-clamp-1"
+              post={prevPost}
+              headingLevel="h3"
+            />
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  <div
+    id="post-comments"
+    data-title={post.data.title}
+  >
+  </div>
+</BaseLayout>
+
+<script>
+  function truncate(str: string, length: number) {
+    if (str.length > length) return str.slice(0, length - 3) + '...'
+    return str
+  }
+
+  // init gitalk
+  const el = document.querySelector<HTMLDivElement>('#post-comments')
+  if (el && location.hostname !== 'localhost') {
+    // 2024 年之前的历史文章，URL 都是以 / 结尾的
+    let id = location.pathname
+    if (Number(id.split('/')[1]) < 2024) {
+      id = id + '/'
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'f26cc90ab221487c7c8f',
+      clientSecret: '33ac387c8f26b66303cff5902fbed3d4fff9e700',
+      repo: 'cj1128.github.io',
+      owner: 'cj1128',
+      admin: ['cj1128'],
+      // github 有限制，label 长度不能超过 50
+      id: truncate(id, 50),
+      labels: ['gitalk'],
+      title: el.dataset.title,
+    })
+    gitalk.render(el)
+  }
+</script>

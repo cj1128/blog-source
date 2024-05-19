@@ -1,0 +1,49 @@
+---
+import { type CollectionEntry } from 'astro:content'
+import ArrowRight from '@/icons/ArrowRight.astro'
+import FormattedDate from './FormattedDate.astro'
+import { getExcerpt, postURL } from '@/utils/data-utils'
+
+type Props = { post: CollectionEntry<'posts'>; class?: string; headingLevel?: 'h2' | 'h3'; showExcerpt?: boolean; titleClass?: string }
+
+const { post, class: className, headingLevel = 'h2', showExcerpt = false, titleClass = '' } = Astro.props
+const { title, date, updatedDate } = post.data
+const TitleTag = headingLevel
+const excerpt = showExcerpt && getExcerpt(post)
+---
+
+<div class:list={['flex justify-between items-start gap-4', className]}>
+  <div class="grow">
+    <a href={postURL(post).url}>
+      <TitleTag
+        class=`text-lg leading-tight font-serif font-medium hover:underline hover:decoration-dashed hover:underline-offset-4 hover:decoration-1 ${titleClass}`
+      >
+        {title}
+      </TitleTag>
+    </a>
+
+    <div class="mt-1 text-sm leading-normal">
+      <FormattedDate date={date} />
+
+      {
+        updatedDate && (
+          <>
+            {' '}
+            <span>
+              (Updated on <FormattedDate date={updatedDate} />)
+            </span>
+          </>
+        )
+      }
+    </div>
+
+    {
+      excerpt && (
+        <div
+          class="mt-4 prose prose-cj max-w-none leading-normal"
+          set:html={excerpt}
+        />
+      )
+    }
+  </div>
+</div>

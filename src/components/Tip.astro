@@ -1,0 +1,37 @@
+---
+
+---
+
+<div class="tip-comp p-4 text-md border-y text-comp-tip-text text-sm">
+  <div class="mb-2"><span class="text-xl">💡</span>TIP:</div>
+  <div class="tip-comp__content">
+    <slot />
+  </div>
+</div>
+
+<style is:global>
+  .tip-comp {
+    @apply border-neutral-300;
+  }
+
+  .tip-comp__content p:first-child {
+    margin-top: 0;
+  }
+  .tip-comp__content p:last-child {
+    margin-bottom: 0;
+  }
+  .tip-comp__content a {
+    @apply text-comp-tip-a !important;
+  }
+  .tip-comp__content blockquote {
+    @apply text-base text-comp-tip-text !important;
+  }
+
+  html.dark .tip-comp {
+    @apply border-neutral-600;
+  }
+
+  html.dark .tip-comp__content blockquote {
+    @apply border-zinc-500 !important;
+  }
+</style>

@@ -1,0 +1,11 @@
+---
+import dayjs from 'dayjs'
+type Props = { date?: Date }
+
+const { date } = Astro.props
+const dateStr = date ? dayjs(date).format('YYYY.MM.DD') : '---'
+---
+
+<time class="font-mono opacity-80">
+  {dateStr}
+</time>

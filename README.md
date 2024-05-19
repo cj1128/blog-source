@@ -1,9 +1,27 @@
-# Blog Source
+# CJ Ting's Blog
 
-Source code of my [blog](https://cjting.me), rendered by [hugo](https://gohugo.io/).
+Source code of my [blog](https://cjting.me), based on Bun, Astro and [dante-astro-theme](https://github.com/JustGoodUI/dante-astro-theme).
 
-RSS link: https://cjting.me/index.xml.
+## Setup
 
-For RSS reader, I personally like using [feedly](https://feedly.com/).
+- Bun v1
 
-Use [gitalk](https://github.com/gitalk/gitalk) as the comment system.
+```bash
+$ bun i
+$ bun dev
+```
+
+## Routes
+
+- `/archive/` post list
+- `/` home list
+- `/YYYY/MM/DD/slug` post
+  - use fixed timezone UTC+8
+
+## TODO
+
+- add toc
+- support rss `/index.xml`
+- handle seo object
+- add code copy button
+- add image zoom function
