@@ -15,13 +15,12 @@ $ bun dev
 
 - `/archive/` post list
 - `/` home list
-- `/YYYY/MM/DD/slug` post
+- `/YYYY/MM/DD/slug/` post
   - use fixed timezone UTC+8
 
 ## TODO
 
 - add toc
-- support rss `/index.xml`
 - handle seo object
 - add code copy button
 - add image zoom function

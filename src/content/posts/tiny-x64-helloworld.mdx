@@ -37,7 +37,7 @@ import Tip from "@components/Tip.astro"
 编译、链接和装载是一个巨大的话题，不是一篇博客可以覆盖的。在这篇博客中，我想使用「文件尺寸」作为线索，来介绍从 C 源代码到可执行程序这个过程中，所经历的一系列过程。
 
 <Tip>
-关于编译、链接和装载，这里想推荐一本书[《程序员的自我修养》](https://book.douban.com/subject/3652388/)。不得不说，这个名字起得非常不好，很有哗众取宠的味道，但是书的内容是不错的，值得一看。
+  关于编译、链接和装载，这里想推荐一本书[《程序员的自我修养》](https://book.douban.com/subject/3652388/)。不得不说，这个名字起得非常不好，很有哗众取宠的味道，但是书的内容是不错的，值得一看。
 </Tip>
 
 我们先来编译上面的程序：
@@ -50,9 +50,7 @@ $ ll hello
 -rwxr-xr-x 1 root root 16712 Nov 24 10:45 hello
 ```
 
-<Tip>
-后续所有的讨论都是基于 64 位 CentOS7 操作系统。
-</Tip>
+<Tip>后续所有的讨论都是基于 64 位 CentOS7 操作系统。</Tip>
 
 我们会发现这个简单的 hello 程序大小为 16K。在今天看来，16K 真的没什么，但是考虑到这个程序所做的事情，它真的需要 16K 吗？
 
@@ -64,8 +62,8 @@ $ ll hello
 这里推荐两份关于 UNIX 的资料：
 
 - [The UNIX Time-Sharing System](https://chsasank.github.io/classic_papers/unix-time-sharing-system.html) 1974 年由 Dennis Ritchie 和 Ken Thompson 联合发表的介绍 UNIX 的论文。不要被“论文”二字所吓到，实际上，这篇文章写得非常通俗易懂，由 UNIX 的作者们向你娓娓道来 UNIX 的核心设计理念。
-
 - [The UNIX Operating System](https://www.youtube.com/watch?v=tc4ROCJYbm0&t=797s) 一段视频，看身着蓝色时尚毛衣的 Kernighan 演示 UNIX 的特性，不得不说，Kernighan 简直太帅了。
+
 </Tip>
 
 接下来我们来玩一个游戏，目标是：在 CentOS7 64 位操作系统上，编写一个体积最小的打印 hello world 的可执行程序。
@@ -259,7 +257,8 @@ $ ll final.php
 网上有很多关于这个话题的讨论，但基本都是针对 x86 的。现如今 64 位机器早就普及了，所以我们这里针对的是 64 位的 x64。
 
 <Tip>
-64 位机器可以执行 32 位的程序，比如我们可以使用 `gcc -m32` 来编译 32 位程序。但这只是一个后向兼容，并没有充分利用 64 位机器的能力。
+  64 位机器可以执行 32 位的程序，比如我们可以使用 `gcc -m32` 来编译 32
+  位程序。但这只是一个后向兼容，并没有充分利用 64 位机器的能力。
 </Tip>
 
 ### Step0
@@ -292,6 +291,7 @@ int main() {
 `nm` 是 “窥探” 二进制的一个有力工具。记得之前有一次苹果调整了 iOS 的审核策略，不再允许使用了 UIWebView 的 App 提交。我们的 IPA 里面不知道哪个依赖使用了 UIWebView，导致苹果一直审核不过，每次都要二分注释、打包、提交审核，然后等待苹果的自动检查邮件告知结果，非常痛苦。
 
 后来我想到了一个办法，就是使用 `nm` 查看编译出来的可执行程序，看看里面是否有 UIWebView 相关的 symbol，这大大简化了调试流程，很快就定位到问题了。
+
 </Tip>
 
 对 step0 中的 hello.out 程序使用 `nm`，输出如下：
@@ -531,7 +531,7 @@ EOF
 
 我们来试试看，其实上面的 C 代码转换成汇编非常直接。
 
-```nasm
+```asm
 section .data
 message: db "hello, world", 0xa
 
@@ -563,7 +563,7 @@ nomain:
 
 所以，最后一步，我们来手动生成 ELF 文件，精确地控制可执行文件的每一个字节。
 
-```nasm
+```asm
 BITS 64
   org 0x400000
 
@@ -618,7 +618,9 @@ filesize  equ  $ - $$
 结束了，尘埃落定。
 
 <Tip>
-其实还可以继续，还有一些技巧可以进一步减小体积，因为非常的”Hack“，这里不打算说明了。有兴趣的朋友可以参考 [A Whirlwind Tutorial on Creating Really Teensy ELF Executables for Linux](http://www.muppetlabs.com/~breadbox/software/tiny/teensy.html)。
+  其实还可以继续，还有一些技巧可以进一步减小体积，因为非常的”Hack“，这里不打算说明了。有兴趣的朋友可以参考
+  [A Whirlwind Tutorial on Creating Really Teensy ELF Executables for
+  Linux](http://www.muppetlabs.com/~breadbox/software/tiny/teensy.html)。
 </Tip>
 
 ### Final Binary Anatomy

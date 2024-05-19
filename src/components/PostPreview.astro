@@ -1,18 +1,30 @@
 ---
-import { type CollectionEntry } from 'astro:content'
-import ArrowRight from '@/icons/ArrowRight.astro'
-import FormattedDate from './FormattedDate.astro'
-import { getExcerpt, postURL } from '@/utils/data-utils'
+import { type CollectionEntry } from "astro:content"
+import ArrowRight from "@/icons/ArrowRight.astro"
+import FormattedDate from "./FormattedDate.astro"
+import { getPostExcerpt, postURL } from "@/utils/data-utils"
 
-type Props = { post: CollectionEntry<'posts'>; class?: string; headingLevel?: 'h2' | 'h3'; showExcerpt?: boolean; titleClass?: string }
+type Props = {
+  post: CollectionEntry<"posts">
+  class?: string
+  headingLevel?: "h2" | "h3"
+  showExcerpt?: boolean
+  titleClass?: string
+}
 
-const { post, class: className, headingLevel = 'h2', showExcerpt = false, titleClass = '' } = Astro.props
+const {
+  post,
+  class: className,
+  headingLevel = "h2",
+  showExcerpt = false,
+  titleClass = "",
+} = Astro.props
 const { title, date, updatedDate } = post.data
 const TitleTag = headingLevel
-const excerpt = showExcerpt && getExcerpt(post)
+const excerpt = showExcerpt && getPostExcerpt(post)
 ---
 
-<div class:list={['flex justify-between items-start gap-4', className]}>
+<div class:list={["flex justify-between items-start gap-4", className]}>
   <div class="grow">
     <a href={postURL(post).url}>
       <TitleTag
@@ -28,7 +40,7 @@ const excerpt = showExcerpt && getExcerpt(post)
       {
         updatedDate && (
           <>
-            {' '}
+            {" "}
             <span>
               (Updated on <FormattedDate date={updatedDate} />)
             </span>

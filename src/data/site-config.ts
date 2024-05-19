@@ -38,39 +38,41 @@ export type SiteConfig = {
 }
 
 const siteConfig: SiteConfig = {
-  title: 'CJ Ting',
-  subtitle: '',
-  description: "CJ Ting's blog",
+  title: "CJ Ting's blog",
+  subtitle: "",
+  description:
+    "My personal space where I document various tech-related articles, just for fun 🕹️.",
   image: {
-    src: '/avatar.jpeg',
+    src: "/avatar.jpeg",
     alt: "CJ Ting's blog",
   },
   headerNavLinks: [
     {
-      text: 'Home',
-      href: '/',
+      text: "Home",
+      href: "/",
     },
     {
-      text: 'Archive',
-      href: '/archive/',
+      text: "Archive",
+      href: "/archive/",
     },
   ],
   footerNavLinks: [],
   socialLinks: [
     {
-      text: 'GitHub',
-      href: 'https://github.com/cj1128',
+      text: "GitHub",
+      href: "https://github.com/cj1128",
     },
     {
-      text: 'Twitter',
-      href: 'https://twitter.com/symbolnotfound',
+      text: "Twitter",
+      href: "https://twitter.com/symbolnotfound",
     },
   ],
   hero: {
-    title: 'Full-stack developer. "What I can not create, I do not understand".',
+    title:
+      'Full-stack developer. "What I can not create, I do not understand".',
     text: "I'm **CJ Ting**, a passionate full-stack developer based in Japan, who finds immense joy in unraveling the fundamental principles behind technologies.",
     image: {
-      src: '/avatar.jpeg',
+      src: "/avatar.jpeg",
       alt: "CJ Ting's avatar, smile Luffy",
     },
     actions: [
@@ -81,9 +83,9 @@ const siteConfig: SiteConfig = {
     ],
   },
   subscribe: {
-    title: 'Subscribe to Dante Newsletter',
-    text: 'One update per week. All the latest posts directly in your inbox.',
-    formUrl: '#',
+    title: "Subscribe to Dante Newsletter",
+    text: "One update per week. All the latest posts directly in your inbox.",
+    formUrl: "#",
   },
   postsPerPage: 100,
   projectsPerPage: 8,
