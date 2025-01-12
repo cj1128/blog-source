@@ -1,0 +1,334 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Audio Visualization Demo</title>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/gh/indutny/fft.js@4.0.4/dist/fft.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"
+    ></script>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎧</text></svg>"
+    />
+    <style type="text/css">
+      html {
+        font-family: monospace;
+      }
+
+      canvas {
+        border: solid 1px #eaecef;
+        border-radius: 4px;
+        margin: auto;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      main {
+        width: 800px;
+        margin: auto;
+      }
+
+      li {
+        margin: 10px 0;
+      }
+
+      .controls > div {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Audio Visualization Demo</h1>
+
+      <canvas></canvas>
+
+      <div id="app">
+        <div class="controls">
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                v-model="smooth"
+                :disabled="type === 'webaudio'"
+              />
+              Smooth
+            </label>
+          </div>
+          <div>
+            <label>
+              <input name="type" type="radio" value="custom" v-model="type" />
+              CustomFFT
+            </label>
+
+            <label>
+              <input name="type" type="radio" value="webaudio" v-model="type" />
+              WebAudio
+            </label>
+          </div>
+
+          <div>
+            <input
+              type="file"
+              :disabled="file != null"
+              @change="onFileChange"
+            />
+          </div>
+
+          <div class="controls__right">
+            <button v-if="file != null && paused" @click="play">Play</button>
+            <button v-if="file != null && !paused" @click="pause">Pause</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module"></script>
+
+    <script type="module">
+      const hamming = (i, N) => {
+        return 0.54 - 0.46 * Math.cos((6.283185307179586 * i) / (N - 1))
+      }
+
+      const applyWindow = (signal, func) => {
+        var i,
+          n = signal.length,
+          args = [0, n]
+
+        for (i = n - 1; i >= 0; i--) {
+          args[0] = i
+          signal[i] *= func.apply(null, args)
+        }
+
+        return signal
+      }
+
+      class Complex {
+        constructor(real, imag) {
+          this.real = real
+          this.imag = imag
+        }
+
+        abs() {
+          return Math.sqrt(this.real * this.real + this.imag * this.imag)
+        }
+      }
+
+      // NOTE: samples's length must be a power of two
+      const rfft = (samples) => {
+        const f = new FFTJS(samples.length)
+        const out = f.createComplexArray()
+
+        const N = samples.length / 2 + 1
+
+        f.realTransform(out, samples)
+
+        const value = []
+
+        for (let i = 0; i < N; i++) {
+          value[i] = new Complex(out[2 * i + 0], out[2 * i + 1])
+        }
+
+        return value
+      }
+
+      const rfftfreq = (sampleCount, sampleRate) => {
+        const N = sampleCount / 2 + 1
+        const freq = []
+        const delta = sampleRate / 2 / (N - 1)
+
+        for (let i = 0; i < N; i++) {
+          freq.push(delta * i)
+        }
+
+        return freq
+      }
+
+      const loadAudio = async (ctx, file) => {
+        const ab = await file.arrayBuffer()
+        return ctx.decodeAudioData(ab)
+      }
+
+      const W = 800
+      const H = 400
+
+      const canvas = document.querySelector("canvas")
+      const ctx = canvas.getContext("2d")
+
+      // values should be of range 0 ~ 1
+      const draw = (spectrum) => {
+        ctx.clearRect(0, 0, W, H)
+
+        const barWidth = W / spectrum.length
+
+        for (let i = 0; i < spectrum.length; i++) {
+          const v = spectrum[i]
+          const x = i * barWidth
+          const height = v * H
+          const y = H - height
+
+          const hue = (i / spectrum.length) * 360
+          ctx.fillStyle = `hsl(${hue}, 100%, 50%)`
+          ctx.fillRect(x, y, barWidth, height)
+        }
+      }
+
+      const FFT_SIZE = 2048
+      const smoothConstantDown = 0.08
+      const smoothConstantUp = 0.8
+      let lastY
+      let audioCtx
+
+      window.vm = new Vue({
+        el: "#app",
+
+        data() {
+          return {
+            file: null,
+            type: "custom",
+            paused: true,
+            smooth: true,
+          }
+        },
+
+        mounted() {
+          this.startOffset = 0
+          this.startTime = null
+          this.audioBuffer = null
+          this.source = null
+          this.analyzer = null
+          this.reqID = null
+          this.freqs = null
+
+          const canvas = document.querySelector("canvas")
+          canvas.width = W
+          canvas.height = H
+
+          window.addEventListener("keydown", (evt) => {
+            if (evt.code === "Space") {
+              this.togglePlay()
+            }
+          })
+        },
+
+        methods: {
+          togglePlay() {
+            if (this.file == null) return
+
+            if (this.paused) {
+              this.play()
+            } else {
+              this.pause()
+            }
+          },
+
+          async play() {
+            if (audioCtx == null) {
+              audioCtx = new AudioContext()
+            }
+
+            if (this.audioBuffer == null) {
+              this.audioBuffer = await loadAudio(audioCtx, this.file)
+              this.analyser = audioCtx.createAnalyser()
+              this.analyser.smoothingTimeConstant = 0.8
+              this.analyser.fftSize = FFT_SIZE
+              this.freqs = new Float32Array(this.analyser.frequencyBinCount)
+            }
+
+            this.paused = false
+            this.startTime = audioCtx.currentTime
+
+            this.source = audioCtx.createBufferSource()
+            this.source.buffer = this.audioBuffer
+
+            this.source.connect(this.analyser)
+            this.analyser.connect(audioCtx.destination)
+
+            this.source.start(0, this.startOffset % this.audioBuffer.duration)
+
+            this.reqID = requestAnimationFrame(this.update)
+          },
+
+          pause() {
+            this.paused = true
+            this.source.stop()
+            this.startOffset += audioCtx.currentTime - this.startTime
+            cancelAnimationFrame(this.reqID)
+          },
+
+          updateByCustomFFT() {
+            const allSamples = this.audioBuffer.getChannelData(0)
+
+            const per =
+              ((audioCtx.currentTime - this.startTime + this.startOffset) %
+                this.audioBuffer.duration) /
+              this.audioBuffer.duration
+
+            const startIdx = Math.floor(allSamples.length * per)
+            const endIdx = startIdx + FFT_SIZE
+
+            const samples = allSamples.slice(startIdx, endIdx)
+            const delta = FFT_SIZE - samples.length
+            if (delta > 0) {
+              const oldLength = samples.length
+              samples.length = FFT_SIZE
+              for (let i = 0; i < delta; i++) {
+                samples[oldLength + i] = 0
+              }
+            }
+
+            const fftResult = rfft(applyWindow(samples, hamming))
+            const y = fftResult
+              .map((v) => 20 * Math.log10(v.abs()))
+              .map((v) => (isFinite(v) ? v : 0))
+
+            // smooth
+            if (lastY != null) {
+              for (let i = 0; i < lastY.length; i++) {
+                if (y[i] < lastY[i]) {
+                  lastY[i] =
+                    y[i] * smoothConstantDown +
+                    lastY[i] * (1 - smoothConstantDown)
+                } else {
+                  lastY[i] =
+                    y[i] * smoothConstantUp + lastY[i] * (1 - smoothConstantUp)
+                }
+              }
+            } else {
+              lastY = y
+            }
+
+            const result = this.smooth ? lastY : y
+
+            return result.map((v) => (v + 20) / 80)
+          },
+
+          updateByWebAudio() {
+            this.analyser.getFloatFrequencyData(this.freqs)
+            return this.freqs.map((v) => (v + 140) / 140)
+          },
+
+          update() {
+            this.reqID = requestAnimationFrame(this.update)
+
+            const freqs =
+              this.type === "custom"
+                ? this.updateByCustomFFT()
+                : this.updateByWebAudio()
+
+            draw(freqs)
+          },
+
+          onFileChange(evt) {
+            this.file = evt.target.files[0]
+          },
+        },
+      })
+    </script>
+  </body>
+</html>
