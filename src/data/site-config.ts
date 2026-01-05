@@ -38,13 +38,13 @@ export type SiteConfig = {
 }
 
 const siteConfig: SiteConfig = {
-  title: "CJ Ting's blog",
+  title: "CJ's blog",
   subtitle: "",
   description:
     "My personal space where I document various tech-related articles, just for fun 🕹️.",
   image: {
     src: "/avatar.jpeg",
-    alt: "CJ Ting's blog",
+    alt: "CJ's blog",
   },
   headerNavLinks: [
     {
@@ -70,10 +70,10 @@ const siteConfig: SiteConfig = {
   hero: {
     title:
       'Full-stack developer. "What I can not create, I do not understand".',
-    text: "I'm **CJ Ting**, a passionate full-stack developer based in Japan, who finds immense joy in unraveling the fundamental principles behind technologies.",
+    text: "Hi there, I'm **CJ**, a passionate full-stack developer based in Japan, who finds immense joy in unraveling the fundamental principles behind technologies.",
     image: {
       src: "/avatar.jpeg",
-      alt: "CJ Ting's avatar, smile Luffy",
+      alt: "CJ's avatar, smile Luffy",
     },
     actions: [
       // {

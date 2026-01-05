@@ -1,6 +1,6 @@
-# CJ Ting's Blog
+# CJ's Blog
 
-Source code of my [blog](https://cjting.me), based on Bun, Astro and [dante-astro-theme](https://github.com/JustGoodUI/dante-astro-theme).
+Source code of my [blog](https://cjdev.me), based on Bun, Astro and [dante-astro-theme](https://github.com/JustGoodUI/dante-astro-theme).
 
 ## Setup
 

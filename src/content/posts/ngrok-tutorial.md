@@ -45,7 +45,7 @@ git clone https://github.com/inconshreveable/ngrok.git
 cd ngrok
 ```
 
-第二步，生成我们自己的证书。我们首先要想好一个基础域名（NGROK_BASE_DOMAIN)。比如我选择 `tunnel.cjting.me`，那么我之后就会使用 `*.tunnel.cjting.me` 来访问相应的本地服务。
+第二步，生成我们自己的证书。我们首先要想好一个基础域名（NGROK_BASE_DOMAIN)。比如我选择 `tunnel.cjdev.me`，那么我之后就会使用 `*.tunnel.cjdev.me` 来访问相应的本地服务。
 
 ```bash
 openssl genrsa -out base.key 2048
@@ -94,7 +94,7 @@ trust_host_root_certs: false
 ./ngrok -subdomain test 8080
 ```
 
-客户端会转发本地 8080 端口的服务到 `test.[NGROK_BASE_DOMAIN]` 上。以我为例，只要我访问 `test.tunnel.cjting.me`，就可以看到开发主机上 8080 端口的内容。实现了外网访问内容的目标。
+客户端会转发本地 8080 端口的服务到 `test.[NGROK_BASE_DOMAIN]` 上。以我为例，只要我访问 `test.tunnel.cjdev.me`，就可以看到开发主机上 8080 端口的内容。实现了外网访问内容的目标。
 
 ![](/image/9b85365dgw1f43t9r2wshj20iq06i74v.jpg)
 
